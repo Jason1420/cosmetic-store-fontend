@@ -1,0 +1,12 @@
+.list-item-container {
+    display: grid;
+    width: 80%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 400px 400px 400px 400px 400px;
+    gap: 25px;
+    margin: 0 auto;
+    padding: 0 20px;
+    .list-item__item {
+        width: 100%;
+    }
+}

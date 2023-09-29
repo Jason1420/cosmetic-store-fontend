@@ -1,0 +1,103 @@
+.header-container {
+    display: flex;
+    background-color: #f9758f;
+    width: 100%;
+    height: 60px;
+    .header-left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        height: 100%;
+        gap: 50px;
+        .header-left__logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 50px;
+            width: 30%;
+            gap: 10px;
+
+            .store-name {
+                font-size: 150%;
+                font-weight: 600;
+                color: white;
+            }
+        }
+        .header-left__search-bar {
+            width: 50%;
+            position: relative;
+            .form-control {
+                height: 40px;
+            }
+            .search-icon {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-top-right-radius: 6px;
+                border-bottom-right-radius: 6px;
+                right: 0px;
+                top: 0px;
+                height: 100%;
+                width: 10%;
+                cursor: pointer;
+                .fa-search {
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        gap: 50px;
+        .header-right__item {
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            gap: 5px;
+            .img {
+                border: 2px solid white;
+                border-radius: 100%;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+            }
+
+            .img-title {
+                line-height: 18px;
+                font-size: 14px;
+                text-align: center;
+                width: 70px;
+                font-weight: 500;
+            }
+            .call-item {
+                font-size: 25px !important;
+                padding-top: 3px;
+                padding-right: 2px;
+            }
+            .call {
+                width: 80px;
+            }
+            .fa-user {
+                font-size: 22px;
+            }
+            .cart {
+                margin-left: -5px;
+                width: 50px;
+            }
+            .fa-cart-shopping {
+                font-size: 20px;
+            }
+        }
+    }
+}

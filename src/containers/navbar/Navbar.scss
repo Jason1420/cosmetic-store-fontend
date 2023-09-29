@@ -1,0 +1,91 @@
+.navbar-container {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-family:
+        Nunito Sans,
+        sans-serif;
+    border-radius: 3px;
+    border: 1px solid #ededed;
+    box-shadow: 0 5px 5px rgba(212, 207, 207, 0.2);
+    .navbar-left {
+        padding-left: 6%;
+        display: flex;
+        width: 65%;
+        .navbar-left__menu {
+            display: flex;
+            align-items: center;
+            border-right: 1px solid black;
+            padding-right: 15px;
+            gap: 5px;
+            cursor: pointer;
+            .img {
+                display: flex;
+                align-items: center;
+                font-size: 20px;
+            }
+        }
+        .navbar-left__menu:hover {
+            color: #f9758f;
+        }
+        .navbar-left__submenu {
+            display: flex;
+            gap: 20px;
+            padding-left: 15px;
+            .navbar-left__submenu__item {
+                display: flex;
+                align-items: center;
+                gap: 3px;
+                cursor: pointer;
+                .img {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .img-title {
+                    text-align: center;
+                    padding-top: 2px;
+                    font-weight: 500;
+                }
+            }
+            .navbar-left__submenu__item:hover {
+                color: #f9758f;
+            }
+        }
+    }
+    .navbar-right {
+        padding-right: 6%;
+        width: 35%;
+        display: flex;
+        text-align: center;
+        justify-content: flex-end;
+        .title {
+            text-align: center;
+            padding-top: 2px;
+            cursor: pointer;
+            border-right: 1px solid black;
+            padding-right: 15px;
+            margin-right: 10px;
+        }
+        .location {
+            display: flex;
+            font-weight: 600;
+            gap: 3px;
+            cursor: pointer;
+            .img {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .img-title {
+                text-align: center;
+                padding-top: 2px;
+                font-weight: 600;
+            }
+        }
+        .title:hover,
+        .location:hover {
+            color: #f9758f;
+        }
+    }
+}

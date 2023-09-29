@@ -1,0 +1,14 @@
+.banner-container {
+    margin-bottom: 5px;
+    .carousel {
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    .banner-item {
+        width: 100%;
+        height: 100%;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+}
