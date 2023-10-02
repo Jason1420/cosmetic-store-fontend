@@ -4,6 +4,7 @@ import Header from '../containers/header/Header'
 import Navbar from '../containers/navbar/Navbar'
 import Banner from '../containers/content/Banner'
 import ListItem from '../containers/content/ListItem'
+import Footer from '../containers/footer/Footer'
 
 
 const MainPage = () => {
@@ -20,6 +21,9 @@ const MainPage = () => {
             </div>
             <div className="main-page__list-item">
                 <ListItem />
+            </div>
+            <div className="main-page__footer">
+                <Footer />
             </div>
         </div>
     )

@@ -2,40 +2,81 @@ import React, { useState, useEffect } from 'react';
 import './UploadItem.scss';
 import axios from 'axios';
 import { useFormik } from 'formik'
+import { SelectOption } from '../types/SelectOption';
+import SelectComponent from '../components/SelectComponent/SelectComponent';
 
 
-interface Item {
+interface NewItem {
     id?: number,
     name: string,
-    brand: string
-    type: string
+    brand: string | undefined,
+    type: string | undefined,
     price: number,
-    image?: File,
+    image?: string,
     description: string,
+    status: string | undefined
 }
 
 const UploadItem = () => {
 
-    const [newItem, setNewItem] = useState<Item>({
+
+    const [brands, setBrands] = useState<SelectOption[]>([])
+    const [brandSelectedValue, setBrandSelectedValue] = useState<SelectOption | undefined>({ name: "Select Brand", id: 0 });
+    const handleOnChangeBrand = (o: SelectOption | undefined) => {
+        setBrandSelectedValue(o)
+        setNewItem({
+            ...newItem,
+            brand: o?.name,
+        })
+    }
+
+    const [status, setStatus] = useState<SelectOption[]>([])
+    const [statusSelectedValue, setStatusSelectedValue] = useState<SelectOption | undefined>({ name: "Select Status", id: 0 });
+    const handleOnChangeStatus = (o: SelectOption | undefined) => {
+        setStatusSelectedValue(o)
+        setNewItem({
+            ...newItem,
+            status: o?.name,
+        })
+    }
+    const [types, setTypes] = useState<SelectOption[]>([])
+    const [typeSelectedValue, setTypeSelectedValue] = useState<SelectOption | undefined>({ name: "Select Type", id: 0 });
+    const handleOnChangeType = (o: SelectOption | undefined) => {
+        setTypeSelectedValue(o)
+        setNewItem({
+            ...newItem,
+            type: o?.name,
+        })
+    }
+    const [newItem, setNewItem] = useState<NewItem>({
         name: "",
         brand: "",
         type: "",
         price: 0,
+        image: "",
         description: "",
+        status: "",
     })
-
     const handleChangeImage = (event: React.ChangeEvent<HTMLInputElement>) => {
 
         let imgFiles = event.target.files;
         if (imgFiles) {
+            const file = imgFiles[0];
+            readFile(file)
 
-            setNewItem({
-                ...newItem,
-                image: imgFiles[0]
+        }
+    }
+    const readFile = (file: File) => {
+        const fileReader = new FileReader()
+        if (file) {
+
+            fileReader.readAsDataURL(file);
+
+            fileReader.addEventListener('load', () => {
+                const res = fileReader.result;
+                setNewItem({ ...newItem, image: res?.toString() })
             })
         }
-        console.log()
-
     }
     const formik = useFormik({
         initialValues: {
@@ -43,42 +84,48 @@ const UploadItem = () => {
             brand: "",
             type: "",
             price: 0,
+            image: null,
             description: "",
         },
         onSubmit: async (values) => {
-            setNewItem({
-                ...newItem,
-                name: formik.values.name,
-                brand: formik.values.brand,
-                type: formik.values.type,
-                price: formik.values.price,
-                description: formik.values.description,
-            })
-            console.log(formik.values)
             try {
-                const addNewItemURL = "http://localhost:8080/api/v1/item";
-                const res = await axios.post(addNewItemURL, newItem,)
-                console.log(res)
+                const submitItem = {
+                    name: formik.values.name,
+                    price: formik.values.price,
+                    description: formik.values.description,
+                    brand: brandSelectedValue?.name,
+                    type: typeSelectedValue?.name,
+                    status: statusSelectedValue?.name,
+                    image: newItem.image,
+
+                }
                 console.log(formik.values)
+                console.log(submitItem)
+                const addNewItemURL = "http://localhost:8080/api/v1/item";
+                const res = await axios.post(addNewItemURL, submitItem,)
             } catch (error) {
                 console.log(error)
             }
         },
     });
-
-
-
-
     useEffect(() => {
-        const getAllItem = async () => {
-            const res = await axios.get("http://localhost:8080/api/v1/getAll",)
-            console.log(res)
+        const getDefaultData = async () => {
+            try {
+                const res = await axios.get("http://localhost:8080/api/v1/getDefaultData",)
+                if (res && res.data && res.data.data) {
+                    setBrands(res.data.data.brands)
+                    setTypes(res.data.data.types)
+                    setStatus(res.data.data.status)
+                }
+
+            } catch (error) {
+                console.log(error)
+            }
         }
 
-        getAllItem()
+        getDefaultData()
 
     }, [])
-
     return (
         <div className="new-item-container">
             <div className="form-add-item">
@@ -93,20 +140,19 @@ const UploadItem = () => {
 
                 <div className="input-form ">
                     <label htmlFor="brand">Brand</label>
-                    <input type="text"
-                        className="form-control "
-                        id="brand"
-                        value={formik.values.brand}
-                        onChange={formik.handleChange} />
+                    <SelectComponent options={brands} id={brandSelectedValue}
+                        selectOnChange={(o) => handleOnChangeBrand(o)} />
                 </div>
 
                 <div className="input-form ">
                     <label htmlFor="type">Type</label>
-                    <input type="text"
-                        className="form-control "
-                        id="type"
-                        value={formik.values.type}
-                        onChange={formik.handleChange} />
+                    <SelectComponent options={types} id={typeSelectedValue}
+                        selectOnChange={(o) => handleOnChangeType(o)} />
+                </div>
+                <div className="input-form ">
+                    <label htmlFor="type">Type</label>
+                    <SelectComponent options={status} id={statusSelectedValue}
+                        selectOnChange={(o) => handleOnChangeStatus(o)} />
                 </div>
 
                 <div className="input-form ">
