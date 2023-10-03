@@ -1,6 +1,4 @@
-import React from 'react';
 import './Navbar.scss';
-import logo from '../../assets/images/logo.jpg'
 import {
     HiMenu
 } from "react-icons/hi"
@@ -22,20 +20,22 @@ import {
 import {
     ImLocation
 } from "react-icons/im"
+import { PagePath } from '../../routes/Path';
 
 const Navbar = () => {
     return (
         <div className="navbar-container ">
             <div className="navbar-left container">
-                <div className="navbar-left__menu">
-                    <div className="img">
-                        <HiMenu />
+                <a href={PagePath.ITEM} >
+                    <div className="navbar-left__menu">
+                        <div className="img">
+                            <HiMenu />
+                        </div>
+                        <div className="img-title">
+                            Danh mục sản phẩm
+                        </div>
                     </div>
-                    <div className="img-title">
-                        Danh mục sản phẩm
-                    </div>
-                </div>
-
+                </a>
 
                 <div className="navbar-left__submenu">
                     <div className="navbar-left__submenu__item hot-deal">

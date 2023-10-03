@@ -10,10 +10,12 @@ const Header = () => {
     return (
         <div className="header-container">
 
-            <div className="header-left">
+            <div className="header-left" >
                 <div className="header-left__logo">
-                    <img src={logo} alt="logo" width={42} height={48} />
-                    <label className='store-name'>Cosmetic Store</label>
+                    <a href='/'>
+                        <img src={logo} alt="logo" width={42} height={48} />
+                        <label className='store-name'>Cosmetic Store</label>
+                    </a>
                 </div>
                 <div className="header-left__search-bar">
                     <input className="form-control " type="text" placeholder="Tìm kiếm sản phẩm" />

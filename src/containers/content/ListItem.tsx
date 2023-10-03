@@ -19,6 +19,8 @@ import program2 from "../../assets/images/program2.webp"
 import program3 from "../../assets/images/program3.webp"
 import program4 from "../../assets/images/program4.webp"
 import { ItemDisplay } from '../../types/ItemDisplay';
+import { NavLink } from 'react-router-dom';
+import { PagePath } from '../../routes/Path';
 
 
 const ListItem = () => {
@@ -60,9 +62,11 @@ const ListItem = () => {
                         return (
                             <div className="list-item__item" key={index}>
                                 {item.image &&
-                                    <div className="list-item__item-image">
-                                        <img className="image" src={item.image} alt="" />
-                                    </div>
+                                    <NavLink to={`${PagePath.ITEM}/${item.id}`}>
+                                        <div className="list-item__item-image">
+                                            <img className="image" src={item.image} alt="" />
+                                        </div>
+                                    </NavLink>
                                 }
                                 <div className="list-item__content">
                                     <div className="list-item__item-brand">
@@ -73,11 +77,13 @@ const ListItem = () => {
                                     </div>
 
                                     <div className="list-item__item-rating">
+
                                         <i className="fa-solid fa-star"></i>
                                         <i className="fa-solid fa-star"></i>
                                         <i className="fa-solid fa-star"></i>
                                         <i className="fa-solid fa-star"></i>
                                         <i className="fa-solid fa-star"></i>
+
                                     </div>
                                     <div className="list-item__item-price">
                                         {

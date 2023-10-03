@@ -11,10 +11,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <BrowserRouter>
-    <Routes>
-      <Route path='/upload' element={<UploadItem />} />
-      <Route path='/' element={<App />} />
-    </Routes>
+    <App />
   </BrowserRouter>
 );
 
