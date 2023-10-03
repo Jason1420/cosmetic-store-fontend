@@ -84,6 +84,7 @@
         height: 60%;
         width: 100%;
         justify-content: center;
+        cursor: pointer;
         .image {
             width: 100%;
             height: 100%;
@@ -96,6 +97,7 @@
         .list-item__item-brand {
             color: #242527;
             font-size: 16px;
+            cursor: pointer;
         }
         .list-item__item-name {
             color: #3e4048;
@@ -107,6 +109,11 @@
             text-overflow: ellipsis;
             word-break: break-word;
             margin-bottom: 5px;
+            cursor: pointer;
+        }
+        .list-item__item-brand:hover,
+        .list-item__item-name:hover {
+            color: #f9758f;
         }
         .list-item__item-rating {
             margin-top: auto;
@@ -137,6 +144,9 @@
         font-weight: 500;
         color: rgb(146, 140, 140);
         cursor: pointer;
+    }
+    .view-all:hover {
+        color: #f9758f;
     }
 }
 .brand-title {

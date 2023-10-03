@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './UploadItem.scss';
 import axios from 'axios';
 import { useFormik } from 'formik'
-import { SelectOption } from '../types/SelectOption';
-import SelectComponent from '../components/SelectComponent/SelectComponent';
+import { SelectOption } from '../../types/SelectOption';
+import SelectComponent from '../../components/SelectComponent/SelectComponent';
 
 
 interface NewItem {

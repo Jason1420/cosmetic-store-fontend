@@ -28,6 +28,7 @@ const SelectComponent = ({ id, selectOnChange, options }: SelectProps) => {
             <span className="id">
                 {id?.name}
             </span>
+
             <div className="divider">
 
             </div>

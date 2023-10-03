@@ -2,10 +2,10 @@ import React from 'react'
 import './MainPage.scss'
 import Header from '../containers/header/Header'
 import Navbar from '../containers/navbar/Navbar'
-import Banner from '../containers/content/Banner'
-import ListItem from '../containers/content/ListItem'
+import Home from '../pages/home/Home'
+import Classify from '../pages/classify/Classify'
+import CustomScrollbars from '../components/CustomScrollbars/CustomScrollbars'
 import Footer from '../containers/footer/Footer'
-
 
 const MainPage = () => {
     return (
@@ -16,15 +16,16 @@ const MainPage = () => {
             <div className="main-page__navbar">
                 <Navbar />
             </div>
-            <div className="main-page__banner">
-                <Banner />
-            </div>
-            <div className="main-page__list-item">
-                <ListItem />
-            </div>
-            <div className="main-page__footer">
-                <Footer />
-            </div>
+            <CustomScrollbars style={{ height: "100vh  ", width: "100%" }}>
+                <div className="main-page__content">
+                    <Classify />
+                    {/* <Home /> */}
+
+                </div>
+                <div className="main-page__footer">
+                    <Footer />
+                </div>
+            </CustomScrollbars>
         </div>
     )
 }

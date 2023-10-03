@@ -18,20 +18,12 @@ import program1 from "../../assets/images/program1.webp"
 import program2 from "../../assets/images/program2.webp"
 import program3 from "../../assets/images/program3.webp"
 import program4 from "../../assets/images/program4.webp"
-interface Item {
-    id?: number,
-    name: string,
-    brand: string
-    type: string
-    price: number,
-    image: string,
-    description: string,
-    status: string,
-}
+import { ItemDisplay } from '../../types/ItemDisplay';
+
 
 const ListItem = () => {
 
-    const [allItem, setAllItem] = useState<Item[]>([])
+    const [allItem, setAllItem] = useState<ItemDisplay[]>([])
     useEffect(() => {
         const getAllItem = async () => {
             const res = await axios.get("http://localhost:8080/api/v1/getAll",)
