@@ -16,20 +16,18 @@ export const addNewItemToCart = createAction<CartItem>('ADD_ITEM_TO_CART')
 export const cartReducer = createReducer(initialState, builder => {
     builder
         .addCase(addNewItemToCart, (state, action) => {
-            let copyState = state;
             let newQuantity = state.totalQuantity + 1;
+            state.totalQuantity = newQuantity;
             let newPrice = state.totalPrice + action.payload.item.price;
+            state.totalPrice = newPrice;
 
+            let existItem = state.items.find(item => item.item.id === action.payload.item.id);
 
-            return {
-                ...copyState,
-                items: [...copyState.items, action.payload],
-                totalQuantity: newQuantity,
-                totalPrice: newPrice,
+            if (existItem) {
+                existItem.quantity += 1;
+            } else {
+                state.items.push(action.payload);
             }
-
-
-        })
-
+        });
 })
 

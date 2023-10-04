@@ -31,7 +31,7 @@ const ItemDetail = () => {
     const handleAddItemToCart = (item: ItemDisplay) => {
         const itemToCart: CartItem = {
             item: item,
-            quality: 1,
+            quantity: 1,
 
         }
         dispatch(addNewItemToCart(itemToCart));
