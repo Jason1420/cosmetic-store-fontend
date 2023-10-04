@@ -11,6 +11,9 @@ import { PiCaretRightBold } from 'react-icons/pi'
 import { IoLocationOutline } from 'react-icons/io5'
 import { HiOutlineShoppingBag } from 'react-icons/hi'
 import { AiOutlineHeart } from 'react-icons/ai'
+import { useDispatch } from 'react-redux'
+import { addNewItemToCart } from '../../store/reducers/cartReducer';
+import { CartItem } from '../../types/CartItem';
 
 
 const ItemDetail = () => {
@@ -24,7 +27,15 @@ const ItemDetail = () => {
         description: "",
         status: "",
     })
-    const [coin, setCoin] = useState<number>(0)
+    const dispatch = useDispatch();
+    const handleAddItemToCart = (item: ItemDisplay) => {
+        const itemToCart: CartItem = {
+            item: item,
+            quality: 1,
+
+        }
+        dispatch(addNewItemToCart(itemToCart));
+    }
 
     useEffect(() => {
         const getItemById = async () => {
@@ -115,7 +126,7 @@ const ItemDetail = () => {
                     </div>
                     <div className="submit">
                         <div className="add-to-cart">
-                            <button>
+                            <button onClick={() => handleAddItemToCart(item)}>
                                 <div className="icon">
                                     <HiOutlineShoppingBag />
                                 </div>

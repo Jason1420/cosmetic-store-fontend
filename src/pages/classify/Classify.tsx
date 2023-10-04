@@ -43,7 +43,7 @@ const Classify = () => {
         if (event.target.checked) {
             setFilterByBrand([...filterByBrand, brand])
         } else {
-            let gonnaRemove = filterByBrand.filter(item => item != brand)
+            let gonnaRemove = filterByBrand.filter(item => item !== brand)
             setFilterByBrand(gonnaRemove);
         }
 

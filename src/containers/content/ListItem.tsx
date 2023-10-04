@@ -151,9 +151,11 @@ const ListItem = () => {
                         return (
                             <div className="list-item__item" key={index}>
                                 {item.image &&
-                                    <div className="list-item__item-image">
-                                        <img className="image" src={item.image} alt="" />
-                                    </div>
+                                    <NavLink to={`${PagePath.ITEM}/${item.id}`}>
+                                        <div className="list-item__item-image">
+                                            <img className="image" src={item.image} alt="" />
+                                        </div>
+                                    </NavLink>
                                 }
                                 <div className="list-item__content">
                                     <div className="list-item__item-brand">
@@ -212,9 +214,11 @@ const ListItem = () => {
                         return (
                             <div className="list-item__item" key={index}>
                                 {item.image &&
-                                    <div className="list-item__item-image">
-                                        <img className="image" src={item.image} alt="" />
-                                    </div>
+                                    <NavLink to={`${PagePath.ITEM}/${item.id}`}>
+                                        <div className="list-item__item-image">
+                                            <img className="image" src={item.image} alt="" />
+                                        </div>
+                                    </NavLink>
                                 }
                                 <div className="list-item__content">
                                     <div className="list-item__item-brand">

@@ -129,6 +129,14 @@
                             font-size: 25px !important;
                         }
                     }
+                    // button:hover {
+                    //     opacity: 0.85;
+                    // }
+                    button:active {
+                        opacity: 0.85;
+                        font-size: 21px;
+                        transition: all 0.1s ease;
+                    }
                 }
                 .like-item {
                     width: 30%;

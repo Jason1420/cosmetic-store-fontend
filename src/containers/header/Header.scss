@@ -95,6 +95,23 @@
             .cart {
                 margin-left: -5px;
                 width: 50px;
+                position: relative;
+                .total {
+                    position: absolute;
+                    left: -14px;
+                    top: -3px;
+                    font-size: 18px;
+                    height: 24px;
+                    width: 24px;
+                    border: 1px solid #76e649;
+                    border-radius: 100%;
+                    background-color: #76e649;
+                    margin: 0 auto;
+                    text-align: center;
+                    color: rgb(249, 240, 240);
+                    padding-top: 1px;
+                    padding-left: 1px;
+                }
             }
             .fa-cart-shopping {
                 font-size: 20px;
