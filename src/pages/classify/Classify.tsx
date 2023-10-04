@@ -7,48 +7,94 @@ import CustomScrollbars from '../../components/CustomScrollbars/CustomScrollbars
 import banner from '../../assets/banner/banner-filter.png'
 import { NavLink } from 'react-router-dom'
 import { PagePath } from '../../routes/Path'
+import { URL } from '../../routes/Url'
+import { Type } from '../../types/Type'
 const Classify = () => {
     const [allItem, setAllItem] = useState<ItemDisplay[]>([])
     const [allBrand, setAllBrand] = useState<Brand[]>([])
-    useEffect(() => {
-        const getAllItem = async () => {
-            const res = await axios.get("http://localhost:8080/api/v1/getAll",)
-            if (res && res.data && res.data.data) {
-                setAllItem(res.data.data);
-            }
-            console.log(res.data.data)
+    const [allType, setAllType] = useState<Type[]>([])
+    const [filterByBrand, setFilterByBrand] = useState<string[]>(["all"])
+    const [filterByType, setFilterByType] = useState<number>(1)
+
+    const getAllItem = async () => {
+        const res = await axios.get(URL.GET_ALL_ITEM,)
+        if (res && res.data && res.data.data) {
+            setAllItem(res.data.data);
         }
+    }
+    useEffect(() => {
         const getAllBrand = async () => {
-            const res = await axios.get("http://localhost:8080/api/v1/getAllBrand",)
-            console.log('check brand >>>> ', res)
+            const res = await axios.get(URL.GET_ALL_BRAND,)
             if (res && res.data && res.data.data) {
                 setAllBrand(res.data.data);
             }
         }
+        const getAllType = async () => {
+            const res = await axios.get(URL.GET_ALL_TYPE,)
+            if (res && res.data && res.data.data) {
+                setAllType(res.data.data);
+            }
+        }
         getAllItem()
         getAllBrand()
+        getAllType()
     }, [])
+    const handleCheckboxOnChange = (brand: string, event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.checked) {
+            setFilterByBrand([...filterByBrand, brand])
+        } else {
+            let gonnaRemove = filterByBrand.filter(item => item != brand)
+            setFilterByBrand(gonnaRemove);
+        }
+
+    }
+    const handleChooseType = (typeId: number) => {
+        setFilterByType(typeId);
+    }
+    useEffect(() => {
+        const filterItem = async () => {
+            try {
+                const paramsBrand = filterByBrand.map(brand => `brands=${encodeURIComponent(brand)}`).join('&');
+                const paramsType = `&typeId=${filterByType}`;
+                if (paramsBrand === "brands=all") {
+                    const res = await axios.get(`${URL.SEARCH_ITEM_BY_BRAND}/${filterByType}`,)
+                    if (res && res.data && res.data.data) {
+                        setAllItem(res.data.data);
+                    }
+                } else {
+                    const params = paramsBrand + paramsType;
+                    console.log(params)
+                    const res = await axios.get(`${URL.SEARCH_ITEM_BY_BRAND}?${params}`,)
+                    if (res && res.data && res.data.data) {
+                        setAllItem(res.data.data);
+                    }
+                }
+
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        filterItem()
+    }, [filterByBrand, filterByType])
+
 
     return (
         <div className='classify-container'>
             <div className="classify-left">
                 <div className="classify-left__gift">
                     <div className="gift-title">
-                        Shop Gifts
+                        Danh mục sản phẩm
                     </div>
                     <div className="gift-list">
-                        <div className="gift-name">
-                            Gifts For Baby
-                        </div>
-                        <div className="gift-name">
-                            Gifts For Home
-                        </div>
-                        <div className="gift-name">
-                            Gifts For Her
-                        </div>
-                        <div className="gift-name">
-                            Gifts For Him
-                        </div>
+                        {allType &&
+                            allType.map((item, index) => {
+                                return (
+                                    <div className={`gift-name ${item.id === filterByType ? "active" : ""} `} key={item.id} onClick={() => handleChooseType(item.id)}>
+                                        {item.name}
+                                    </div>
+                                )
+                            })}
                     </div>
                 </div>
 
@@ -62,7 +108,7 @@ const Classify = () => {
                             {allBrand && allBrand.map((item, index) => {
                                 return (
                                     <div className="brand" key={index}>
-                                        <input className='checkbox' type="checkbox" />
+                                        <input className='checkbox' type="checkbox" onChange={(event) => handleCheckboxOnChange(item.name, event)} />
                                         <label className='brand-name'>{item.name}</label>
                                     </div>
                                 )
@@ -123,7 +169,7 @@ const Classify = () => {
 
             <div className="classify-right">
                 {allItem &&
-                    allItem.filter(item => item.status === "New").map((item, index) => {
+                    allItem.map((item, index) => {
                         return (
                             <div className="list-item__item" key={index}>
                                 {item.image &&

@@ -1,12 +1,14 @@
 .detail-item-container {
     display: flex;
     flex-direction: column;
+    gap: 100px;
     .detail-item__top {
         display: flex;
         width: 80%;
         margin: 0 auto;
+        height: 100%;
         .detail-top__image {
-            width: 50%;
+            width: 55%;
             img {
                 width: 90%;
                 text-align: center;
@@ -15,16 +17,19 @@
         }
         .detail-top__info {
             margin-top: 1%;
-            width: 50%;
+            width: 45%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             gap: 2%;
             .brand {
                 color: #1887db;
-                font-size: 18px;
+                font-size: 20px;
+                font-weight: 500;
+                cursor: pointer;
             }
             .name {
-                font-size: 20px;
+                font-size: 24px;
                 font-weight: 500;
             }
             .rating {
@@ -46,15 +51,104 @@
                 }
             }
             .price {
-                font-size: 24px;
+                font-size: 28px;
                 font-weight: 500;
+                padding: 2% 0;
             }
             .coupon {
                 background-color: rgb(229, 247, 252);
                 border-radius: 5px;
-                font-size: 14px;
+                font-size: 16px;
+                padding: 1% 1%;
             }
             .policy {
+                display: grid;
+                grid-template-columns: 37% 33% 25%;
+                border: 1px solid #f3f0f0;
+                padding: 2% 0;
+                border-radius: 8px;
+                margin-top: 4%;
+                margin-bottom: 2%;
+                .box {
+                    text-align: center;
+                    padding: 0 7%;
+                    .image {
+                        font-size: 30px;
+                    }
+                    .description {
+                        font-size: 15px;
+                        color: #777777;
+                    }
+                }
+            }
+            .address {
+                display: flex;
+                align-items: center;
+                height: 50px;
+                border: 1px solid #f3f0f0;
+                border-radius: 8px;
+                font-size: 18px;
+                .icon {
+                    font-size: 25px;
+                    margin-left: 1%;
+                    padding-bottom: 7px;
+                }
+                .locate {
+                    color: #777777;
+                    font-size: 17px;
+                    margin-left: 1%;
+                    align-items: center;
+                }
+                .caret {
+                    margin-left: auto;
+                    font-size: 25px;
+                }
+            }
+            .submit {
+                display: flex;
+                gap: 2%;
+                margin-top: 3%;
+
+                .add-to-cart {
+                    width: 70%;
+                    font-size: 20px;
+                    button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        gap: 1%;
+                        background-color: rgb(254, 44, 109);
+                        color: white;
+                        border: 0px;
+                        border-radius: 8px;
+                        height: 100%;
+                        padding: 2% 0;
+                        .icon {
+                            padding-bottom: 1%;
+                            font-size: 25px !important;
+                        }
+                    }
+                }
+                .like-item {
+                    width: 30%;
+                    font-size: 20px;
+                    button {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        height: 100%;
+                        padding: 2% 0;
+                        gap: 1%;
+                        border: 0px;
+                        border-radius: 8px;
+                        .icon {
+                            padding-bottom: 1%;
+                            font-size: 25px !important;
+                        }
+                    }
+                }
             }
         }
     }
@@ -62,11 +156,10 @@
     .detail-item__mid {
         display: flex;
         flex-direction: column;
+        border: 1px solid black;
         .detail-mid__info {
-            border: 1px solid black;
         }
         .detail-mid__relevant {
-            border: 1px solid black;
         }
     }
 
