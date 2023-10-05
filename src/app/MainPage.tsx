@@ -9,6 +9,7 @@ import { Route, Routes } from 'react-router-dom'
 import { PagePath } from '../routes/Path'
 import ItemDetail from '../pages/item_detail/ItemDetail'
 import Cart from '../pages/cart/Cart'
+import AllBrands from '../pages/all_brands/AllBrands'
 
 
 const MainPage = () => {
@@ -26,6 +27,7 @@ const MainPage = () => {
                 <Routes>
                     <Route path={PagePath.HOME} element={<Home />} ></Route>
                     <Route path={PagePath.ITEM} element={<Classify />}></Route>
+                    <Route path={PagePath.ALL_BRANDS} element={<AllBrands />}></Route>
                     <Route path={`${PagePath.ITEM}/:id`} element={<ItemDetail />}></Route>
                     <Route path={PagePath.CART} element={<Cart />}></Route>
                     <Route path='/*' element={<Home />}></Route>

@@ -42,6 +42,10 @@
                 align-items: center;
                 gap: 3px;
                 cursor: pointer;
+                a {
+                    display: flex;
+                    gap: 2px;
+                }
                 .img {
                     display: flex;
                     justify-content: center;

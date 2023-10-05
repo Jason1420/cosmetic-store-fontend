@@ -46,10 +46,12 @@ const Navbar = () => {
                         Hot deal
                     </div>
                     <div className="navbar-left__submenu__item brand">
-                        <div className="img">
-                            <TbBrandBumble />
-                        </div>
-                        Thương hiệu
+                        <NavLink to={PagePath.ALL_BRANDS}>
+                            <div className="img">
+                                <TbBrandBumble />
+                            </div>
+                            Thương hiệu
+                        </NavLink>
                     </div>
                     <div className="navbar-left__submenu__item new-item">
                         <div className="img">
