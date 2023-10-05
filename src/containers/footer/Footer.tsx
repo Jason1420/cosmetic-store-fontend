@@ -1,12 +1,7 @@
 import React from 'react';
 import './Footer.scss';
-import logo from '../../assets/images/logo.jpg'
-import {
-    PiStorefrontDuotone
-} from "react-icons/pi"
-import { LuPhoneCall } from 'react-icons/lu'
-import { IoCartOutline } from 'react-icons/io5'
 import qrCode from '../../assets/icon/lixibox-app-qr.webp'
+import { NavLink } from 'react-router-dom';
 const Footer = () => {
     return (
         <div className="footer-container">
@@ -37,14 +32,14 @@ const Footer = () => {
                         Danh mục
                     </div>
                     <div className="list-item">
-                        <a href="/category/shop-gifts" >Quà tặng</a>
-                        <a href="/category/beauty-box" >Hộp làm đẹp</a>
-                        <a href="/category/accessories" >Phụ kiện</a>
-                        <a href="/category/skin-care" >Chăm sóc da</a>
-                        <a href="/category/makeup" >Trang điểm</a>
-                        <a href="/category/supplement" >Thực phẩm chức năng</a>
-                        <a href="/category/personal-care" >Chăm sóc cá nhân</a>
-                        <a href="/category/shop-by-ingredient" >Tìm theo thành phần</a>
+                        <NavLink to="/category/shop-gifts" >Quà tặng</NavLink>
+                        <NavLink to="/category/beauty-box" >Hộp làm đẹp</NavLink>
+                        <NavLink to="/category/accessories" >Phụ kiện</NavLink>
+                        <NavLink to="/category/skin-care" >Chăm sóc da</NavLink>
+                        <NavLink to="/category/makeup" >Trang điểm</NavLink>
+                        <NavLink to="/category/supplement" >Thực phẩm chức năng</NavLink>
+                        <NavLink to="/category/personal-care" >Chăm sóc cá nhân</NavLink>
+                        <NavLink to="/category/shop-by-ingredient" >Tìm theo thành phần</NavLink>
                     </div>
                 </div>
                 <div className="list">
@@ -52,13 +47,13 @@ const Footer = () => {
                         Hướng dẫn
                     </div>
                     <div className="list-item">
-                        <a href="/product-manual" >HDSD &amp; Bảo hành</a>
-                        <a href="/info/buy-on-web" >Hướng dẫn đặt hàng</a>
-                        <a href="/info/delivery-and-payment" >Phương thức giao hàng</a>
-                        <a href="/info/receive-and-return" >Chính sách đổi trả</a>
-                        <a href="/info/privacy" >Chính sách bảo mật</a>
-                        <a href="/info/privacy-en" >Privacy Info</a>
-                        <a href="/info/term" >Điều khoản sử dụng</a>
+                        <NavLink to="/product-manual" >HDSD &amp; Bảo hành</NavLink>
+                        <NavLink to="/info/buy-on-web" >Hướng dẫn đặt hàng</NavLink>
+                        <NavLink to="/info/delivery-and-payment" >Phương thức giao hàng</NavLink>
+                        <NavLink to="/info/receive-and-return" >Chính sách đổi trả</NavLink>
+                        <NavLink to="/info/privacy" >Chính sách bảo mật</NavLink>
+                        <NavLink to="/info/privacy-en" >Privacy Info</NavLink>
+                        <NavLink to="/info/term" >Điều khoản sử dụng</NavLink>
                     </div>
                 </div>
                 <div className="list">
@@ -66,12 +61,12 @@ const Footer = () => {
                         Thông tin
                     </div>
                     <div className="list-item">
-                        <a href="/info" >Giới thiệu về Lixibox</a>
-                        <a target="_blank" href="https://careers.lixibox.com/jobs" >Tuyển dụng</a>
-                        <a href="/lixicoin" >Chương trình Lixicoin</a>
-                        <a href="/support-center" >Hỗ trợ Đơn hàng</a>
-                        <a href="/stores" >Hệ thống cửa hàng Lixibox</a>
-                        <a href="/user/invite" >Mời bạn bè - Nhận thưởng ngay</a>
+                        <NavLink to="/info" >Giới thiệu về Lixibox</NavLink>
+                        <NavLink target="_blank" to="https://careers.lixibox.com/jobs" >Tuyển dụng</NavLink>
+                        <NavLink to="/lixicoin" >Chương trình Lixicoin</NavLink>
+                        <NavLink to="/support-center" >Hỗ trợ Đơn hàng</NavLink>
+                        <NavLink to="/stores" >Hệ thống cửa hàng Lixibox</NavLink>
+                        <NavLink to="/user/invite" >Mời bạn bè - Nhận thưởng ngay</NavLink>
                     </div>
                 </div>
 

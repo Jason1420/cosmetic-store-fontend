@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import './Header.scss';
 import logo from '../../assets/images/logo.jpg'
 import {
@@ -8,19 +7,20 @@ import { LuPhoneCall } from 'react-icons/lu'
 import { IoCartOutline } from 'react-icons/io5'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store';
+import { NavLink } from 'react-router-dom';
+import { PagePath } from '../../routes/Path';
 
 const Header = () => {
     const cart = useSelector((state: RootState) => state.cart)
-    console.log('check cart >>>>>>', cart)
     return (
         <div className="header-container">
 
             <div className="header-left" >
                 <div className="header-left__logo">
-                    <a href='/'>
+                    <NavLink to='/'>
                         <img src={logo} alt="logo" width={42} height={48} />
                         <label className='store-name'>Cosmetic Store</label>
-                    </a>
+                    </NavLink>
                 </div>
                 <div className="header-left__search-bar">
                     <input className="form-control " type="text" placeholder="Tìm kiếm sản phẩm" />
@@ -61,18 +61,34 @@ const Header = () => {
                         Đăng nhập / Đăng ký
                     </div>
                 </div>
-                <div className="header-right__item ">
-                    <div className="img">
-                        <IoCartOutline />
-                    </div>
+                {cart.totalQuantity > 0 ?
+                    <NavLink to={PagePath.CART}>
+                        <div className="header-right__item ">
+                            <div className="img">
+                                <IoCartOutline />
+                            </div>
 
-                    <div className="img-title cart">
-                        Giỏ hàng
-                        {cart.totalQuantity !== null && cart.totalQuantity !== 0 &&
-                            < label className='total'>{cart.totalQuantity}</label>
-                        }
+                            <div className="img-title cart">
+                                Giỏ hàng
+                                {cart.totalQuantity !== null && cart.totalQuantity !== 0 &&
+                                    < label className='total'>{cart.totalQuantity}</label>
+                                }
+                            </div>
+                        </div>
+                    </NavLink> :
+                    <div className="header-right__item ">
+                        <div className="img">
+                            <IoCartOutline />
+                        </div>
+
+                        <div className="img-title cart">
+                            Giỏ hàng
+                            {cart.totalQuantity !== null && cart.totalQuantity !== 0 &&
+                                < label className='total'>{cart.totalQuantity}</label>
+                            }
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </div >
     );

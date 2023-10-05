@@ -63,7 +63,6 @@ const Classify = () => {
                     }
                 } else {
                     const params = paramsBrand + paramsType;
-                    console.log(params)
                     const res = await axios.get(`${URL.SEARCH_ITEM_BY_BRAND}?${params}`,)
                     if (res && res.data && res.data.data) {
                         setAllItem(res.data.data);
@@ -196,7 +195,7 @@ const Classify = () => {
                                     </div>
                                     <div className="list-item__item-price">
                                         {
-                                            item.price.toLocaleString('en-US')} ₫
+                                            item.price.toLocaleString('en-US').replace(/,/g, '.')} ₫
                                     </div>
                                 </div>
                             </div>

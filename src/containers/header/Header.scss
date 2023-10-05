@@ -56,6 +56,9 @@
         justify-content: center;
         width: 50%;
         gap: 50px;
+        a {
+            text-decoration: none;
+        }
         .header-right__item {
             color: white;
             display: flex;
@@ -80,6 +83,8 @@
                 text-align: center;
                 width: 70px;
                 font-weight: 500;
+                text-decoration: none;
+                color: white;
             }
             .call-item {
                 font-size: 25px !important;
@@ -111,6 +116,7 @@
                     color: rgb(249, 240, 240);
                     padding-top: 1px;
                     padding-left: 1px;
+                    cursor: pointer;
                 }
             }
             .fa-cart-shopping {

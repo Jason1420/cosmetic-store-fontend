@@ -5,10 +5,11 @@ import Home from '../pages/home/Home'
 import Classify from '../pages/classify/Classify'
 import CustomScrollbars from '../components/CustomScrollbars/CustomScrollbars'
 import Footer from '../containers/footer/Footer'
-import { BrowserRouter, Route, Router, Routes, useParams } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { PagePath } from '../routes/Path'
-import UploadItem from '../pages/upload_item/UploadItem'
 import ItemDetail from '../pages/item_detail/ItemDetail'
+import Cart from '../pages/cart/Cart'
+
 
 const MainPage = () => {
 
@@ -20,18 +21,20 @@ const MainPage = () => {
             <div className="main-page__navbar">
                 <Navbar />
             </div>
-            <CustomScrollbars style={{ height: "100vh", width: "100%" }}>
-                <div className="main-page__content">
-                    <Routes>
-                        <Route path={PagePath.HOME} element={<Home />} ></Route>
-                        <Route path={PagePath.ITEM} element={<Classify />}></Route>
-                        <Route path={`${PagePath.ITEM}/:id`} element={<ItemDetail />}></Route>
-                    </Routes>
-                </div>
-                {/* <div className="main-page__footer">
-                    <Footer />
-                </div> */}
-            </CustomScrollbars >
+            {/* <CustomScrollbars style={{ height: "90vh" }}> */}
+            <div className="main-page__content">
+                <Routes>
+                    <Route path={PagePath.HOME} element={<Home />} ></Route>
+                    <Route path={PagePath.ITEM} element={<Classify />}></Route>
+                    <Route path={`${PagePath.ITEM}/:id`} element={<ItemDetail />}></Route>
+                    <Route path={PagePath.CART} element={<Cart />}></Route>
+                    <Route path='/*' element={<Home />}></Route>
+                </Routes>
+            </div>
+            {/* </CustomScrollbars > */}
+            <div className="main-page__footer">
+                <Footer />
+            </div>
         </div >
     )
 }

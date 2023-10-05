@@ -11,3 +11,13 @@
     transform: rotate(360deg);
   }
 }
+.Toastify__toast-container--top-right {
+  top: 6em !important;
+  right: 1em;
+}
+.Toastify__toast-theme--colored.Toastify__toast--success {
+}
+.Toastify__toast-theme--light {
+  background-color: rgb(231, 204, 255) !important;
+  color: black !important;
+}

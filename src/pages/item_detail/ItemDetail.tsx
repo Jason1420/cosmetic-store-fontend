@@ -14,7 +14,7 @@ import { AiOutlineHeart } from 'react-icons/ai'
 import { useDispatch } from 'react-redux'
 import { addNewItemToCart } from '../../store/reducers/cartReducer';
 import { CartItem } from '../../types/CartItem';
-
+import { toast } from 'react-toastify';
 
 const ItemDetail = () => {
     const { id } = useParams();
@@ -34,7 +34,11 @@ const ItemDetail = () => {
             quantity: 1,
 
         }
+        toast.success("Đã thêm sản phẩm vào giỏ hàng", {
+            icon: "✔️"
+        });
         dispatch(addNewItemToCart(itemToCart));
+
     }
 
     useEffect(() => {
@@ -48,7 +52,6 @@ const ItemDetail = () => {
             console.log(res.data.data)
         }
         getItemById()
-        console.log('check item id >>>>', id)
     }, [])
     return (
         <div className="detail-item-container">
@@ -80,7 +83,7 @@ const ItemDetail = () => {
                         <label className='lover'>30 loves</label>
                     </div>
                     <div className="price">
-                        {item?.price.toLocaleString('en-US')} ₫
+                        {item?.price.toLocaleString('en-US').replace(/,/g, '.')} ₫
                     </div>
                     <div className="coupon">
                         [Từ nay - 9.10] Mua đơn 3 triệu: TẶNG QUÀ "BEST-SELLER" 3 TRIỆU (Nhập mã GWP923) + HOÀN TIỀN 500K/ Giảm 20% mọi đơn hàng (Nhập mã CART1M)

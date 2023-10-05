@@ -21,6 +21,7 @@ import program4 from "../../assets/images/program4.webp"
 import { ItemDisplay } from '../../types/ItemDisplay';
 import { NavLink } from 'react-router-dom';
 import { PagePath } from '../../routes/Path';
+import { SampleNextArrow, SamplePrevArrow } from '../../components/ArrowSlick/ArrowSlick';
 
 
 const ListItem = () => {
@@ -32,7 +33,6 @@ const ListItem = () => {
             if (res && res.data && res.data.data) {
                 setAllItem(res.data.data);
             }
-            console.log(res.data.data)
         }
 
         getAllItem()
@@ -40,16 +40,17 @@ const ListItem = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        autoplay: true,
+        speed: 1000,
+        autoplaySpeed: 3000,
+        cssEase: "linear",
         slidesToShow: 4,
         slidesToScroll: 1,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />
     };
     return (
         <>
-            <div>
-                <link rel="stylesheet" type="text/css" charSet="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
-                <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-            </div>
             <div className="list-item__title">
                 Hot Deal
                 <div className="view-all">
@@ -87,7 +88,7 @@ const ListItem = () => {
                                     </div>
                                     <div className="list-item__item-price">
                                         {
-                                            item.price.toLocaleString('en-US')} ₫
+                                            item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
                                     </div>
                                 </div>
                             </div>
@@ -174,7 +175,7 @@ const ListItem = () => {
                                     </div>
                                     <div className="list-item__item-price">
                                         {
-                                            item.price.toLocaleString('en-US')} ₫
+                                            item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
                                     </div>
                                 </div>
                             </div>
@@ -237,7 +238,7 @@ const ListItem = () => {
                                     </div>
                                     <div className="list-item__item-price">
                                         {
-                                            item.price.toLocaleString('en-US')} ₫
+                                            item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
                                     </div>
                                 </div>
                             </div>

@@ -99,8 +99,6 @@ const UploadItem = () => {
                     image: newItem.image,
 
                 }
-                console.log(formik.values)
-                console.log(submitItem)
                 const addNewItemURL = "http://localhost:8080/api/v1/item";
                 const res = await axios.post(addNewItemURL, submitItem,)
             } catch (error) {

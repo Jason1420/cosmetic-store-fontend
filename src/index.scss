@@ -10,3 +10,52 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+.slick-prev {
+  width: 30px;
+  height: 50px;
+  padding-top: 8px;
+}
+.slick-next {
+  width: 30px;
+  height: 50px;
+  padding-top: 8px;
+}
+.slick-arrow {
+  margin: 0 auto;
+  font-size: 30px;
+}
+
+.slick-prev:before {
+  content: "<";
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 1;
+  padding-left: 5px;
+  color: #fff;
+}
+.slick-next:before {
+  content: ">";
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 1;
+  padding-left: 7px;
+  color: #fff;
+}
+.slick-dots li button:before {
+  font-size: 20px !important;
+  color: #f9758f;
+}
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: #f84166;
+}
+// .slick-slider:not(:focus) .slick-arrow,
+// .slick-slider:not(:focus) .slick-dots {
+//   display: none !important;
+// }
+// .slick-slider:focus .slick-arrow,
+// .slick-slider:focus .slick-dots {
+//   display: block !important;
+// }

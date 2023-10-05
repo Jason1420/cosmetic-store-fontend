@@ -21,12 +21,13 @@ import {
     ImLocation
 } from "react-icons/im"
 import { PagePath } from '../../routes/Path';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <div className="navbar-container ">
             <div className="navbar-left container">
-                <a href={PagePath.ITEM} >
+                <NavLink to={PagePath.ITEM} >
                     <div className="navbar-left__menu">
                         <div className="img">
                             <HiMenu />
@@ -35,7 +36,7 @@ const Navbar = () => {
                             Danh mục sản phẩm
                         </div>
                     </div>
-                </a>
+                </NavLink>
 
                 <div className="navbar-left__submenu">
                     <div className="navbar-left__submenu__item hot-deal">
