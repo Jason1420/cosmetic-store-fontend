@@ -13,7 +13,7 @@ const App = () => {
     <div className="App">
       <CustomScrollbars style={{ height: "100vh" }}>
         <Routes>
-          <Route path={PagePath.UPLOAD} element={<UploadItem />} ></Route>
+          {/* <Route path={PagePath.UPLOAD} element={<UploadItem />} ></Route> */}
           <Route path='*' element={< MainPage />}></Route >
         </Routes>
       </CustomScrollbars>

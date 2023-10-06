@@ -126,9 +126,12 @@ const UploadItem = () => {
     }, [])
     return (
         <div className="upload-item-container">
+            <div className="title">
+                Thêm mới sản phẩm
+            </div>
             <div className="form-add-item">
                 <div className="input-form ">
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name">Tên sản phẩm</label>
                     <input type="text"
                         className="form-control "
                         id="name"
@@ -137,24 +140,24 @@ const UploadItem = () => {
                 </div>
 
                 <div className="input-form ">
-                    <label htmlFor="brand">Brand</label>
+                    <label htmlFor="brand">Nhãn hàng</label>
                     <SelectComponent options={brands} id={brandSelectedValue}
                         selectOnChange={(o) => handleOnChangeBrand(o)} />
                 </div>
 
                 <div className="input-form ">
-                    <label htmlFor="type">Type</label>
+                    <label htmlFor="type">Loại</label>
                     <SelectComponent options={types} id={typeSelectedValue}
                         selectOnChange={(o) => handleOnChangeType(o)} />
                 </div>
                 <div className="input-form ">
-                    <label htmlFor="type">Type</label>
+                    <label htmlFor="type">Tình trạng</label>
                     <SelectComponent options={status} id={statusSelectedValue}
                         selectOnChange={(o) => handleOnChangeStatus(o)} />
                 </div>
 
                 <div className="input-form ">
-                    <label htmlFor="price">Price</label>
+                    <label htmlFor="price">Giá (vnđ)</label>
                     <input type="text"
                         className="form-control "
                         id="price"
@@ -163,14 +166,14 @@ const UploadItem = () => {
                 </div>
 
                 <div className="input-form ">
-                    <label htmlFor="image">Image</label>
+                    <label htmlFor="image">Hình ảnh</label>
                     <input type="file"
                         className="form-control "
                         id="image"
                         onChange={(event) => handleChangeImage(event)} />
                 </div>
                 <div className="input-form ">
-                    <label htmlFor="description">Description</label>
+                    <label htmlFor="description">Mô tả</label>
                     <input type="text"
                         className="form-control "
                         id="description"
@@ -181,7 +184,7 @@ const UploadItem = () => {
                     <button className='button-custom'
                         type='submit'
                         onClick={() => formik.handleSubmit()}>
-                        Submit
+                        Tạo mới sản phẩm
                     </button>
                 </div>
             </div>

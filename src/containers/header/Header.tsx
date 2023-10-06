@@ -12,6 +12,7 @@ import { PagePath } from '../../routes/Path';
 
 const Header = () => {
     const cart = useSelector((state: RootState) => state.cart)
+    const isLogin = true;
     return (
         <div className="header-container">
 
@@ -81,15 +82,29 @@ const Header = () => {
                         </div>
                     </div>
                 }
-                <div className="header-right__item ">
-                    <div className="img">
-                        <i className="fa-regular fa-user"></i>
-                    </div>
+                {isLogin ?
+                    <NavLink to={PagePath.UPLOAD}>
+                        <div className="header-right__item ">
+                            <div className="img">
+                                <i className="fa-regular fa-plus"></i>
+                            </div>
 
-                    <div className="img-title">
-                        Đăng nhập / Đăng ký
+                            <div className="img-title">
+                                Thêm sản phẩm
+                            </div>
+                        </div>
+                    </NavLink>
+                    :
+                    <div className="header-right__item ">
+                        <div className="img">
+                            <i className="fa-regular fa-user"></i>
+                        </div>
+
+                        <div className="img-title">
+                            Đăng nhập / Đăng ký
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </div >
     );

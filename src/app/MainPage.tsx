@@ -14,6 +14,7 @@ import HotDeal from '../pages/hot_deal/HotDeal'
 import NewItem from '../pages/new_item/NewItem'
 import BestSellers from '../pages/best_sellers/BestSellers'
 import { useState } from 'react'
+import UploadItem from '../pages/upload_item/UploadItem'
 
 const MainPage = () => {
 
@@ -33,12 +34,13 @@ const MainPage = () => {
             <div className="main-page__content">
                 <Routes>
                     {/* Home */}
-                    <Route path={PagePath.HOME} element={<Home />} ></Route>
+                    <Route path={PagePath.HOME} element={<Home handleLoading={setContentLoading} />} ></Route>
                     {/* Classify item */}
                     <Route path={PagePath.ITEM} element={<Classify handleLoading={setContentLoading} />}></Route>
                     {/* Detail item */}
                     <Route path={`${PagePath.ITEM}/:id`} element={<ItemDetail />}></Route>
-
+                    {/* Upload item */}
+                    <Route path={PagePath.UPLOAD} element={<UploadItem />} ></Route>
                     {/* Navbar */}
                     <Route path={PagePath.HOT_DEAL} element={<HotDeal handleLoading={setContentLoading} />}></Route>
                     <Route path={PagePath.ALL_BRANDS} element={<AllBrands />}></Route>
@@ -48,7 +50,7 @@ const MainPage = () => {
 
                     {/* Cart */}
                     <Route path={PagePath.CART} element={<Cart />}></Route>
-                    <Route path='/*' element={<Home />}></Route>
+                    <Route path='/*' element={<Home handleLoading={setContentLoading} />}></Route>
                 </Routes>
             </div>
 
