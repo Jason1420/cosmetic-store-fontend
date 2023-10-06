@@ -9,33 +9,43 @@ import { NavLink } from 'react-router-dom'
 import { PagePath } from '../../routes/Path'
 import { URL } from '../../routes/Url'
 import { Type } from '../../types/Type'
-const Classify = () => {
+import Pagination from '../../components/Pagination/Pagination'
+import { Constant } from '../../constant/Constant'
+
+interface Props {
+    handleLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Classify: React.FC<Props> = ({ handleLoading }) => {
     const [allItem, setAllItem] = useState<ItemDisplay[]>([])
     const [allBrand, setAllBrand] = useState<Brand[]>([])
     const [allType, setAllType] = useState<Type[]>([])
+
     const [filterByBrand, setFilterByBrand] = useState<string[]>(["all"])
     const [filterByType, setFilterByType] = useState<number>(1)
+    const [isLoading, setIsLoading] = useState<boolean>(true)
 
-    const getAllItem = async () => {
-        const res = await axios.get(URL.GET_ALL_ITEM,)
-        if (res && res.data && res.data.data) {
-            setAllItem(res.data.data);
-        }
-    }
+    const [pageItem, setPageItem] = useState<ItemDisplay[]>([])
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const [totalPage, setTotalPage] = useState<number>(0)
+
     useEffect(() => {
         const getAllBrand = async () => {
+            setIsLoading(true)
             const res = await axios.get(URL.GET_ALL_BRAND,)
             if (res && res.data && res.data.data) {
                 setAllBrand(res.data.data);
             }
+            setIsLoading(false)
         }
         const getAllType = async () => {
+            setIsLoading(true)
             const res = await axios.get(URL.GET_ALL_TYPE,)
             if (res && res.data && res.data.data) {
                 setAllType(res.data.data);
             }
+            setIsLoading(false)
         }
-        getAllItem()
         getAllBrand()
         getAllType()
     }, [])
@@ -53,19 +63,34 @@ const Classify = () => {
     }
     useEffect(() => {
         const filterItem = async () => {
+            setIsLoading(true)
             try {
                 const paramsBrand = filterByBrand.map(brand => `brands=${encodeURIComponent(brand)}`).join('&');
                 const paramsType = `&typeId=${filterByType}`;
                 if (paramsBrand === "brands=all") {
-                    const res = await axios.get(`${URL.SEARCH_ITEM_BY_BRAND}/${filterByType}`,)
+                    const res = await axios.get(`${URL.SEARCH_ITEM_BY_BRAND}/${filterByType}?page=${currentPage}`,)
                     if (res && res.data && res.data.data) {
-                        setAllItem(res.data.data);
+                        setPageItem(res.data.data);
+                    }
+                    const resCount = await axios.get(`${URL.COUNT_ITEM_BY_TYPE_ID}${filterByType}`,)
+                    if (resCount && resCount.data && resCount.data.data) {
+                        setTotalPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE));
+                        if (currentPage > Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE)) {
+                            setCurrentPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE))
+                        }
                     }
                 } else {
                     const params = paramsBrand + paramsType;
-                    const res = await axios.get(`${URL.SEARCH_ITEM_BY_BRAND}?${params}`,)
+                    const res = await axios.get(`${URL.SEARCH_ITEM_BY_BRAND}?${params}&page=${currentPage}`,)
                     if (res && res.data && res.data.data) {
-                        setAllItem(res.data.data);
+                        setPageItem(res.data.data);
+                    }
+                    const resCount = await axios.get(`${URL.COUNT_ITEM_BY_TYPE_ID_AND_BRAND}?${params}`,)
+                    if (resCount && resCount.data && resCount.data.data) {
+                        setTotalPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE));
+                        if (currentPage > Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE)) {
+                            setCurrentPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE))
+                        }
                     }
                 }
 
@@ -73,9 +98,13 @@ const Classify = () => {
             } catch (error) {
                 console.log(error)
             }
+            setIsLoading(false)
         }
         filterItem()
-    }, [filterByBrand, filterByType])
+    }, [filterByBrand, filterByType, currentPage])
+    useEffect(() => {
+        handleLoading(isLoading)
+    }, [isLoading])
 
 
     return (
@@ -167,40 +196,46 @@ const Classify = () => {
             </div>
 
             <div className="classify-right">
-                {allItem &&
-                    allItem.map((item, index) => {
-                        return (
-                            <div className="list-item__item" key={index}>
-                                {item.image &&
-                                    <div className="list-item__item-image">
-                                        <NavLink to={`${PagePath.ITEM}/${item.id}`}>
-                                            <img className="image" src={item.image} alt="" />
-                                        </NavLink>
-                                    </div>
-                                }
-                                <div className="list-item__content">
-                                    <div className="list-item__item-brand">
-                                        {item.brand}
-                                    </div>
-                                    <div className="list-item__item-name">
-                                        {item.name}
-                                    </div>
 
-                                    <div className="list-item__item-rating">
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                    </div>
-                                    <div className="list-item__item-price">
-                                        {
-                                            item.price.toLocaleString('en-US').replace(/,/g, '.')} ₫
+                <div className="classify-right-list">
+                    {pageItem &&
+                        pageItem.map((item, index) => {
+                            return (
+                                <div className="list-item__item" key={index}>
+                                    {item.image &&
+                                        <div className="list-item__item-image">
+                                            <NavLink to={`${PagePath.ITEM}/${item.id}`}>
+                                                <img className="image" src={item.image} alt="" />
+                                            </NavLink>
+                                        </div>
+                                    }
+                                    <div className="list-item__content">
+                                        <div className="list-item__item-brand">
+                                            {item.brand}
+                                        </div>
+                                        <div className="list-item__item-name">
+                                            {item.name}
+                                        </div>
+
+                                        <div className="list-item__item-rating">
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                        </div>
+                                        <div className="list-item__item-price">
+                                            {
+                                                item.price.toLocaleString('en-US').replace(/,/g, '.')} ₫
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    })}
+                            )
+                        })}
+                </div>
+                <div className="pagination-bar">
+                    <Pagination totalPage={totalPage} handleCurrentPage={setCurrentPage} />
+                </div>
             </div>
         </div>
     )

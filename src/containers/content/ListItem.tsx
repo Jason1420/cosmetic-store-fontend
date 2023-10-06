@@ -53,47 +53,54 @@ const ListItem = () => {
         <>
             <div className="list-item__title">
                 Hot Deal
-                <div className="view-all">
+                <NavLink to={PagePath.HOT_DEAL} className="view-all">
                     Xem tất cả <i className="fa-solid fa-angle-right"></i>
-                </div>
+                </NavLink>
             </div>
             <Slider {...settings}>
                 {allItem &&
-                    allItem.filter(item => item.status === "Hot").map((item, index) => {
-                        return (
-                            <div className="list-item__item" key={index}>
-                                {item.image &&
-                                    <NavLink to={`${PagePath.ITEM}/${item.id}`}>
-                                        <div className="list-item__item-image">
-                                            <img className="image" src={item.image} alt="" />
+                    allItem
+                        .filter(item => item.status === "Hot")
+                        .filter((item, index) => {
+                            if (index <= 4) {
+                                return item;
+                            }
+                        })
+                        .map((item, index) => {
+                            return (
+                                <div className="list-item__item" key={index}>
+                                    {item.image &&
+                                        <NavLink to={`${PagePath.ITEM}/${item.id}`}>
+                                            <div className="list-item__item-image">
+                                                <img className="image" src={item.image} alt="" />
+                                            </div>
+                                        </NavLink>
+                                    }
+                                    <div className="list-item__content">
+                                        <div className="list-item__item-brand">
+                                            {item.brand}
                                         </div>
-                                    </NavLink>
-                                }
-                                <div className="list-item__content">
-                                    <div className="list-item__item-brand">
-                                        {item.brand}
-                                    </div>
-                                    <div className="list-item__item-name">
-                                        {item.name}
-                                    </div>
+                                        <div className="list-item__item-name">
+                                            {item.name}
+                                        </div>
 
-                                    <div className="list-item__item-rating">
+                                        <div className="list-item__item-rating">
 
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
 
-                                    </div>
-                                    <div className="list-item__item-price">
-                                        {
-                                            item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                        </div>
+                                        <div className="list-item__item-price">
+                                            {
+                                                item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    })}
+                            )
+                        })}
             </Slider>
             <div className="list-item__title brand-title">
                 Thương hiệu nổi bật
@@ -141,46 +148,53 @@ const ListItem = () => {
 
             <div className="list-item__title">
                 Bán chạy
-                <div className="view-all">
+                <NavLink to={PagePath.BEST_SELLERS} className="view-all">
                     Xem tất cả <i className="fa-solid fa-angle-right"></i>
-                </div>
+                </NavLink>
             </div>
             <Slider {...settings}>
                 {allItem &&
-                    allItem.filter(item => item.status === "Best").map((item, index) => {
+                    allItem
+                        .filter(item => item.status === "Best")
+                        .filter((item, index) => {
+                            if (index <= 4) {
+                                return item;
+                            }
+                        })
+                        .map((item, index) => {
 
-                        return (
-                            <div className="list-item__item" key={index}>
-                                {item.image &&
-                                    <NavLink to={`${PagePath.ITEM}/${item.id}`}>
-                                        <div className="list-item__item-image">
-                                            <img className="image" src={item.image} alt="" />
+                            return (
+                                <div className="list-item__item" key={index}>
+                                    {item.image &&
+                                        <NavLink to={`${PagePath.ITEM}/${item.id}`}>
+                                            <div className="list-item__item-image">
+                                                <img className="image" src={item.image} alt="" />
+                                            </div>
+                                        </NavLink>
+                                    }
+                                    <div className="list-item__content">
+                                        <div className="list-item__item-brand">
+                                            {item.brand}
                                         </div>
-                                    </NavLink>
-                                }
-                                <div className="list-item__content">
-                                    <div className="list-item__item-brand">
-                                        {item.brand}
-                                    </div>
-                                    <div className="list-item__item-name">
-                                        {item.name}
-                                    </div>
+                                        <div className="list-item__item-name">
+                                            {item.name}
+                                        </div>
 
-                                    <div className="list-item__item-rating">
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                    </div>
-                                    <div className="list-item__item-price">
-                                        {
-                                            item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                        <div className="list-item__item-rating">
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                        </div>
+                                        <div className="list-item__item-price">
+                                            {
+                                                item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    })}
+                            )
+                        })}
             </Slider>
 
             <div className="list-item__title ">
@@ -203,47 +217,54 @@ const ListItem = () => {
 
             <div className="list-item__title">
                 Hàng mới
-                <div className="view-all">
+                <NavLink to={PagePath.NEW_ITEM} className="view-all">
                     Xem tất cả <i className="fa-solid fa-angle-right"></i>
-                </div>
+                </NavLink>
             </div>
 
             <Slider {...settings}>
 
                 {allItem &&
-                    allItem.filter(item => item.status === "New").map((item, index) => {
-                        return (
-                            <div className="list-item__item" key={index}>
-                                {item.image &&
-                                    <NavLink to={`${PagePath.ITEM}/${item.id}`}>
-                                        <div className="list-item__item-image">
-                                            <img className="image" src={item.image} alt="" />
+                    allItem
+                        .filter(item => item.status === "New")
+                        .filter((item, index) => {
+                            if (index <= 4) {
+                                return item;
+                            }
+                        })
+                        .map((item, index) => {
+                            return (
+                                <div className="list-item__item" key={index}>
+                                    {item.image &&
+                                        <NavLink to={`${PagePath.ITEM}/${item.id}`}>
+                                            <div className="list-item__item-image">
+                                                <img className="image" src={item.image} alt="" />
+                                            </div>
+                                        </NavLink>
+                                    }
+                                    <div className="list-item__content">
+                                        <div className="list-item__item-brand">
+                                            {item.brand}
                                         </div>
-                                    </NavLink>
-                                }
-                                <div className="list-item__content">
-                                    <div className="list-item__item-brand">
-                                        {item.brand}
-                                    </div>
-                                    <div className="list-item__item-name">
-                                        {item.name}
-                                    </div>
+                                        <div className="list-item__item-name">
+                                            {item.name}
+                                        </div>
 
-                                    <div className="list-item__item-rating">
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                        <i className="fa-solid fa-star"></i>
-                                    </div>
-                                    <div className="list-item__item-price">
-                                        {
-                                            item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                        <div className="list-item__item-rating">
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                            <i className="fa-solid fa-star"></i>
+                                        </div>
+                                        <div className="list-item__item-price">
+                                            {
+                                                item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    })}
+                            )
+                        })}
             </Slider>
         </>
     );

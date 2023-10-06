@@ -27,7 +27,9 @@ const Navbar = () => {
     return (
         <div className="navbar-container ">
             <div className="navbar-left container">
-                <NavLink to={PagePath.ITEM} >
+                <NavLink to={PagePath.ITEM} className={({ isActive }) =>
+                    isActive ? "active" : ""
+                }>
                     <div className="navbar-left__menu">
                         <div className="img">
                             <HiMenu />
@@ -40,10 +42,49 @@ const Navbar = () => {
 
                 <div className="navbar-left__submenu">
                     <div className="navbar-left__submenu__item hot-deal">
-                        <div className="img">
-                            <LiaRocketSolid />
-                        </div>
-                        Hot deal
+                        <NavLink to={PagePath.HOT_DEAL} className={({ isActive }) =>
+                            isActive ? "active" : ""
+                        }>
+                            <div className="img">
+                                <LiaRocketSolid />
+                            </div>
+                            Hot deal
+                        </NavLink>
+                    </div>
+
+                    <div className="navbar-left__submenu__item new-item">
+                        <NavLink to={PagePath.NEW_ITEM} className={({ isActive }) =>
+                            isActive ? "active" : ""
+                        }>
+                            <div className="img">
+                                <GiSandsOfTime />
+                            </div>
+                            Hàng mới về
+                        </NavLink>
+                    </div>
+                    <div className="navbar-left__submenu__item best-seller">
+                        <NavLink to={PagePath.BEST_SELLERS} className={({ isActive }) =>
+                            isActive ? "active" : ""
+                        }>
+                            <div className="img">
+                                <PiShootingStar />
+                            </div>
+                            <div className="img-title">
+                                Bán chạy
+                            </div>
+                        </NavLink>
+                    </div>
+                    <div className="navbar-left__submenu__item gift">
+                        <NavLink to={PagePath.GIFT} className={({ isActive }) =>
+                            isActive ? "active" : ""
+                        }>
+                            <div className="img">
+                                <FiGift />
+                            </div>
+                            <div className="img-title">
+                                Quà tặng
+                            </div>
+                        </NavLink>
                     </div>
                     <div className="navbar-left__submenu__item brand">
                         <NavLink to={PagePath.ALL_BRANDS} className={({ isActive }) =>
@@ -55,28 +96,7 @@ const Navbar = () => {
                             Thương hiệu
                         </NavLink>
                     </div>
-                    <div className="navbar-left__submenu__item new-item">
-                        <div className="img">
-                            <GiSandsOfTime />
-                        </div>
-                        Hàng mới về
-                    </div>
-                    <div className="navbar-left__submenu__item best-seller">
-                        <div className="img">
-                            <PiShootingStar />
-                        </div>
-                        <div className="img-title">
-                            Bán chạy
-                        </div>
-                    </div>
-                    <div className="navbar-left__submenu__item gift">
-                        <div className="img">
-                            <FiGift />
-                        </div>
-                        <div className="img-title">
-                            Quà tặng
-                        </div>
-                    </div>
+
                 </div>
             </div>
 

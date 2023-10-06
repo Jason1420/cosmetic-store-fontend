@@ -6,4 +6,6 @@ export const PagePath = {
     ALL_BRANDS: "/brands",
     HOT_DEAL: "/hot-deal",
     NEW_ITEM: "/new-item",
+    GIFT: "/gift",
+    BEST_SELLERS: "/best-sellers",
 }

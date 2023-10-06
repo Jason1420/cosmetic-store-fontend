@@ -125,7 +125,7 @@ const UploadItem = () => {
 
     }, [])
     return (
-        <div className="new-item-container">
+        <div className="upload-item-container">
             <div className="form-add-item">
                 <div className="input-form ">
                     <label htmlFor="name">Name</label>

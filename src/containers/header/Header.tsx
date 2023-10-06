@@ -52,15 +52,7 @@ const Header = () => {
                         Hỗ trợ khách hàng
                     </div>
                 </div>
-                <div className="header-right__item ">
-                    <div className="img">
-                        <i className="fa-regular fa-user"></i>
-                    </div>
 
-                    <div className="img-title">
-                        Đăng nhập / Đăng ký
-                    </div>
-                </div>
                 {cart.totalQuantity > 0 ?
                     <NavLink to={PagePath.CART}>
                         <div className="header-right__item ">
@@ -89,6 +81,15 @@ const Header = () => {
                         </div>
                     </div>
                 }
+                <div className="header-right__item ">
+                    <div className="img">
+                        <i className="fa-regular fa-user"></i>
+                    </div>
+
+                    <div className="img-title">
+                        Đăng nhập / Đăng ký
+                    </div>
+                </div>
             </div>
         </div >
     );

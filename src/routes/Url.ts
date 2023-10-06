@@ -4,6 +4,15 @@ export const URL = {
     GET_ALL_BRAND: 'http://localhost:8080/api/v1/getAllBrand',
     GET_ALL_TYPE: 'http://localhost:8080/api/v1/getAllType',
     GET_ITEM_BY_ID: 'http://localhost:8080/api/v1/getOneItem',
-    SEARCH_ITEM_BY_BRAND: 'http://localhost:8080/api/v1/search'
-
+    SEARCH_ITEM_BY_BRAND: 'http://localhost:8080/api/v1/search',
+    GET_HOT_DEAL_ITEM: "http://localhost:8080/api/v1/hot-deal?page=",
+    GET_ALL_HOT_DEAL_ITEM: "http://localhost:8080/api/v1/all-hot-item",
+    GET_NEW_ITEM: "http://localhost:8080/api/v1/new-item?page=",
+    GET_ALL_NEW_ITEM: "http://localhost:8080/api/v1/all-new-item",
+    GET_BEST_SELLERS: "http://localhost:8080/api/v1/best-sellers?page=",
+    GET_ALL_BEST_SELLERS: "http://localhost:8080/api/v1/all-best-sellers",
+    GET_GIFT: "http://localhost:8080/api/v1/gift?page=",
+    GET_ALL_GIFT: "http://localhost:8080/api/v1/all-gift",
+    COUNT_ITEM_BY_TYPE_ID: "http://localhost:8080/api/v1/count-item-by-typeid?typeId=",
+    COUNT_ITEM_BY_TYPE_ID_AND_BRAND: "http://localhost:8080/api/v1/count-item-by-typeid-brands",
 }

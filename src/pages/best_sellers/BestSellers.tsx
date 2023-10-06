@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './HotDeal.scss'
+import './BestSellers.scss'
 import { ItemDisplay } from '../../types/ItemDisplay'
 import axios from 'axios'
 import { NavLink } from 'react-router-dom'
@@ -12,7 +12,7 @@ interface Props {
     handleLoading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const HotDeal: React.FC<Props> = ({ handleLoading }) => {
+const BestSellers: React.FC<Props> = ({ handleLoading }) => {
     const [pageItem, setPageItem] = useState<ItemDisplay[]>([])
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [totalPage, setTotalPage] = useState<number>(0)
@@ -20,7 +20,7 @@ const HotDeal: React.FC<Props> = ({ handleLoading }) => {
     useEffect(() => {
         const getAllHotDealItem = async () => {
             setIsLoading(true)
-            const res = await axios.get(`${URL.GET_ALL_HOT_DEAL_ITEM}`,)
+            const res = await axios.get(`${URL.GET_ALL_BEST_SELLERS}`,)
             if (res && res.data && res.data.data) {
                 setTotalPage(Math.ceil(res.data.data.length / Constant.SIZE))
 
@@ -32,7 +32,7 @@ const HotDeal: React.FC<Props> = ({ handleLoading }) => {
     useEffect(() => {
         const getHotDealItem = async () => {
             setIsLoading(true)
-            const res = await axios.get(`${URL.GET_HOT_DEAL_ITEM}${currentPage}`,)
+            const res = await axios.get(`${URL.GET_BEST_SELLERS}${currentPage}`,)
             if (res && res.data && res.data.data) {
                 setPageItem(res.data.data);
             }
@@ -45,11 +45,11 @@ const HotDeal: React.FC<Props> = ({ handleLoading }) => {
     }, [isLoading])
 
     return (
-        <div className='hot-deal-container'>
+        <div className='best-sellers-container'>
             {isLoading ? <div className="title">...Loading</div> :
                 <>
-                    <div className="title">Hot Deal</div>
-                    <div className="hot-deal-list">
+                    <div className="title">Hàng bán chạy</div>
+                    <div className="best-sellers-list">
                         {pageItem &&
                             pageItem.map((item, index) => {
                                 return (
@@ -91,4 +91,4 @@ const HotDeal: React.FC<Props> = ({ handleLoading }) => {
     )
 }
 
-export default HotDeal
+export default BestSellers
