@@ -17,7 +17,6 @@ interface Props {
 }
 
 const Classify: React.FC<Props> = ({ handleLoading }) => {
-    const [allItem, setAllItem] = useState<ItemDisplay[]>([])
     const [allBrand, setAllBrand] = useState<Brand[]>([])
     const [allType, setAllType] = useState<Type[]>([])
 
@@ -27,7 +26,7 @@ const Classify: React.FC<Props> = ({ handleLoading }) => {
 
     const [pageItem, setPageItem] = useState<ItemDisplay[]>([])
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [totalPage, setTotalPage] = useState<number>(0)
+    const [totalPage, setTotalPage] = useState<number>(1)
 
     useEffect(() => {
         const getAllBrand = async () => {
@@ -73,12 +72,18 @@ const Classify: React.FC<Props> = ({ handleLoading }) => {
                         setPageItem(res.data.data);
                     }
                     const resCount = await axios.get(`${URL.COUNT_ITEM_BY_TYPE_ID}${filterByType}`,)
-                    if (resCount && resCount.data && resCount.data.data) {
+                    if (resCount && resCount.data) {
+                        if (Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE) === 0) {
+                            setTotalPage(1)
+                            setCurrentPage(1)
+                        }
                         setTotalPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE));
                         if (currentPage > Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE)) {
                             setCurrentPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE))
                         }
                     }
+                    console.log("check math1 >>>>>>", Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE))
+                    console.log('total page1 >>>>>>', totalPage)
                 } else {
                     const params = paramsBrand + paramsType;
                     const res = await axios.get(`${URL.SEARCH_ITEM_BY_BRAND}?${params}&page=${currentPage}`,)
@@ -86,25 +91,59 @@ const Classify: React.FC<Props> = ({ handleLoading }) => {
                         setPageItem(res.data.data);
                     }
                     const resCount = await axios.get(`${URL.COUNT_ITEM_BY_TYPE_ID_AND_BRAND}?${params}`,)
-                    if (resCount && resCount.data && resCount.data.data) {
-                        setTotalPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE));
-                        if (currentPage > Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE)) {
+                    console.log(resCount.data.data)
+                    if (resCount && resCount.data) {
+                        if (Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE) === 0) {
+                            setTotalPage(1)
+                            setCurrentPage(1)
+                        } else {
+                            setTotalPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE));
                             setCurrentPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE))
                         }
                     }
+                    console.log("check math2 >>>>>>", Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE))
+                    console.log('total page2 >>>>>>', totalPage)
                 }
-
-
             } catch (error) {
                 console.log(error)
             }
             setIsLoading(false)
         }
         filterItem()
-    }, [filterByBrand, filterByType, currentPage])
+    }, [filterByBrand, filterByType])
+
     useEffect(() => {
         handleLoading(isLoading)
     }, [isLoading])
+
+
+    useEffect(() => {
+
+        const filterItem = async () => {
+            setIsLoading(true)
+            try {
+                const paramsBrand = filterByBrand.map(brand => `brands=${encodeURIComponent(brand)}`).join('&');
+                const paramsType = `&typeId=${filterByType}`;
+                if (paramsBrand === "brands=all") {
+                    const res = await axios.get(`${URL.SEARCH_ITEM_BY_BRAND}/${filterByType}?page=${currentPage}`,)
+                    if (res && res.data && res.data.data) {
+                        setPageItem(res.data.data);
+                    }
+                } else {
+                    const params = paramsBrand + paramsType;
+                    const res = await axios.get(`${URL.SEARCH_ITEM_BY_BRAND}?${params}&page=${currentPage}`,)
+                    if (res && res.data && res.data.data) {
+                        setPageItem(res.data.data);
+                    }
+                }
+            } catch (error) {
+                console.log(error)
+            }
+            setIsLoading(false)
+        }
+        filterItem()
+
+    }, [currentPage])
 
 
     return (
