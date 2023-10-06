@@ -46,7 +46,9 @@ const Navbar = () => {
                         Hot deal
                     </div>
                     <div className="navbar-left__submenu__item brand">
-                        <NavLink to={PagePath.ALL_BRANDS}>
+                        <NavLink to={PagePath.ALL_BRANDS} className={({ isActive }) =>
+                            isActive ? "active" : ""
+                        }>
                             <div className="img">
                                 <TbBrandBumble />
                             </div>

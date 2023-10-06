@@ -46,6 +46,12 @@
                     display: flex;
                     gap: 2px;
                 }
+                .active {
+                    color: #f9758f;
+                }
+                a:hover {
+                    color: #f9758f;
+                }
                 .img {
                     display: flex;
                     justify-content: center;

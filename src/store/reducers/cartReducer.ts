@@ -1,8 +1,6 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
 import { CartItem } from '../../types/CartItem'
 import { Cart } from '../../types/Cart'
-import { toast } from 'react-toastify';
-
 
 const initialState: Cart = {
     totalPrice: 0,
