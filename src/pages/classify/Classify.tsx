@@ -93,12 +93,16 @@ const Classify: React.FC<Props> = ({ handleLoading }) => {
                     const resCount = await axios.get(`${URL.COUNT_ITEM_BY_TYPE_ID_AND_BRAND}?${params}`,)
                     console.log(resCount.data.data)
                     if (resCount && resCount.data) {
-                        if (Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE) === 0) {
+                        let totalPageTemp = Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE);
+                        if (totalPageTemp === 0) {
                             setTotalPage(1)
                             setCurrentPage(1)
                         } else {
-                            setTotalPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE));
-                            setCurrentPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE))
+                            setTotalPage(totalPageTemp);
+                            if (currentPage > totalPageTemp) {
+
+                                setCurrentPage(totalPageTemp)
+                            }
                         }
                     }
                     console.log("check math2 >>>>>>", Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE))
