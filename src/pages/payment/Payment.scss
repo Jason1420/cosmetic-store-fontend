@@ -1,0 +1,71 @@
+.payment-container {
+    display: flex;
+    width: 100%;
+    .payment-left {
+        display: flex;
+        flex-direction: column;
+        width: 55%;
+        background-color: white;
+        border-right: 2px solid rgb(241, 239, 239);
+        box-shadow: 2px 2px 2px rgb(231, 228, 228);
+        .bread-crumbs {
+            display: flex;
+        }
+    }
+    .payment-right {
+        background-color: rgb(250, 250, 250);
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+        gap: 20px;
+        .cart-list {
+            display: flex;
+            flex-direction: column;
+            width: 75%;
+            gap: 10px;
+            .item {
+                padding-top: 20px;
+                padding-left: 20px;
+                display: flex;
+                gap: 10px;
+                .item-left {
+                    position: relative;
+                    img {
+                        height: 80px;
+                        width: 100px;
+                        border: 2px solid rgb(146, 144, 144);
+                        border-radius: 8px;
+                        background-color: white;
+                        padding: 5px 0;
+                    }
+                    .quantity {
+                        position: absolute;
+                        top: -5px;
+                        right: -5px;
+                        z-index: 100;
+                        border: 0px;
+                        background-color: rgb(121, 124, 124);
+                        border-radius: 100%;
+                        height: 20px;
+                        width: 20px;
+                        text-align: center;
+                        color: rgb(244, 242, 242);
+                    }
+                }
+                .item-center {
+                    .item-name {
+                        font-size: 13px;
+                        color: rgb(46, 43, 43);
+                        font-weight: 500;
+                    }
+                    .item-brand {
+                    }
+                }
+                .item-right {
+                    width: 30%;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

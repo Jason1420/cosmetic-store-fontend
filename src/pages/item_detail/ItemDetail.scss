@@ -164,8 +164,13 @@
     .detail-item__mid {
         display: flex;
         flex-direction: column;
-        border: 1px solid black;
         .detail-mid__info {
+            .title {
+            }
+            .how-to-use {
+            }
+            .ingredient {
+            }
         }
         .detail-mid__relevant {
         }

@@ -8,4 +8,8 @@ export const PagePath = {
     NEW_ITEM: "/new-item",
     GIFT: "/gift",
     BEST_SELLERS: "/best-sellers",
+    LOGIN: "/login",
+    CUSTOMER_SUPPORT: "/customer-support",
+    SHOWROOM: "/showroom",
+    PAYMENT: "/payment"
 }

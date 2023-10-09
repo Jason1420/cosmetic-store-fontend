@@ -11,16 +11,18 @@ import {
     REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
+import { authReducer } from './reducers/authReducer';
 const persistConfig = {
     key: 'root',
-    version: 1,
+    version: 2,
     storage,
 
 }
 
 
 const rootReducer = combineReducers({
-    cart: cartReducer
+    cart: cartReducer,
+    auth: authReducer,
 })
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 export const store = configureStore({

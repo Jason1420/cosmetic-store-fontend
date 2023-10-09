@@ -1,0 +1,123 @@
+.login-background {
+    height: 100vh;
+    background-color: rgb(247, 247, 247);
+
+    .login-container {
+        width: 478px;
+        height: 478px;
+        margin: auto;
+        border-radius: 5px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        .login-logo {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 13px;
+        }
+
+        .login-box {
+            background-color: white;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 5px;
+
+            .login-title {
+                font-size: 26px;
+                font-weight: 500;
+                margin-bottom: 5px;
+                text-align: center;
+            }
+
+            .login-subtitle {
+                color: #888888;
+                font-size: 18px;
+                font-weight: 500;
+                font-style: bold;
+                text-align: center;
+                margin: 0 0 30px;
+            }
+
+            .login-input {
+                margin-bottom: 25px;
+                font-weight: 500;
+
+                label {
+                    color: #1f1f1f;
+                    font-size: 16px;
+                    margin-bottom: 7px;
+                }
+                .login-error-response {
+                    color: red;
+                    font-size: 14px;
+                    font-style: italic;
+                    margin: 0 0;
+                }
+                .label-form {
+                    position: relative;
+
+                    label {
+                        color: #1f1f1f;
+                        font-size: 16px;
+                        margin-bottom: 5px;
+                    }
+                }
+
+                .password-input-form {
+                    position: relative;
+
+                    input {
+                        background-color: rgb(247, 247, 247);
+                        border: 1px solid #e3e3e3;
+                        height: 46px;
+                        border-radius: 4px;
+                        font-weight: 500;
+                        font-size: 15px;
+                    }
+
+                    i {
+                        position: absolute;
+                        right: 10px;
+                        top: 16px;
+                        cursor: pointer;
+                    }
+                }
+
+                input {
+                    background-color: rgb(247, 247, 247);
+                    border: 1px solid #e3e3e3;
+                    height: 46px;
+                    border-radius: 4px;
+                    font-weight: 500;
+                    font-size: 15px;
+                }
+            }
+
+            button {
+                background: linear-gradient(to right, #ec66d8 10%, #df26a4 100%);
+                border: 0;
+                font-size: 22px;
+                width: 100%;
+                border-radius: 4px;
+                padding: 10px 26px;
+                color: white;
+                font-weight: 500;
+                margin-bottom: 5px;
+            }
+
+            .account-footer {
+                font-weight: 500;
+                font-size: 15px;
+            }
+            .forgot-password {
+                color: blue !important;
+                font-weight: 500;
+                text-decoration: none;
+                font-size: 15px;
+            }
+        }
+    }
+}

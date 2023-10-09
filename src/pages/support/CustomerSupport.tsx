@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './UploadItem.scss';
+import './CustomerSupport.scss';
 import axios from 'axios';
 import { useFormik } from 'formik'
 import { SelectOption } from '../../types/SelectOption';
@@ -21,9 +21,18 @@ interface NewItem {
     status: string | undefined
 }
 
-const UploadItem = () => {
+const options = [
+    { name: "Loại yêu cầu", id: 0 },
+    { name: "Hủy đơn hàng", id: 1 },
+    { name: "Đổi/trả sản phẩm lỗi", id: 2 },
+    { name: "Xuất hóa đơn", id: 3 },
+    { name: "Hỗ trợ bảo hành", id: 4 },
+    { name: "Khác", id: 5 },
+]
 
+const CustomerSupport = () => {
 
+    const [id, setId] = useState<typeof options[0] | undefined>(options[0]);
     const [brands, setBrands] = useState<SelectOption[]>([])
     const [brandSelectedValue, setBrandSelectedValue] = useState<SelectOption | undefined>({ name: "Select Brand", id: 0 });
     const handleOnChangeBrand = (o: SelectOption | undefined) => {
@@ -34,24 +43,6 @@ const UploadItem = () => {
         })
     }
 
-    const [status, setStatus] = useState<SelectOption[]>([])
-    const [statusSelectedValue, setStatusSelectedValue] = useState<SelectOption | undefined>({ name: "Select Status", id: 0 });
-    const handleOnChangeStatus = (o: SelectOption | undefined) => {
-        setStatusSelectedValue(o)
-        setNewItem({
-            ...newItem,
-            status: o?.name,
-        })
-    }
-    const [types, setTypes] = useState<SelectOption[]>([])
-    const [typeSelectedValue, setTypeSelectedValue] = useState<SelectOption | undefined>({ name: "Select Type", id: 0 });
-    const handleOnChangeType = (o: SelectOption | undefined) => {
-        setTypeSelectedValue(o)
-        setNewItem({
-            ...newItem,
-            type: o?.name,
-        })
-    }
     const [newItem, setNewItem] = useState<NewItem>({
         name: "",
         brand: "",
@@ -88,9 +79,8 @@ const UploadItem = () => {
     const formik = useFormik({
         initialValues: {
             name: "",
-            brand: "",
-            type: "",
-            price: 0,
+            contact: "",
+            invoiceCode: "",
             image: null,
             description: "",
         },
@@ -98,16 +88,14 @@ const UploadItem = () => {
             try {
                 const submitItem = {
                     name: formik.values.name,
-                    price: formik.values.price,
+                    contact: formik.values.contact,
+                    invoiceCode: formik.values.invoiceCode,
                     description: formik.values.description,
-                    brand: brandSelectedValue?.name,
-                    type: typeSelectedValue?.name,
-                    status: statusSelectedValue?.name,
                     image: newItem.image,
 
                 }
-                const addNewItemURL = URL.ADD_NEW_ITEM;
-                const res = await jwtAxios.post(addNewItemURL, submitItem,)
+                const supportURL = "http://localhost:8080/request-support"
+                const res = await jwtAxios.post(supportURL, submitItem,)
             } catch (error) {
                 console.log(error)
             }
@@ -119,8 +107,6 @@ const UploadItem = () => {
                 const res = await axios.get(URL.GET_DEFAULT_DATA,)
                 if (res && res.data && res.data.data) {
                     setBrands(res.data.data.brands)
-                    setTypes(res.data.data.types)
-                    setStatus(res.data.data.status)
                 }
 
             } catch (error) {
@@ -132,66 +118,66 @@ const UploadItem = () => {
 
     }, [])
     return (
-        <div className="upload-item-container">
+        <div className="customer-support-container">
             <div className="title">
-                Thêm mới sản phẩm
+                Gửi yêu cầu hỗ trợ
             </div>
             <div className="form-add-item">
                 <div className="input-form ">
-                    <label htmlFor="name">Tên sản phẩm</label>
+                    <label htmlFor="name">Họ & tên</label>
                     <input type="text"
                         className="form-control "
                         id="name"
                         value={formik.values.name}
-                        onChange={formik.handleChange} />
-                </div>
-
-                <div className="input-form ">
-                    <label htmlFor="brand">Nhãn hàng</label>
-                    <SelectComponent options={brands} id={brandSelectedValue}
-                        selectOnChange={(o) => handleOnChangeBrand(o)} />
-                </div>
-
-                <div className="input-form ">
-                    <label htmlFor="type">Loại</label>
-                    <SelectComponent options={types} id={typeSelectedValue}
-                        selectOnChange={(o) => handleOnChangeType(o)} />
+                        onChange={formik.handleChange}
+                        placeholder='Họ và tên' />
                 </div>
                 <div className="input-form ">
-                    <label htmlFor="type">Tình trạng</label>
-                    <SelectComponent options={status} id={statusSelectedValue}
-                        selectOnChange={(o) => handleOnChangeStatus(o)} />
-                </div>
-
-                <div className="input-form ">
-                    <label htmlFor="price">Giá (vnđ)</label>
+                    <label htmlFor="name">Liên hệ</label>
                     <input type="text"
                         className="form-control "
-                        id="price"
-                        value={formik.values.price}
-                        onChange={formik.handleChange} />
+                        id="name"
+                        value={formik.values.contact}
+                        onChange={formik.handleChange}
+                        placeholder='Email hoặc SĐT' />
                 </div>
+                <div className="input-form support-required ">
+                    <label htmlFor="brand">Yêu cầu</label>
+                    <SelectComponent options={options} id={id}
+                        selectOnChange={(o) => setId(o)} />
 
+                </div>
                 <div className="input-form ">
-                    <label htmlFor="image">Hình ảnh</label>
+                    <label htmlFor="name">Mã đơn hàng</label>
+                    <input type="text"
+                        className="form-control "
+                        id="name"
+                        value={formik.values.invoiceCode}
+                        onChange={formik.handleChange}
+                        placeholder='VD: 123456789' />
+                </div>
+                <div className="input-form ">
+                    <label htmlFor="description">Mô tả yêu cầu hỗ trợ</label>
+                    <textarea
+                        className="form-control description "
+                        id="description"
+                        value={formik.values.description}
+                        onChange={formik.handleChange}
+                        placeholder='Nội dung yêu cầu' />
+                </div>
+                <div className="input-form ">
+                    <label htmlFor="image">Hình ảnh đính kèm</label>
                     <input type="file"
                         className="form-control "
                         id="image"
                         onChange={(event) => handleChangeImage(event)} />
                 </div>
-                <div className="input-form ">
-                    <label htmlFor="description">Mô tả</label>
-                    <input type="text"
-                        className="form-control "
-                        id="description"
-                        value={formik.values.description}
-                        onChange={formik.handleChange} />
-                </div>
+
                 <div className="end-form">
                     <button className='button-custom'
                         type='submit'
                         onClick={() => formik.handleSubmit()}>
-                        Tạo mới sản phẩm
+                        Gửi yêu cầu
                     </button>
                 </div>
             </div>
@@ -199,4 +185,4 @@ const UploadItem = () => {
     );
 }
 
-export default UploadItem;
+export default CustomerSupport;

@@ -76,7 +76,11 @@ const Cart = () => {
         dispatch(addNewItemToCart(itemToCart));
 
     }
-
+    const handleNavigateToOrderPage = () => {
+        if (cart.totalQuantity > 0) {
+            navigate(PagePath.PAYMENT)
+        }
+    }
     return (
 
         <div className='cart-container'>
@@ -179,7 +183,7 @@ const Cart = () => {
             <div className="cart-right">
                 <div className="cart-right__submit">
                     <NavLink to={PagePath.ITEM}><button className='buy'>Mua thêm</button></NavLink>
-                    <button className='order'>Đặt hàng</button>
+                    <button className='order' onClick={() => handleNavigateToOrderPage()}>Đặt hàng</button>
                 </div>
 
                 <div className="cart-right__deal">

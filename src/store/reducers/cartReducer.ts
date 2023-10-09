@@ -19,13 +19,18 @@ export const cartReducer = createReducer(initialState, builder => {
             let newPrice = state.totalPrice + action.payload.item.price;
             state.totalPrice = newPrice;
 
-            let existItem = state.items.find(item => item.item.id === action.payload.item.id);
+            if (state.items != null) {
+                let existItem = state.items.find(item => item.item.id === action.payload.item.id);
 
-            if (existItem) {
-                existItem.quantity += 1;
+                if (existItem) {
+                    existItem.quantity += 1;
+                } else {
+                    state.items.push(action.payload);
+                }
             } else {
-                state.items.push(action.payload);
+                state.items = [action.payload];
             }
+
         })
         .addCase(decreaseItemFromCart, (state, action) => {
             let newQuantity = state.totalQuantity - 1;

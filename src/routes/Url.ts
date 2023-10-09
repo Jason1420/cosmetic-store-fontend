@@ -1,6 +1,7 @@
 export const URL = {
     ADD_NEW_ITEM: 'http://localhost:8080/api/v1/item',
     GET_ALL_ITEM: 'http://localhost:8080/api/v1/getAll',
+    GET_DEFAULT_DATA: "http://localhost:8080/api/v1/getDefaultData",
     GET_ALL_BRAND: 'http://localhost:8080/api/v1/getAllBrand',
     GET_ALL_TYPE: 'http://localhost:8080/api/v1/getAllType',
     GET_ITEM_BY_ID: 'http://localhost:8080/api/v1/getOneItem',
@@ -15,4 +16,7 @@ export const URL = {
     GET_ALL_GIFT: "http://localhost:8080/api/v1/all-gift",
     COUNT_ITEM_BY_TYPE_ID: "http://localhost:8080/api/v1/count-item-by-typeid?typeId=",
     COUNT_ITEM_BY_TYPE_ID_AND_BRAND: "http://localhost:8080/api/v1/count-item-by-typeid-brands",
+    LOGIN: "http://localhost:8080/login",
+    REFRESH_TOKEN: "http://localhost:8080/refreshToken",
+    LOG_OUT: "http://localhost:8080/log-out"
 }

@@ -150,10 +150,16 @@ const ItemDetail = () => {
 
             <div className="detail-item__mid">
                 <div className="detail-mid__info">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam, nulla. Voluptates, animi deleniti facere recusandae eum corrupti tempora officia, in quis soluta earum ducimus accusantium repellendus quibusdam consequuntur deserunt fuga doloribus esse. Tempora exercitationem facilis cupiditate quaerat eius, iure saepe? Aperiam ratione tempora rerum itaque recusandae amet, vero esse! Similique.
+                    <div className="title">Thông tin</div>
+                    <div className="how-to-use">
+
+                    </div>
+                    <div className="ingredient">
+
+                    </div>
                 </div>
                 <div className="detail-mid__relevant">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum temporibus repudiandae aut, obcaecati, est, aliquam exercitationem blanditiis delectus dolor possimus autem voluptates sit! Laudantium dolores sint maxime quod quidem odit illum laborum repudiandae nam. Sequi aspernatur distinctio nisi quisquam repellendus pariatur est, tenetur autem accusantium veniam reprehenderit at soluta quis.
+
                 </div>
 
             </div>
