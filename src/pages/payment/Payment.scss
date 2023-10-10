@@ -2,14 +2,169 @@
     display: flex;
     width: 100%;
     .payment-left {
+        padding-top: 4%;
+        padding-bottom: 2%;
         display: flex;
         flex-direction: column;
+        gap: 20px;
         width: 55%;
+        padding-left: 13%;
+        padding-right: 4%;
         background-color: white;
         border-right: 2px solid rgb(241, 239, 239);
         box-shadow: 2px 2px 2px rgb(231, 228, 228);
+        .store-name {
+            font-size: 30px;
+        }
         .bread-crumbs {
             display: flex;
+            gap: 5px;
+            .cart {
+                a {
+                    cursor: pointer;
+                    color: #338dbc;
+                    text-decoration: none;
+                }
+                a:hover {
+                    color: #4dade1;
+                }
+            }
+            .payment-info {
+                font-size: 14px;
+            }
+        }
+        .info-title {
+            font-size: 20px;
+        }
+        .email-phone {
+            display: flex;
+            width: 100%;
+            gap: 10px;
+            .email__ {
+                width: 70%;
+            }
+            .phone__ {
+                width: 30%;
+            }
+        }
+        .address-detail {
+            display: flex;
+            justify-content: space-between;
+            .detail {
+                width: 33%;
+                label {
+                    padding-left: 5px;
+                }
+            }
+        }
+        .ship-method {
+            font-size: 18px;
+            color: #676a6a;
+
+            .text {
+                font-size: 19px;
+                padding-bottom: 10px;
+                color: black;
+            }
+
+            .form-ship {
+                cursor: pointer;
+                border: 1px solid #c8c6c6;
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+                padding: 15px 10px 5px 10px;
+                border-radius: 5px;
+
+                input {
+                    height: 20px;
+                    width: 20px;
+                    color: #338dbc;
+                }
+                label {
+                    font-size: 18px;
+                    color: #676a6a;
+                }
+                .text {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+            }
+        }
+        .payment-method {
+            .text {
+                font-size: 19px;
+                padding-bottom: 10px;
+                color: black;
+            }
+            .form-payment {
+                border: 1px solid #c8c6c6;
+                position: relative;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                input {
+                    height: 20px;
+                    width: 20px;
+                    color: #338dbc;
+                }
+                label {
+                    font-size: 18px;
+                    color: #676a6a;
+                }
+                .text {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                .cod,
+                .bank {
+                    border-bottom: 1px solid #c8c6c6;
+                }
+
+                .cod,
+                .bank,
+                .atm {
+                    padding-top: 15px;
+                    padding-left: 20px;
+                }
+                .bank,
+                .atm {
+                    border-top: 1px solid #c8c6c6;
+                }
+                .cod-detail,
+                .bank-detail {
+                    padding: 20px 0;
+                    background-color: rgb(250, 250, 250);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    label {
+                        font-size: 16px !important;
+                    }
+                }
+                img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+        button {
+            width: 30%;
+            font-size: 18px;
+            padding: 13px 0;
+            border: 0px;
+            border-radius: 8px;
+            background-color: #338dbc;
+            color: white;
+            margin-left: auto;
+        }
+        button:hover {
+            background-color: #4dade1;
+            color: white;
         }
     }
     .payment-right {
@@ -18,25 +173,30 @@
         flex-direction: column;
         width: 45%;
         gap: 20px;
+        padding-top: 4%;
+        padding-bottom: 2%;
         .cart-list {
+            margin-left: 40px;
             display: flex;
             flex-direction: column;
             width: 75%;
             gap: 10px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgb(217, 216, 216);
             .item {
                 padding-top: 20px;
-                padding-left: 20px;
                 display: flex;
-                gap: 10px;
+                justify-content: space-between;
+                gap: 20px;
                 .item-left {
                     position: relative;
                     img {
                         height: 80px;
-                        width: 100px;
+                        width: 80px;
                         border: 2px solid rgb(146, 144, 144);
                         border-radius: 8px;
                         background-color: white;
-                        padding: 5px 0;
+                        padding: 10px 0;
                     }
                     .quantity {
                         position: absolute;
@@ -46,9 +206,10 @@
                         border: 0px;
                         background-color: rgb(121, 124, 124);
                         border-radius: 100%;
-                        height: 20px;
-                        width: 20px;
+                        height: 25px;
+                        width: 25px;
                         text-align: center;
+                        font-size: 18px;
                         color: rgb(244, 242, 242);
                     }
                 }
@@ -59,11 +220,91 @@
                         font-weight: 500;
                     }
                     .item-brand {
+                        font-size: 15px;
+                        padding-top: 5px;
+                        color: rgb(154, 152, 150);
                     }
                 }
                 .item-right {
                     width: 30%;
                     font-size: 15px;
+                    color: rgb(94, 92, 92);
+                    font-weight: 500;
+                    text-align: end;
+                }
+            }
+        }
+        .coupon {
+            width: 75%;
+            margin-left: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            border-bottom: 1px solid rgb(217, 216, 216);
+            padding-bottom: 20px;
+            input {
+                width: 60%;
+                border-radius: 8px;
+                border: 1px solid black;
+                outline-color: rgb(233, 161, 197);
+                height: 50px !important;
+                padding-left: 20px;
+            }
+            button {
+                width: 20%;
+                border-radius: 8px;
+                border: 0px;
+                color: white;
+                background-color: rgb(86, 86, 84);
+                height: 45px !important;
+            }
+        }
+        .last-price {
+            width: 75%;
+            margin-left: 40px;
+            padding: 0 52px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .temp-price {
+                display: flex;
+                justify-content: space-between;
+                .title {
+                    font-size: 16px;
+                }
+                .price {
+                    font-size: 16px;
+                }
+            }
+            .ship-fee {
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 10px;
+
+                .title {
+                    font-size: 17px;
+                }
+                .price {
+                    font-size: 17px;
+                }
+            }
+            .line {
+                color: rgb(217, 216, 216);
+                font-size: 18px;
+            }
+            .real-price {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-bottom: 20px;
+                border-top: 1px solid rgb(217, 216, 216);
+                margin-left: -52px;
+                padding-left: 52px;
+                .title {
+                    font-size: 19px;
+                }
+                .price {
+                    font-size: 32px;
                 }
             }
         }

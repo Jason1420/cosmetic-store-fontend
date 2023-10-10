@@ -61,11 +61,11 @@ const Footer = () => {
                         Thông tin
                     </div>
                     <div className="list-item">
-                        <NavLink to="/info" >Giới thiệu về Lixibox</NavLink>
+                        <NavLink to="/info" >Giới thiệu về CosmeticStore</NavLink>
                         <NavLink target="_blank" to="https://careers.lixibox.com/jobs" >Tuyển dụng</NavLink>
-                        <NavLink to="/lixicoin" >Chương trình Lixicoin</NavLink>
+                        <NavLink to="/lixicoin" >Chương trình Coin</NavLink>
                         <NavLink to="/support-center" >Hỗ trợ Đơn hàng</NavLink>
-                        <NavLink to="/stores" >Hệ thống cửa hàng Lixibox</NavLink>
+                        <NavLink to="/stores" >Hệ thống cửa hàng CosmeticStore</NavLink>
                         <NavLink to="/user/invite" >Mời bạn bè - Nhận thưởng ngay</NavLink>
                     </div>
                 </div>

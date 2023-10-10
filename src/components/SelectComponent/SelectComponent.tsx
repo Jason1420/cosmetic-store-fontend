@@ -38,16 +38,18 @@ const SelectComponent = ({ id, selectOnChange, options }: SelectProps) => {
             <ul className={`options ${isOpen ? "show" : ""}`}>
                 {options.map((option, index) => {
                     return (
-                        <li onClick={e => {
-                            e.stopPropagation()
-                            selectOption(option)
-                            setIsOpen(false)
-                        }}
+                        <li
+                            key={index}
+                            onClick={e => {
+                                e.stopPropagation()
+                                selectOption(option)
+                                setIsOpen(false)
+                            }}
                             onMouseEnter={() => setHighlightedIndex(index)}
                             className={`option ${isOptionSelected(option) ? "selected" : ""}
                             ${index === highlightIndex ? "highlighted" : ""}
                             `}
-                            key={option.id}>
+                        >
                             {option.name}
                         </li>)
                 })}
