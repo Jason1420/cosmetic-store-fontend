@@ -21,8 +21,8 @@ const Cart = () => {
     const settings = {
 
         dots: true,
-        dotsClass: "slick-dots slick-thumb",
         infinite: true,
+        autoplay: true,
         speed: 1000,
         autoplaySpeed: 3000,
         cssEase: "linear",
@@ -35,7 +35,6 @@ const Cart = () => {
     const cart = useSelector((state: RootState) => state.cart);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    console.log(cart)
     /** Preferential item */
     const [preferentialItem, setPreferentialItem] = useState<ItemDisplay[]>([])
     useEffect(() => {
@@ -55,7 +54,6 @@ const Cart = () => {
     const handleDecreaseItem = (item: CartItem) => {
         if (cart.totalQuantity === 1) {
             dispatch(decreaseItemFromCart(item))
-            console.log("go home ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
             navigate(PagePath.HOME)
         } else {
             dispatch(decreaseItemFromCart(item))

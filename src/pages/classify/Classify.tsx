@@ -82,8 +82,6 @@ const Classify: React.FC<Props> = ({ handleLoading }) => {
                             setCurrentPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE))
                         }
                     }
-                    console.log("check math1 >>>>>>", Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE))
-                    console.log('total page1 >>>>>>', totalPage)
                 } else {
                     const params = paramsBrand + paramsType;
                     const res = await axios.get(`${URL.SEARCH_ITEM_BY_BRAND}?${params}&page=${currentPage}`,)
@@ -91,7 +89,6 @@ const Classify: React.FC<Props> = ({ handleLoading }) => {
                         setPageItem(res.data.data);
                     }
                     const resCount = await axios.get(`${URL.COUNT_ITEM_BY_TYPE_ID_AND_BRAND}?${params}`,)
-                    console.log(resCount.data.data)
                     if (resCount && resCount.data) {
                         let totalPageTemp = Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE);
                         if (totalPageTemp === 0) {
@@ -105,8 +102,6 @@ const Classify: React.FC<Props> = ({ handleLoading }) => {
                             }
                         }
                     }
-                    console.log("check math2 >>>>>>", Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE))
-                    console.log('total page2 >>>>>>', totalPage)
                 }
             } catch (error) {
                 console.log(error)

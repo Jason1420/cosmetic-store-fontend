@@ -29,7 +29,6 @@ const Login = () => {
         setPassword("")
         try {
             const loginUrl = URL.LOGIN
-            console.log(loginUrl)
             const result = await axios.post(loginUrl, {
                 username: username,
                 password: password
@@ -77,7 +76,7 @@ const Login = () => {
         <div className="login-background" >
             <div className="login-container">
                 <div className="login-logo">
-                    <img src={Logo} alt="logo-login" />
+                    {/* <img src={Logo} alt="logo-login" /> */}
                 </div>
                 <div className="login-box">
                     <div className="login-title">Đăng nhập</div>

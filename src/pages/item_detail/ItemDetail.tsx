@@ -49,7 +49,6 @@ const ItemDetail = () => {
                 setItem(res.data.data);
 
             }
-            console.log(res.data.data)
         }
         getItemById()
     }, [])

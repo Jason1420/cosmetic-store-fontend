@@ -38,13 +38,13 @@
         }
         .email-phone {
             display: flex;
+            justify-content: space-between;
             width: 100%;
-            gap: 10px;
             .email__ {
-                width: 70%;
+                width: 65%;
             }
             .phone__ {
-                width: 30%;
+                width: 33%;
             }
         }
         .address-detail {
@@ -309,4 +309,11 @@
             }
         }
     }
+}
+
+.formik-error {
+    color: red;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
 }

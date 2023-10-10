@@ -11,14 +11,25 @@ import pay from "../../assets/payment/pay.png"
 import { SelectOption } from '../../types/SelectOption'
 import axios from 'axios'
 import SelectComponent from '../../components/SelectComponent/SelectComponent'
+import { useFormik } from 'formik'
+import * as Yup from 'yup';
+import { Invoice } from '../../types/Invoice'
+import { URL } from '../../routes/Url'
+
 
 const Payment = () => {
     const cart = useSelector((state: RootState) => state.cart)
-    const ship = true;
-    const [fullName, setFullName] = useState<string>("")
-    const onChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setFullName(event.target.value)
-    }
+    const user = useSelector((state: RootState) => state.auth)
+    const [invoice, setInvoice] = useState<Invoice>({
+        cartItem: cart,
+        customerName: "",
+        customerEmail: "",
+        customerPhoneNumber: "",
+        customerAddress: "",
+        invoiceStatus: false
+    })
+
+
     const [payment, setPayment] = useState<number>(0)
     const paymenOnChane = (value: number) => {
         setPayment(value)
@@ -40,7 +51,52 @@ const Payment = () => {
         setWardSelected(o)
     }
 
-
+    const formik = useFormik({
+        initialValues: {
+            fullName: "",
+            email: "",
+            address: "",
+            phoneNumber: "",
+        },
+        validationSchema: Yup.object({
+            fullName: Yup.string().required(`Vui lòng nhập họ và tên`).matches(/^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]+$/
+                , "Tên không hợp lệ"),
+            email: Yup.string().required(`Vui lòng nhập email`).matches(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                , "Email không hợp lệ"),
+            address: Yup.string().required(`Vui lòng nhập địa chỉ`),
+            phoneNumber: Yup.string().required(`Vui lòng nhập số điện thoại`).matches(/^0[0-9]{9}$/, "Số điện thoại không hợp lệ"),
+        }),
+        onSubmit: async (values) => {
+            setInvoice({
+                ...invoice,
+                customerUsername: user.logged ? user.userDTO.username : null,
+                customerName: formik.values.fullName,
+                customerEmail: formik.values.email,
+                customerPhoneNumber: formik.values.phoneNumber,
+                customerAddress: `${formik.values.address}, ${wardSelected?.id != 0 ? wardSelected?.name + ", " : ""}${districtSelected?.id != 0 ? districtSelected?.name + ", " : ""}${provinceSelected?.id != 0 ? provinceSelected?.name : ""}`,
+                invoiceStatus: true,
+            })
+        },
+    });
+    useEffect(() => {
+        const payment = async () => {
+            try {
+                console.log("check invoice ---->>>", invoice)
+                const paymentURL = URL.PAYMENT;
+                const res = await axios.post(paymentURL, invoice,)
+                console.log(res)
+            } catch (error) {
+                console.log(error)
+                setInvoice({
+                    ...invoice,
+                    invoiceStatus: false
+                })
+            }
+        }
+        if (invoice.invoiceStatus) {
+            payment()
+        }
+    }, [invoice])
     useEffect(() => {
         const getProvince = async () => {
             try {
@@ -85,6 +141,7 @@ const Payment = () => {
         }
         getDistrict()
     }, [districtSelected])
+
     return (
         <div className='payment-container'>
             <div className="payment-left">
@@ -105,18 +162,59 @@ const Payment = () => {
                     Thông tin giao hàng
                 </div>
                 <div className="full-name">
-                    <InputComponent label='Họ và tên' handleOnChange={onChangeName} />
+                    <div className="input-form ">
+                        <div className="input-title">
+                            <label htmlFor="fullName">Họ và tên<span className="text-danger">*</span></label>
+                            {formik.errors.fullName &&
+                                <label className="formik-error ">{formik.errors.fullName}</label>}
+                        </div>
+                        <input type="text"
+                            className="form-control "
+                            id="fullName"
+                            value={formik.values.fullName}
+                            onChange={formik.handleChange} />
+                    </div>
                 </div>
                 <div className="email-phone">
-                    <div className="email__">
-                        <InputComponent label='Email' handleOnChange={onChangeName} />
+                    <div className="input-form email__">
+                        <div className="input-title">
+                            <label htmlFor="email">Email<span className="text-danger">*</span></label>
+                            {formik.errors.email &&
+                                <label className="formik-error ">{formik.errors.email}</label>}
+                        </div>
+                        <input type="text"
+                            className="form-control "
+                            id="email"
+                            value={formik.values.email}
+                            onChange={formik.handleChange} />
                     </div>
-                    <div className="phone__">
-                        <InputComponent label='Số điện thoại' handleOnChange={onChangeName} />
+                    <div className="input-form phone__">
+                        <div className="input-title">
+                            <label htmlFor="phoneNumber">Phone<span className="text-danger">*</span></label>
+                            {formik.errors.phoneNumber &&
+                                <label className="formik-error ">{formik.errors.phoneNumber}</label>}
+                        </div>
+                        <input type="text"
+                            className="form-control "
+                            id="phoneNumber"
+                            value={formik.values.phoneNumber}
+                            onChange={formik.handleChange} />
                     </div>
                 </div>
                 <div className="address">
-                    <InputComponent label='Địa chỉ' handleOnChange={onChangeName} />
+
+                    <div className="input-form ">
+                        <div className="input-title">
+                            <label htmlFor="address">Địa chỉ<span className="text-danger">*</span></label>
+                            {formik.errors.address &&
+                                <label className="formik-error ">{formik.errors.address}</label>}
+                        </div>
+                        <input type="text"
+                            className="form-control "
+                            id="address"
+                            value={formik.values.address}
+                            onChange={formik.handleChange} />
+                    </div>
                 </div>
                 <div className="address-detail">
                     <div className="detail">
@@ -134,8 +232,6 @@ const Payment = () => {
                         <SelectComponent options={ward} id={wardSelected}
                             selectOnChange={(o) => handleOnChangeWard(o)} />
                     </div>
-
-
 
                 </div>
 
@@ -218,7 +314,10 @@ const Payment = () => {
                         </div>
                     </div>
                 </div>
-                <button>Hoàn tất đơn hàng</button>
+                <button
+                    type='submit'
+                    onClick={() => formik.handleSubmit()}
+                >Hoàn tất đơn hàng</button>
             </div>
 
             <div className="payment-right">

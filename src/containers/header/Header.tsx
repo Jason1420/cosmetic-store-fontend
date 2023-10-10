@@ -1,6 +1,6 @@
 import './Header.scss';
 import logo from '../../assets/images/logo.jpg'
-import logo2 from '../../assets/logo/logoCustom-removebg-preview.png'
+import logo2 from '../../assets/images/lastLogo.png'
 import {
     PiStorefrontDuotone
 } from "react-icons/pi"
@@ -37,14 +37,13 @@ const Header = () => {
             console.log(error)
         }
     }
-    console.log(user.userDTO.roles)
     return (
         <div className="header-container">
 
             <div className="header-left" >
                 <div className="header-left__logo">
                     <NavLink to='/'>
-                        <img src={logo} alt="logo" width={42} height={48} />
+                        <img src={logo2} alt="logo" width={45} height={45} />
                         <label className='store-name'>Cosmetic Store</label>
                     </NavLink>
                 </div>

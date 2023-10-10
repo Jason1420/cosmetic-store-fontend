@@ -25,7 +25,7 @@ const UploadItem = () => {
 
 
     const [brands, setBrands] = useState<SelectOption[]>([])
-    const [brandSelectedValue, setBrandSelectedValue] = useState<SelectOption | undefined>({ name: "Select Brand", id: 0 });
+    const [brandSelectedValue, setBrandSelectedValue] = useState<SelectOption | undefined>({ name: "Chọn nhãn hàng", id: 0 });
     const handleOnChangeBrand = (o: SelectOption | undefined) => {
         setBrandSelectedValue(o)
         setNewItem({
@@ -35,7 +35,7 @@ const UploadItem = () => {
     }
 
     const [status, setStatus] = useState<SelectOption[]>([])
-    const [statusSelectedValue, setStatusSelectedValue] = useState<SelectOption | undefined>({ name: "Select Status", id: 0 });
+    const [statusSelectedValue, setStatusSelectedValue] = useState<SelectOption | undefined>({ name: "Tình trạng sản phẩm", id: 0 });
     const handleOnChangeStatus = (o: SelectOption | undefined) => {
         setStatusSelectedValue(o)
         setNewItem({
@@ -44,7 +44,7 @@ const UploadItem = () => {
         })
     }
     const [types, setTypes] = useState<SelectOption[]>([])
-    const [typeSelectedValue, setTypeSelectedValue] = useState<SelectOption | undefined>({ name: "Select Type", id: 0 });
+    const [typeSelectedValue, setTypeSelectedValue] = useState<SelectOption | undefined>({ name: "Phân loại sản phẩm", id: 0 });
     const handleOnChangeType = (o: SelectOption | undefined) => {
         setTypeSelectedValue(o)
         setNewItem({

@@ -21,7 +21,6 @@ const Pagination: React.FC<Props> = ({ totalPage, handleCurrentPage }) => {
             setCurrentPage(currentPage);
             handleCurrentPage(currentPage);
         }
-        console.log(currentPage)
     }
     for (let i = 0; i < totalPage; i++) {
         list.push(i + 1)
