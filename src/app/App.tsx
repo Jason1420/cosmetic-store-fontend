@@ -9,6 +9,7 @@ import Login from '../pages/login/Login';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import Payment from '../pages/payment/Payment';
+import Register from '../pages/register/Register';
 
 const App = () => {
   const isLogged = useSelector((state: RootState) => state.auth.logged)
@@ -19,7 +20,9 @@ const App = () => {
       <CustomScrollbars style={{ height: "100vh" }}>
         <Routes>
           {!isLogged &&
-            <Route path={PagePath.LOGIN} element={<Login />}></Route>}
+            <>
+              <Route path={PagePath.LOGIN} element={<Login />}></Route>
+              <Route path={PagePath.REGISTER} element={<Register />}></Route></>}
           {/* Payment */}
           <Route path={PagePath.PAYMENT} element={<Payment />}></Route>
           <Route path='*' element={< MainPage />}></Route >

@@ -154,7 +154,7 @@ const CustomerSupport = () => {
                         id="name"
                         value={formik.values.invoiceCode}
                         onChange={formik.handleChange}
-                        placeholder='VD: 123456789' />
+                        placeholder='VD: INV-20231010-00001' />
                 </div>
                 <div className="input-form ">
                     <label htmlFor="description">Mô tả yêu cầu hỗ trợ</label>

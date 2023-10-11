@@ -14,7 +14,7 @@ import storage from 'redux-persist/lib/storage'
 import { authReducer } from './reducers/authReducer';
 const persistConfig = {
     key: 'root',
-    version: 3,
+    version: 4,
     storage,
 
 }

@@ -20,7 +20,12 @@ interface NewItem {
 
 const Profile = () => {
     const dispatch = useDispatch()
-    const customer = useSelector((state: RootState) => state.auth.customer)
+    const customer = useSelector((state: RootState) => state.auth.customer) || {
+        name: "",
+        email: "",
+        address: "",
+        phoneNumber: ""
+    }
     const userId = useSelector((state: RootState) => state.auth.userDTO.id)
 
 

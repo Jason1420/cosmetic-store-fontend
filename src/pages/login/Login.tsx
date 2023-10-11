@@ -111,7 +111,7 @@ const Login = () => {
                         <button className="btn-primary login-btn"
                             tabIndex={3} onClick={() => handleLogin()}>Đăng nhập</button>
                     </div>
-                    <NavLink tabIndex={4} className="forgot-password text-end" to={PagePath.LOGIN}>Quên mật khẩu?</NavLink>
+                    <NavLink tabIndex={4} className="forgot-password text-end" to={PagePath.REGISTER}>Đăng ký nếu bạn chưa có tài khoản</NavLink>
                 </div>
             </div>
         </div >

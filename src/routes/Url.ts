@@ -17,6 +17,7 @@ export const URL = {
     COUNT_ITEM_BY_TYPE_ID: "http://localhost:8080/api/v1/count-item-by-typeid?typeId=",
     COUNT_ITEM_BY_TYPE_ID_AND_BRAND: "http://localhost:8080/api/v1/count-item-by-typeid-brands",
     LOGIN: "http://localhost:8080/login",
+    REGISTER: "http://localhost:8080/register",
     REFRESH_TOKEN: "http://localhost:8080/refreshToken",
     LOG_OUT: "http://localhost:8080/log-out",
     PAYMENT: "http://localhost:8080/api/v1/payment",

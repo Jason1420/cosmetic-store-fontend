@@ -9,8 +9,9 @@ export const PagePath = {
     GIFT: "/gift",
     BEST_SELLERS: "/best-sellers",
     LOGIN: "/login",
+    REGISTER: "/register",
     CUSTOMER_SUPPORT: "/customer-support",
     SHOWROOM: "/showroom",
     PAYMENT: "/payment",
-    PROFILE: "/profile"
+    PROFILE: "/profile",
 }
