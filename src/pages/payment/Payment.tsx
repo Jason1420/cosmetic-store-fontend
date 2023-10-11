@@ -1,9 +1,9 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './Payment.scss'
 import { useState, useEffect } from 'react'
 import { RootState } from '../../store/store'
 import InputComponent from '../../components/Input/InputComponent'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { PagePath } from '../../routes/Path'
 import cod from "../../assets/payment/code.png"
 import bank from "../../assets/payment/credit-card.png"
@@ -15,6 +15,8 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup';
 import { Invoice } from '../../types/Invoice'
 import { URL } from '../../routes/Url'
+import { toast } from 'react-toastify'
+import { paymentSuccess } from '../../store/reducers/cartReducer'
 
 
 const Payment = () => {
@@ -29,7 +31,8 @@ const Payment = () => {
         customerAddress: "",
         invoiceStatus: false
     })
-
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     const [payment, setPayment] = useState<number>(0)
     const paymenOnChane = (value: number) => {
@@ -86,6 +89,13 @@ const Payment = () => {
                 const paymentURL = URL.PAYMENT;
                 const res = await axios.post(paymentURL, invoice,)
                 console.log(res)
+                if (res.data.code === 200) {
+                    dispatch(paymentSuccess())
+                    navigate(PagePath.HOME)
+                    toast.success("Đặt hàng thành công", {
+                        icon: "✔️"
+                    });
+                }
             } catch (error) {
                 console.log(error)
                 setInvoice({

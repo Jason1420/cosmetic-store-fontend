@@ -42,7 +42,9 @@ const Header = () => {
 
             <div className="header-left" >
                 <div className="header-left__logo">
-                    <NavLink to='/'>
+                    <NavLink to='/' className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }>
                         <img src={logo2} alt="logo" width={45} height={45} />
                         <label className='store-name'>Cosmetic Store</label>
                     </NavLink>
@@ -56,7 +58,9 @@ const Header = () => {
             </div>
 
             <div className="header-right">
-                <NavLink to={PagePath.SHOWROOM}>
+                <NavLink to={PagePath.SHOWROOM} className={({ isActive }) =>
+                    isActive ? "active" : ""
+                }>
                     <div className="header-right__item ">
                         <div className="img">
                             <PiStorefrontDuotone
@@ -68,7 +72,9 @@ const Header = () => {
                         </div>
                     </div>
                 </NavLink>
-                <NavLink to={PagePath.CUSTOMER_SUPPORT}>
+                <NavLink to={PagePath.CUSTOMER_SUPPORT} className={({ isActive }) =>
+                    isActive ? "active" : ""
+                }>
                     <div className="header-right__item ">
                         <div className="img call-item">
                             <LuPhoneCall
@@ -81,7 +87,9 @@ const Header = () => {
                     </div>
                 </NavLink>
                 {cart.totalQuantity > 0 ?
-                    <NavLink to={PagePath.CART}>
+                    <NavLink to={PagePath.CART} className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }>
                         <div className="header-right__item ">
                             <div className="img">
                                 <IoCartOutline />
@@ -95,7 +103,9 @@ const Header = () => {
                             </div>
                         </div>
                     </NavLink> :
-                    <NavLink to={PagePath.CART}>
+                    <NavLink to={PagePath.CART} className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }>
                         <div className="header-right__item ">
                             <div className="img">
                                 <IoCartOutline />
@@ -111,7 +121,9 @@ const Header = () => {
                     </NavLink>
                 }
                 {!auth.logged &&
-                    <NavLink to={PagePath.LOGIN}>
+                    <NavLink to={PagePath.LOGIN} className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }>
                         <div className="header-right__item ">
                             <div className="img">
                                 <i className="fa-regular fa-user"></i>
@@ -125,7 +137,9 @@ const Header = () => {
 
                 }
                 {user.userDTO.roles.includes("MANAGER") &&
-                    <NavLink to={PagePath.UPLOAD}>
+                    <NavLink to={PagePath.UPLOAD} className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }>
                         <div className="header-right__item ">
                             <div className="img">
                                 <i className="fa-regular fa-plus"></i>
@@ -138,10 +152,18 @@ const Header = () => {
                     </NavLink>
                 }
                 {auth.logged &&
-                    <div className="header-right__item ">
-                        <div className="username">
-                            Hello, <NavLink to={PagePath.PROFILE}>{auth.userDTO.username}</NavLink>
+                    <div className="header-right__user ">
+                        <div className="left">
+                            <div className="hello">
+                                Hello,
+                            </div>
+                            <div className="username">
+                                <NavLink to={PagePath.PROFILE} className={({ isActive }) =>
+                                    isActive ? "active" : ""
+                                } >{auth.userDTO.username}</NavLink>
+                            </div>
                         </div>
+
 
                         <div className="logout" onClick={() => handleLogout()}>
                             <BiLogOut />

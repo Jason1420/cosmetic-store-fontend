@@ -11,6 +11,7 @@ const initialState: Cart = {
 
 export const addNewItemToCart = createAction<CartItem>('ADD_ITEM_TO_CART')
 export const decreaseItemFromCart = createAction<CartItem>('DECREASE_ITEM_FROM_CART')
+export const paymentSuccess = createAction('PAYMENT_SUCCESS')
 export const cartReducer = createReducer(initialState, builder => {
     builder
         .addCase(addNewItemToCart, (state, action) => {
@@ -45,6 +46,9 @@ export const cartReducer = createReducer(initialState, builder => {
             } else if (existItem && existItem.quantity === 1) {
                 state.items.splice(state.items.findIndex(v => v.item.id === action.payload.item.id), 1);
             }
+        })
+        .addCase(paymentSuccess, (state) => {
+            return initialState;
         });
 })
 
