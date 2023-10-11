@@ -3,7 +3,7 @@
     margin: 0 auto;
     gap: 3%;
     width: 90%;
-    margin-top: 1%;
+    margin-top: 2%;
     margin-bottom: 3%;
     .classify-left {
         width: 20%;
@@ -15,7 +15,7 @@
             padding: 10px 5px;
             .gift-title {
                 padding-left: 5%;
-                font-size: 18px;
+                font-size: 16px;
                 font-weight: 500;
                 margin-bottom: 2%;
             }
@@ -23,6 +23,7 @@
                 display: flex;
                 flex-direction: column;
                 padding-left: 10%;
+                font-size: 14px;
                 .gift-name {
                     margin-bottom: 3%;
                     cursor: pointer;
@@ -78,6 +79,9 @@
                     display: flex;
                     align-items: center;
                     gap: 3%;
+                    .brand-name {
+                        font-size: 14px;
+                    }
                 }
             }
         }
@@ -89,7 +93,7 @@
             .title {
                 margin-top: 7%;
                 margin-bottom: 4%;
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 500;
             }
             .price-list {
@@ -101,6 +105,9 @@
                     display: flex;
                     align-items: center;
                     gap: 3%;
+                }
+                .price-name {
+                    font-size: 14px;
                 }
             }
             .range-price {
@@ -181,16 +188,17 @@
     .classify-right {
         display: flex;
         flex-direction: column;
-        width: 80%;
+        width: 85%;
         height: 100%;
         gap: 2%;
+        padding-left: 50px;
         .pagination-bar {
             margin: 0 auto;
         }
         .classify-right-list {
             display: flex;
             flex-wrap: wrap;
-
+            gap: 10px;
             .list-item__item {
                 display: flex;
                 flex-direction: column;
@@ -268,7 +276,4 @@ input[type="checkbox"]::before {
 }
 input[type="checkbox"]:checked::before {
     transform: scale(0.6);
-}
-.brand-name {
-    font-size: 16px;
 }

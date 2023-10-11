@@ -3,14 +3,14 @@
     width: 80%;
     margin: 0 auto;
     .all-brands__title {
-        font-size: 28px;
+        font-size: 24px;
         color: #313131;
         padding: 20px 0;
     }
     .all-brands__list {
         display: flex;
         justify-content: space-between;
-        font-size: 28px;
+        font-size: 22px;
         border-top: 1px solid rgb(224, 221, 221);
         border-bottom: 1px solid rgb(224, 221, 221);
         padding: 10px;
@@ -28,17 +28,17 @@
     .all-brands__content {
         .block {
             border-bottom: 1px solid rgb(224, 221, 221);
-            padding-bottom: 40px;
-            padding-top: 20px;
+            padding-bottom: 30px;
+            padding-top: 15px;
             .title {
-                padding: 20px 0;
-                font-size: 24px;
+                padding: 15px 0;
+                font-size: 19px;
                 font-weight: 500;
             }
             .content {
                 display: flex;
                 justify-content: space-between;
-                font-size: 20px;
+                font-size: 17px;
                 .brands {
                     .brand {
                         cursor: pointer;

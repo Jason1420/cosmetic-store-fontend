@@ -160,15 +160,16 @@ const Cart = () => {
                                                     {
                                                         item.price.toLocaleString('en-US').replace(/,/g, '.')} ₫
                                                 </div>
+                                                <div className="add-to-cart">
+                                                    <button onClick={() => handleAddPreferItem(item)}>
+                                                        <BsCart4 />
+                                                        <div className="text">
+                                                            Thêm vào giỏ hàng
+                                                        </div>
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div className="add-to-cart">
-                                                <button onClick={() => handleAddPreferItem(item)}>
-                                                    <BsCart4 />
-                                                    <div className="text">
-                                                        Thêm vào giỏ hàng
-                                                    </div>
-                                                </button>
-                                            </div>
+
                                         </div>
                                     )
                                 })}

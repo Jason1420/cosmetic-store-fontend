@@ -59,7 +59,7 @@
         align-items: center;
         justify-content: center;
         width: 50%;
-        gap: 50px;
+        gap: 40px;
         .header-right__item {
             color: white;
             display: flex;
@@ -70,17 +70,17 @@
             .img {
                 border: 2px solid white;
                 border-radius: 100%;
-                width: 40px;
-                height: 40px;
+                width: 33px;
+                height: 33px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                font-size: 30px;
+                font-size: 25px;
             }
 
             .img-title {
                 line-height: 18px;
-                font-size: 14px;
+                font-size: 13px;
                 text-align: center;
                 width: 70px;
                 font-weight: 500;
@@ -88,15 +88,15 @@
                 color: inherit;
             }
             .call-item {
-                font-size: 25px !important;
+                font-size: 20px !important;
                 padding-top: 3px;
                 padding-right: 2px;
             }
             .call {
-                width: 80px;
+                width: 70px;
             }
             .fa-user {
-                font-size: 22px;
+                font-size: 20px;
             }
             .cart {
                 margin-left: -5px;
@@ -105,16 +105,16 @@
                 .total {
                     position: absolute;
                     left: -14px;
-                    top: -3px;
-                    font-size: 18px;
-                    height: 24px;
-                    width: 24px;
-                    border: 1px solid #76e649;
+                    top: -5px;
+                    font-size: 16px;
+                    height: 20px;
+                    width: 20px;
+                    border: 1px solid #f8c5ee;
                     border-radius: 100%;
-                    background-color: #76e649;
+                    background-color: #f8c5ee;
                     margin: 0 auto;
                     text-align: center;
-                    color: rgb(249, 240, 240);
+                    color: rgb(49, 48, 48);
                     padding-top: 1px;
                     padding-left: 1px;
                     cursor: pointer;
@@ -152,17 +152,18 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            gap: 10px;
+            gap: 5px;
 
             .left {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 .hello {
+                    font-size: 13px;
                 }
                 .username {
                     line-height: 18px;
-                    font-size: 14px;
+                    font-size: 13px;
                     text-align: center;
                     width: 70px;
                     font-weight: 500;
@@ -177,7 +178,7 @@
                         color: white;
                     }
                     a:hover {
-                        color: #14f96c;
+                        color: #f8c5ee;
                     }
                 }
             }

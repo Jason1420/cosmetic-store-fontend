@@ -133,10 +133,10 @@ const CustomerSupport = () => {
                         placeholder='Họ và tên' />
                 </div>
                 <div className="input-form ">
-                    <label htmlFor="name">Liên hệ</label>
+                    <label htmlFor="contact">Liên hệ</label>
                     <input type="text"
                         className="form-control "
-                        id="name"
+                        id="contact"
                         value={formik.values.contact}
                         onChange={formik.handleChange}
                         placeholder='Email hoặc SĐT' />
@@ -148,10 +148,10 @@ const CustomerSupport = () => {
 
                 </div>
                 <div className="input-form ">
-                    <label htmlFor="name">Mã đơn hàng</label>
+                    <label htmlFor="invoiceCode">Mã đơn hàng</label>
                     <input type="text"
                         className="form-control "
-                        id="name"
+                        id="invoiceCode"
                         value={formik.values.invoiceCode}
                         onChange={formik.handleChange}
                         placeholder='VD: INV-20231010-00001' />

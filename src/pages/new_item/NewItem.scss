@@ -7,7 +7,7 @@
     margin-top: 1%;
     margin-bottom: 3%;
     .title {
-        font-size: 40px;
+        font-size: 32px;
         font-weight: 500;
         margin: 0 auto;
         color: #3e4048;
@@ -28,7 +28,7 @@
             margin-bottom: 4%;
             .list-item__item-image {
                 display: flex;
-                height: 60%;
+                height: 50%;
                 width: 100%;
                 justify-content: center;
                 cursor: pointer;
@@ -43,7 +43,7 @@
                 flex-direction: column;
                 .list-item__item-brand {
                     color: #242527;
-                    font-size: 16px;
+                    font-size: 15px;
                     cursor: pointer;
                 }
                 .list-item__item-name {
@@ -63,13 +63,13 @@
                     color: #f9758f;
                 }
                 .list-item__item-rating {
-                    margin: 10px 0;
+                    margin: 8px 0;
 
                     display: flex;
-                    font-size: 13px;
+                    font-size: 12px;
                 }
                 .list-item__item-price {
-                    font-size: 17px;
+                    font-size: 15px;
                     font-weight: 500;
                 }
             }

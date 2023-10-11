@@ -10,7 +10,7 @@
         .detail-top__image {
             width: 55%;
             img {
-                width: 90%;
+                width: 80%;
                 text-align: center;
                 padding: 5% 5%;
             }
@@ -24,16 +24,16 @@
             gap: 2%;
             .brand {
                 color: #1887db;
-                font-size: 20px;
+                font-size: 18px;
                 font-weight: 500;
                 cursor: pointer;
             }
             .name {
-                font-size: 24px;
+                font-size: 20px;
                 font-weight: 500;
             }
             .rating {
-                font-size: 14px;
+                font-size: 12px;
                 display: flex;
                 align-items: center;
                 gap: 2%;
@@ -51,14 +51,14 @@
                 }
             }
             .price {
-                font-size: 28px;
+                font-size: 24px;
                 font-weight: 500;
                 padding: 2% 0;
             }
             .coupon {
                 background-color: rgb(229, 247, 252);
                 border-radius: 5px;
-                font-size: 16px;
+                font-size: 14px;
                 padding: 1% 1%;
             }
             .policy {
@@ -73,10 +73,10 @@
                     text-align: center;
                     padding: 0 7%;
                     .image {
-                        font-size: 30px;
+                        font-size: 25px;
                     }
                     .description {
-                        font-size: 15px;
+                        font-size: 13px;
                         color: #777777;
                     }
                 }
@@ -84,24 +84,24 @@
             .address {
                 display: flex;
                 align-items: center;
-                height: 50px;
+                height: 40px;
                 border: 1px solid #f3f0f0;
                 border-radius: 8px;
                 font-size: 18px;
                 .icon {
-                    font-size: 25px;
+                    font-size: 20px;
                     margin-left: 1%;
                     padding-bottom: 7px;
                 }
                 .locate {
                     color: #777777;
-                    font-size: 17px;
+                    font-size: 15px;
                     margin-left: 1%;
                     align-items: center;
                 }
                 .caret {
                     margin-left: auto;
-                    font-size: 25px;
+                    font-size: 20px;
                 }
             }
             .submit {
@@ -111,7 +111,7 @@
 
                 .add-to-cart {
                     width: 70%;
-                    font-size: 20px;
+                    font-size: 18px;
                     button {
                         display: flex;
                         justify-content: center;
@@ -123,10 +123,10 @@
                         border: 0px;
                         border-radius: 8px;
                         height: 100%;
-                        padding: 2% 0;
+                        padding: 1% 0;
                         .icon {
                             padding-bottom: 1%;
-                            font-size: 25px !important;
+                            font-size: 20px !important;
                         }
                     }
                     // button:hover {
@@ -134,26 +134,26 @@
                     // }
                     button:active {
                         opacity: 0.85;
-                        font-size: 21px;
+                        font-size: 19px;
                         transition: all 0.1s ease;
                     }
                 }
                 .like-item {
                     width: 30%;
-                    font-size: 20px;
+                    font-size: 18px;
                     button {
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         width: 100%;
                         height: 100%;
-                        padding: 2% 0;
+                        padding: 1% 0;
                         gap: 1%;
                         border: 0px;
                         border-radius: 8px;
                         .icon {
                             padding-bottom: 1%;
-                            font-size: 25px !important;
+                            font-size: 20px !important;
                         }
                     }
                 }

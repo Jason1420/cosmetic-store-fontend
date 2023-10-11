@@ -6,6 +6,7 @@ import { URL } from '../../routes/Url';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import * as Yup from 'yup';
+import { toast } from 'react-toastify';
 
 interface NewItem {
     id?: number,
@@ -55,6 +56,11 @@ const Profile = () => {
                 }
                 const changeCustomerInfo = URL.CHANGE_CUSTOMER_INFO;
                 const res = await axios.put(changeCustomerInfo, newInfo,)
+                if (res.data.code === 200) {
+                    toast.success("Thay đổi thông tin thành công", {
+                        icon: "✔️"
+                    });
+                }
             } catch (error) {
                 console.log(error)
             }

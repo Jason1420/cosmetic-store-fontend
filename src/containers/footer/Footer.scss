@@ -4,6 +4,7 @@
     margin: 0 auto;
     width: 100%;
     padding-bottom: 10px;
+    border-top: 2px dashed white;
     .footer-left {
         width: 30%;
         display: flex;
@@ -12,16 +13,16 @@
         align-items: center;
         color: white;
         .title {
-            font-size: 30px;
+            font-size: 25px;
         }
         .introduce {
-            font-size: 14px;
+            font-size: 13px;
             font-style: italic;
         }
         .qr-code {
             img {
-                height: 130px;
-                width: 130px;
+                height: 110px;
+                width: 110px;
             }
         }
         .hotline {
@@ -36,7 +37,7 @@
         justify-content: space-around;
         color: white;
         .title-list {
-            font-size: 25px;
+            font-size: 20px;
             font-weight: 500;
             margin-bottom: 10px;
         }
@@ -47,7 +48,7 @@
             a {
                 text-decoration: none;
                 color: white;
-                font-size: 15px;
+                font-size: 13px;
                 font-style: italic;
             }
         }
