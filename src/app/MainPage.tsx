@@ -21,6 +21,7 @@ import { RootState } from '../store/store'
 import EmptyCart from '../pages/cart/EmptyCart'
 import ShowRoom from '../pages/showroom/ShowRoom'
 import Payment from '../pages/payment/Payment'
+import Profile from '../pages/profile/Profile'
 
 const MainPage = () => {
 
@@ -49,6 +50,9 @@ const MainPage = () => {
                     <Route path={PagePath.UPLOAD} element={<UploadItem />} ></Route>
                     {/* Support for customer  page */}
                     <Route path={PagePath.CUSTOMER_SUPPORT} element={<CustomerSupport />} ></Route>
+                    {/* Profile */}
+                    <Route path={PagePath.PROFILE} element={<Profile />} ></Route>
+
                     {/* Navbar */}
                     <Route path={PagePath.HOT_DEAL} element={<HotDeal handleLoading={setContentLoading} />}></Route>
                     <Route path={PagePath.ALL_BRANDS} element={<AllBrands />}></Route>

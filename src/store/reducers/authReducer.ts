@@ -1,12 +1,15 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
+import { Customer } from '../../types/Customer'
 
 export interface UserLogin {
     accessToken: string,
     userDTO: {
         id: number | null,
         username: string,
-        roles: string[]
+        roles: string[],
+
     }
+    customer: Customer,
     logged: boolean
 
 }
@@ -16,7 +19,14 @@ const initialState: UserLogin = {
     userDTO: {
         id: null,
         username: "",
-        roles: [""]
+        roles: [""],
+
+    },
+    customer: {
+        name: "",
+        email: "",
+        address: "",
+        phoneNumber: ""
     },
     logged: false
 }
@@ -32,7 +42,8 @@ export const authReducer = createReducer(initialState, builder => {
                 ...copyState,
                 accessToken: action.payload.accessToken,
                 userDTO: action.payload.userDTO,
-                logged: true
+                logged: true,
+                customer: action.payload.customer
             }
             return { ...state, ...copyState }
         })

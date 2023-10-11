@@ -20,6 +20,7 @@ import { URL } from '../../routes/Url'
 const Payment = () => {
     const cart = useSelector((state: RootState) => state.cart)
     const user = useSelector((state: RootState) => state.auth)
+    const customer = useSelector((state: RootState) => state.auth.customer)
     const [invoice, setInvoice] = useState<Invoice>({
         cartItem: cart,
         customerName: "",
@@ -53,10 +54,10 @@ const Payment = () => {
 
     const formik = useFormik({
         initialValues: {
-            fullName: "",
-            email: "",
-            address: "",
-            phoneNumber: "",
+            fullName: customer ? customer.name : "",
+            email: customer ? customer.email : "",
+            address: customer ? customer.address : "",
+            phoneNumber: customer ? customer.phoneNumber : "",
         },
         validationSchema: Yup.object({
             fullName: Yup.string().required(`Vui lòng nhập họ và tên`).matches(/^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]+$/

@@ -11,5 +11,6 @@ export const PagePath = {
     LOGIN: "/login",
     CUSTOMER_SUPPORT: "/customer-support",
     SHOWROOM: "/showroom",
-    PAYMENT: "/payment"
+    PAYMENT: "/payment",
+    PROFILE: "/profile"
 }

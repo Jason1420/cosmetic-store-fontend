@@ -140,7 +140,7 @@ const Header = () => {
                 {auth.logged &&
                     <div className="header-right__item ">
                         <div className="username">
-                            Hello, <a>{auth.userDTO.username}</a>
+                            Hello, <NavLink to={PagePath.PROFILE}>{auth.userDTO.username}</NavLink>
                         </div>
 
                         <div className="logout" onClick={() => handleLogout()}>

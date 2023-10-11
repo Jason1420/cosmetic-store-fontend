@@ -135,6 +135,10 @@
                 color: white;
                 a {
                     text-decoration: underline;
+                    color: white;
+                }
+                a:hover {
+                    color: #14f96c;
                 }
             }
             .logout {
