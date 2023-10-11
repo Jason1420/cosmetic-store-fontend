@@ -1,0 +1,48 @@
+.showroom-container {
+    .showroom-top {
+        background-image: url("../../assets/banner/cover.webp");
+        height: 300px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .showroom-bottom {
+        width: 80%;
+        margin: 0 auto;
+        border: 1px solid black;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .showroom {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            .image {
+                img {
+                    width: 100%;
+                    height: 90%;
+                }
+            }
+
+            .name {
+            }
+
+            .location {
+            }
+
+            .hotline {
+            }
+
+            .email {
+            }
+
+            .open-day {
+            }
+
+            .open-time {
+            }
+        }
+    }
+}

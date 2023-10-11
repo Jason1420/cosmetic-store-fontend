@@ -68,65 +68,84 @@ const Profile = () => {
     });
 
     return (
+        // <div className="profile-container">
+        //     <div className="title">
+        //         Thông tin cá nhân
+        //     </div>
+        //     <div className="form-add-item">
+        //         <div className="input-form ">
+        //             <label htmlFor="fullName">Họ và tên</label>
+        //             {formik.errors.fullName &&
+        //                 <label className="formik-error ">{formik.errors.fullName}</label>}
+        //             <input type="text"
+        //                 className="form-control "
+        //                 id="fullName"
+        //                 value={formik.values.fullName}
+        //                 onChange={formik.handleChange} />
+        //         </div>
+
+        //         <div className="input-form ">
+        //             <label htmlFor="email">Email</label>
+        //             {formik.errors.email &&
+        //                 <label className="formik-error ">{formik.errors.email}</label>}
+        //             <input type="text"
+        //                 className="form-control "
+        //                 id="email"
+        //                 value={formik.values.email}
+        //                 onChange={formik.handleChange} />
+        //         </div>
+
+        //         <div className="input-form ">
+        //             <label htmlFor="address">Địa chỉ</label>
+        //             {formik.errors.address &&
+        //                 <label className="formik-error ">{formik.errors.address}</label>}
+        //             <input type="text"
+        //                 className="form-control "
+        //                 id="address"
+        //                 value={formik.values.address}
+        //                 onChange={formik.handleChange} />
+        //         </div>
+
+        //         <div className="input-form ">
+        //             <label htmlFor="phoneNumber">Số điện thoại</label>
+        //             {formik.errors.phoneNumber &&
+        //                 <label className="formik-error ">{formik.errors.phoneNumber}</label>}
+        //             <input type="text"
+        //                 className="form-control "
+        //                 id="phoneNumber"
+        //                 value={formik.values.phoneNumber}
+        //                 onChange={formik.handleChange} />
+        //         </div>
+
+        //         <div className="end-form">
+        //             <button className='button-custom'
+        //                 type='submit'
+        //                 onClick={() => formik.handleSubmit()}>
+        //                 Lưu thông tin
+        //             </button>
+        //         </div>
+        //     </div>
+        // </div>
         <div className="profile-container">
-            <div className="title">
-                Thông tin cá nhân
+            <div className="profile-left">
+                <div className="general-info">
+
+                </div>
+                <div className="historical-pay">
+
+                </div>
+                <div className="account">
+
+                </div>
+                <div className="item">
+
+                </div>
+                <div className="additional-info">
+
+                </div>
             </div>
-            <div className="form-add-item">
-                <div className="input-form ">
-                    <label htmlFor="fullName">Họ và tên</label>
-                    {formik.errors.fullName &&
-                        <label className="formik-error ">{formik.errors.fullName}</label>}
-                    <input type="text"
-                        className="form-control "
-                        id="fullName"
-                        value={formik.values.fullName}
-                        onChange={formik.handleChange} />
-                </div>
+            <div className="profile-right">
 
-                <div className="input-form ">
-                    <label htmlFor="email">Email</label>
-                    {formik.errors.email &&
-                        <label className="formik-error ">{formik.errors.email}</label>}
-                    <input type="text"
-                        className="form-control "
-                        id="email"
-                        value={formik.values.email}
-                        onChange={formik.handleChange} />
-                </div>
-
-                <div className="input-form ">
-                    <label htmlFor="address">Địa chỉ</label>
-                    {formik.errors.address &&
-                        <label className="formik-error ">{formik.errors.address}</label>}
-                    <input type="text"
-                        className="form-control "
-                        id="address"
-                        value={formik.values.address}
-                        onChange={formik.handleChange} />
-                </div>
-
-                <div className="input-form ">
-                    <label htmlFor="phoneNumber">Số điện thoại</label>
-                    {formik.errors.phoneNumber &&
-                        <label className="formik-error ">{formik.errors.phoneNumber}</label>}
-                    <input type="text"
-                        className="form-control "
-                        id="phoneNumber"
-                        value={formik.values.phoneNumber}
-                        onChange={formik.handleChange} />
-                </div>
-
-
-
-
-                <div className="end-form">
-                    <button className='button-custom'
-                        type='submit'
-                        onClick={() => formik.handleSubmit()}>
-                        Lưu thông tin
-                    </button>
-                </div>
             </div>
         </div>
     );
