@@ -48,7 +48,7 @@ const HotDeal: React.FC<Props> = ({ handleLoading }) => {
         <div className='hot-deal-container'>
             {isLoading ? <div className="title">...Loading</div> :
                 <>
-                    <div className="title">Hot Deal</div>
+                    <div className="title hot-deal-animation">Hot Deal</div>
                     <div className="hot-deal-list">
                         {pageItem &&
                             pageItem.map((item, index) => {

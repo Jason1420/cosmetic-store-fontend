@@ -22,6 +22,7 @@ import EmptyCart from '../pages/cart/EmptyCart'
 import ShowRoom from '../pages/showroom/ShowRoom'
 import Payment from '../pages/payment/Payment'
 import Profile from '../pages/profile/Profile'
+import SearchInvoice from '../pages/search_invoice/SearchInvoice'
 
 const MainPage = () => {
 
@@ -59,6 +60,7 @@ const MainPage = () => {
                     <Route path={PagePath.NEW_ITEM} element={<NewItem handleLoading={setContentLoading} />}></Route>
                     <Route path={PagePath.BEST_SELLERS} element={<BestSellers handleLoading={setContentLoading} />}></Route>
                     <Route path={PagePath.GIFT} element={<Gift handleLoading={setContentLoading} />}></Route>
+                    <Route path={PagePath.SEARCH_INVOICE} element={<SearchInvoice />}></Route>
 
                     {/* Cart */}
                     {cart.totalQuantity === 0 ? <Route path={PagePath.CART} element={<EmptyCart />}></Route> :

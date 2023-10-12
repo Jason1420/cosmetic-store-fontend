@@ -14,4 +14,5 @@ export const PagePath = {
     SHOWROOM: "/showroom",
     PAYMENT: "/payment",
     PROFILE: "/profile",
+    SEARCH_INVOICE: "/invoice",
 }

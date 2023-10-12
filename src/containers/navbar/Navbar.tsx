@@ -103,9 +103,13 @@ const Navbar = () => {
 
             <div className="navbar-right container">
                 <div className="navbar-right__item">
-                    <div className="title">
-                        Tra cứu đơn hàng
-                    </div>
+                    <NavLink to={PagePath.SEARCH_INVOICE} className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }>
+                        <div className="title">
+                            Tra cứu đơn hàng
+                        </div>
+                    </NavLink>
                 </div>
 
                 <div className="location">

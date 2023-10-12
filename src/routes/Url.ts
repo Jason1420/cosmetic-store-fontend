@@ -23,4 +23,6 @@ export const URL = {
     PAYMENT: "http://localhost:8080/api/v1/payment",
     CHANGE_CUSTOMER_INFO: "http://localhost:8080/info",
     GET_ALL_INVOICE: "http://localhost:8080/api/v1/getSomeInvoice",
+    SEARCH_INVOICE_BY_CODE: "http://localhost:8080/api/v1/invoice"
+
 }

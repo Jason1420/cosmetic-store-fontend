@@ -6,6 +6,21 @@
     width: 90%;
     margin-top: 1%;
     margin-bottom: 3%;
+    @media (prefers-reduced-motion: no-preference) {
+        .hot-deal-animation {
+            animation: App-logo-spin infinite 2s alternate-reverse;
+        }
+    }
+    @keyframes App-logo-spin {
+        from {
+            color: black;
+            opacity: 1;
+        }
+        to {
+            color: #f9758f;
+            opacity: 1;
+        }
+    }
     .title {
         font-size: 32px;
         font-weight: 500;
