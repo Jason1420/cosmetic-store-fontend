@@ -97,9 +97,13 @@ const Cart = () => {
                         cart.items.map((item, index) => {
                             return (
                                 <div className="cart-item" key={index}>
-                                    <div className="cart-item__image">
-                                        <img src={item.item.image} alt="" />
-                                    </div>
+                                    {item.item.image &&
+                                        <div className="cart-item__image">
+                                            <NavLink to={`${PagePath.ITEM}/${item.item.id}`}>
+                                                <img className="image" src={item.item.image} alt="" />
+                                            </NavLink>
+                                        </div>
+                                    }
                                     <div className="cart-item__info">
                                         <div className="info__name">
                                             {item.item.name}

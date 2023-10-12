@@ -7,29 +7,100 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 30px;
+        box-shadow: 0 1px 1px gray;
+        margin-bottom: 40px;
+        .title {
+            font-size: 32px;
+            color: white;
+            z-index: 2;
+        }
+        .search-bar {
+            display: flex;
+            position: relative;
+            z-index: 2;
+            input {
+                width: 500px;
+                height: 40px;
+                outline: none;
+                border: 0px;
+                font-size: 15px;
+            }
+            .location-icon {
+                height: 40px;
+                width: 35px;
+                outline: none;
+                font-size: 20px;
+                cursor: pointer;
+                background-color: white;
+                outline: none;
+                border-bottom-left-radius: 8px;
+                border-top-left-radius: 8px;
+                text-align: center;
+                padding-top: 2px;
+            }
+            .search-icon {
+                height: 40px;
+                width: 55px;
+                outline: none;
+                font-size: 20px;
+                cursor: pointer;
+                background-color: white;
+                outline: none;
+                border-bottom-right-radius: 8px;
+                border-top-right-radius: 8px;
+                border-left: 1px solid rgb(218, 212, 212);
+                text-align: center;
+                padding-top: 2px;
+            }
+        }
+    }
+
+    .showroom-top::before {
+        content: "";
+        position: absolute;
+        height: 200px;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        height: 300px;
+        background: rgba(0, 0, 0, 0.2); /* Màu đen với độ trong suốt 0.5 */
+        z-index: 1; /* Đảm bảo lớp này nằm trên hình ảnh */
     }
     .showroom-bottom {
         width: 80%;
         margin: 0 auto;
-        border: 1px solid black;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+
         .showroom {
             width: 45%;
             display: flex;
             flex-direction: column;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 1px 1px 1px 1px gainsboro;
+            border-left: 1px solid gainsboro;
+            padding: 20px 20px;
             .image {
+                margin: -20px -20px;
+
                 img {
                     width: 100%;
                     height: 90%;
+                    border-radius: 8px;
                 }
+                margin-bottom: -15px;
             }
 
             .name {
+                font-size: 18px;
             }
 
             .location {
+                font-size: 16px;
+                font-weight: 400;
             }
 
             .hotline {

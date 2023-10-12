@@ -21,5 +21,6 @@ export const URL = {
     REFRESH_TOKEN: "http://localhost:8080/refreshToken",
     LOG_OUT: "http://localhost:8080/log-out",
     PAYMENT: "http://localhost:8080/api/v1/payment",
-    CHANGE_CUSTOMER_INFO: "http://localhost:8080/info"
+    CHANGE_CUSTOMER_INFO: "http://localhost:8080/info",
+    GET_ALL_INVOICE: "http://localhost:8080/api/v1/getSomeInvoice",
 }

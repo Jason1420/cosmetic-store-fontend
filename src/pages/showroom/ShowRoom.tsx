@@ -20,9 +20,13 @@ const ShowRoom = () => {
                     Danh sách cửa hàng
                 </div>
                 <div className="search-bar">
-                    <IoLocationOutline />
+                    <div className="location-icon">
+                        <IoLocationOutline />
+                    </div>
                     <input type="text " placeholder='Tìm kiếm theo địa chỉ hoặc tên cửa hàng' />
-                    <GoSearch />
+                    <div className="search-icon">
+                        <GoSearch />
+                    </div>
                 </div>
             </div>
             <div className="showroom-bottom">

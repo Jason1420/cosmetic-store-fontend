@@ -1,0 +1,229 @@
+.order-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .order-top {
+        border-bottom: 1px solid rgb(209, 211, 214);
+        padding: 12px 0;
+        display: flex;
+        gap: 25px;
+        padding-left: 20px;
+        button {
+            height: 100%;
+            border: 0px;
+            font-size: 14px;
+            text-decoration: none;
+            color: rgb(104, 104, 105);
+            background-color: white;
+        }
+        button:hover {
+            color: rgb(255, 0, 51);
+        }
+        .active {
+            color: rgb(255, 0, 51);
+        }
+    }
+    .order-bottom {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-bottom: 20px;
+        .invoice {
+            background: rgb(245, 246, 246);
+            border: 0px;
+            box-shadow: 1px 1px 1px rgb(171, 170, 170);
+            border-radius: 8px;
+            width: 45%;
+            margin: 20px 0;
+            padding: 10px 0 10px 10px;
+            position: relative;
+            .code {
+                display: flex;
+                padding: 0 5px;
+                gap: 5px;
+                .left {
+                    font-size: 14px;
+                    min-width: 15%;
+                    font-weight: bold;
+                }
+                .right {
+                    font-size: 14px;
+                }
+            }
+            .name {
+                display: flex;
+                padding: 0 5px;
+                gap: 5px;
+                .left {
+                    font-size: 14px;
+                    min-width: 15%;
+                    font-weight: bold;
+                }
+                .right {
+                    font-size: 14px;
+                }
+            }
+            .email {
+                display: flex;
+                padding: 0 5px;
+                gap: 5px;
+                .left {
+                    font-size: 14px;
+                    min-width: 15%;
+                    font-weight: bold;
+                }
+                .right {
+                    font-size: 14px;
+                }
+            }
+            .phone {
+                display: flex;
+                padding: 0 5px;
+                gap: 5px;
+                .left {
+                    font-size: 14px;
+                    min-width: 15%;
+                    font-weight: bold;
+                }
+                .right {
+                    font-size: 14px;
+                }
+            }
+            .address {
+                display: flex;
+                padding: 0 5px;
+                gap: 5px;
+                .left {
+                    font-size: 14px;
+                    min-width: 15%;
+                    font-weight: bold;
+                }
+                .right {
+                    font-size: 14px;
+                }
+            }
+            .quantity {
+                display: flex;
+                padding: 0 5px;
+                gap: 5px;
+                .left {
+                    font-size: 14px;
+                    min-width: 15%;
+                    font-weight: bold;
+                }
+                .right {
+                    font-size: 14px;
+                }
+            }
+            .price {
+                display: flex;
+                padding: 0 5px;
+                gap: 5px;
+                .left {
+                    font-size: 14px;
+                    min-width: 15%;
+                    font-weight: bold;
+                }
+                .right {
+                    font-size: 14px;
+                }
+            }
+
+            .status {
+                position: absolute;
+                top: 0;
+                right: 0;
+                font-size: 13px;
+                color: white;
+                background-color: rgb(181, 119, 5);
+                border-top-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+                border: 0px;
+                padding: 2px 4px;
+                font-weight: 500;
+            }
+            .notPaid {
+                color: white;
+                background-color: rgb(181, 119, 5);
+                border-top-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+                border: 0px;
+                padding: 2px 4px;
+                font-weight: 500;
+            }
+            .paid {
+                color: rgb(255, 255, 255);
+                background-color: rgb(5, 156, 167);
+                border-top-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+                border: 0px;
+                padding: 2px 4px;
+                font-weight: 500;
+            }
+            .canceled {
+                color: rgb(255, 255, 255);
+                background-color: rgb(175, 10, 18);
+                border-top-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+                border: 0px;
+                padding: 2px 4px;
+                font-weight: 500;
+            }
+            .given {
+                color: rgb(240, 244, 241);
+                background-color: rgb(4, 177, 91);
+                border-top-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+                border: 0px;
+                padding: 2px 4px;
+                font-weight: 500;
+            }
+            .wait {
+                color: rgb(255, 255, 255);
+                background-color: rgb(177, 168, 9);
+                border-top-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+                border: 0px;
+                padding: 2px 4px;
+                font-weight: 500;
+            }
+            .return {
+                color: rgb(244, 239, 239);
+                background-color: rgb(161, 6, 133);
+                border-top-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+                border: 0px;
+                padding: 2px 4px;
+                font-weight: 500;
+            }
+        }
+        .no-result {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .icon {
+                color: rgb(219, 215, 215);
+                font-size: 150px;
+            }
+            .text {
+                margin-top: -25px;
+                color: rgb(166, 164, 164);
+                font-size: 17px;
+                font-weight: 600;
+            }
+            button {
+                margin-top: 10px;
+                border: 0px;
+                background-color: black;
+                font-size: 14px;
+                font-weight: 600;
+                color: rgb(235, 231, 231);
+                border-radius: 8px;
+                padding: 8px 25px;
+            }
+        }
+    }
+}

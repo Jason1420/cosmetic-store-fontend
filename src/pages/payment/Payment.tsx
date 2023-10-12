@@ -17,6 +17,7 @@ import { Invoice } from '../../types/Invoice'
 import { URL } from '../../routes/Url'
 import { toast } from 'react-toastify'
 import { paymentSuccess } from '../../store/reducers/cartReducer'
+import { InvoiceStatus } from '../../constant/Constant'
 
 
 const Payment = () => {
@@ -29,13 +30,13 @@ const Payment = () => {
         customerEmail: "",
         customerPhoneNumber: "",
         customerAddress: "",
-        invoiceStatus: false
+        status: false
     })
     const dispatch = useDispatch();
     const navigate = useNavigate()
 
-    const [payment, setPayment] = useState<number>(0)
-    const paymenOnChane = (value: number) => {
+    const [payment, setPayment] = useState<string>("cod")
+    const paymenOnChane = (value: string) => {
         setPayment(value)
     }
 
@@ -61,6 +62,7 @@ const Payment = () => {
             email: customer ? customer.email : "",
             address: customer ? customer.address : "",
             phoneNumber: customer ? customer.phoneNumber : "",
+            invoiceStatus: InvoiceStatus.NOT_PAID,
         },
         validationSchema: Yup.object({
             fullName: Yup.string().required(`Vui lòng nhập họ và tên`).matches(/^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]+$/
@@ -78,7 +80,8 @@ const Payment = () => {
                 customerEmail: formik.values.email,
                 customerPhoneNumber: formik.values.phoneNumber,
                 customerAddress: `${formik.values.address}, ${wardSelected?.id != 0 ? wardSelected?.name + ", " : ""}${districtSelected?.id != 0 ? districtSelected?.name + ", " : ""}${provinceSelected?.id != 0 ? provinceSelected?.name : ""}`,
-                invoiceStatus: true,
+                status: true,
+                invoiceStatus: payment === "bank" ? InvoiceStatus.PAID : InvoiceStatus.NOT_PAID,
             })
         },
     });
@@ -100,11 +103,11 @@ const Payment = () => {
                 console.log(error)
                 setInvoice({
                     ...invoice,
-                    invoiceStatus: false
+                    status: false,
                 })
             }
         }
-        if (invoice.invoiceStatus) {
+        if (invoice.status) {
             payment()
         }
     }, [invoice])
@@ -268,13 +271,13 @@ const Payment = () => {
 
                         <div className="cod">
                             <div className="text">
-                                <input type="radio" id='cod' name='payment' value={0} checked={payment === 0}
-                                    onChange={(event) => paymenOnChane(0)} />
+                                <input type="radio" id='cod' name='payment' value={"cod"} checked={payment === "cod"}
+                                    onChange={(event) => paymenOnChane("cod")} />
                                 <img src={cod} alt="" />
                                 <label htmlFor="cod">COD (Thanh toán khi nhận hàng)</label>
                             </div>
                         </div>
-                        {payment === 0 &&
+                        {payment === "cod" &&
                             <div className="cod-detail">
                                 <label htmlFor="">Với đơn nội thành Hồ Chí Minh, bạn sẽ nhận được hàng trong vòng 2 giờ.
                                 </label>
@@ -288,14 +291,14 @@ const Payment = () => {
 
                             </div>
                             <div className="text">
-                                <input type="radio" id='bank' name='payment' value={1}
-                                    onChange={(event) => paymenOnChane(1)} />
+                                <input type="radio" id='bank' name='payment' value={"bank"}
+                                    onChange={(event) => paymenOnChane("bank")} />
                                 <img src={bank} alt="" />
                                 <label htmlFor="bank">Chuyển khoản qua ngân hàng</label>
 
                             </div>
                         </div>
-                        {payment === 1 &&
+                        {payment === "bank" &&
                             <div className="bank-detail">
                                 <label htmlFor="">
                                     * Sacombank - TRUONG THANH HAI - 060287605202 - PGD TPHCM
@@ -317,7 +320,7 @@ const Payment = () => {
 
                             </div>
                             <div className="text">
-                                <input type="radio" id='card' name='payment' value={2} onChange={(event) => paymenOnChane(2)} />
+                                <input type="radio" id='card' name='payment' value={"atm"} onChange={(event) => paymenOnChane("atm")} />
                                 <img src={pay} alt="" />
                                 <label htmlFor="card">Thẻ ATM/Visa/Master/JCB/QR Pay qua cổng VNPAY</label>
 

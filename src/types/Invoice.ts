@@ -8,5 +8,6 @@ export interface Invoice {
     customerPhoneNumber: string,
     customerAddress: string,
     customerUsername?: string | null,
-    invoiceStatus: boolean // false - pending, true - created
+    status: boolean // false - pending, true - created,
+    invoiceStatus?: string
 }
