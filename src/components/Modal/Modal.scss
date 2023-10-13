@@ -1,0 +1,39 @@
+.ReactModal__Content.ReactModal__Content--after-open {
+    margin: 0 auto;
+    position: absolute;
+    inset: 40px;
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(255, 255, 255);
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    width: 400px;
+    height: 200px;
+    top: 30%;
+}
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+    position: fixed;
+    inset: none;
+}
+.modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: var(--bs-modal-padding);
+    color: red;
+    font-style: italic;
+}
+.modal-title {
+    margin-bottom: 0;
+    line-height: var(--bs-modal-title-line-height);
+    color: red;
+}
+button.btn.btn-primary {
+    color: white;
+    background-color: red;
+    outline: none;
+    border: 0px;
+}
+button.btn.btn-primary:hover {
+    background-color: rgba(255, 0, 0, 0.7);
+}

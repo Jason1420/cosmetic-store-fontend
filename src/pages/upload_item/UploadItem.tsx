@@ -21,9 +21,12 @@ interface NewItem {
     status: string | undefined
 }
 
-const UploadItem = () => {
+interface Props {
+    handleLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+const UploadItem: React.FC<Props> = ({ handleLoading }) => {
 
-
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const [brands, setBrands] = useState<SelectOption[]>([])
     const [brandSelectedValue, setBrandSelectedValue] = useState<SelectOption | undefined>({ name: "Chọn nhãn hàng", id: 0 });
     const handleOnChangeBrand = (o: SelectOption | undefined) => {
@@ -131,6 +134,9 @@ const UploadItem = () => {
         getDefaultData()
 
     }, [])
+    useEffect(() => {
+        handleLoading(isLoading)
+    }, [isLoading])
     return (
         <div className="upload-item-container">
             <div className="title">

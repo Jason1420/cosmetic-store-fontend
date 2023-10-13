@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@700&family=Inter:wght@500&family=Nunito+Sans:opsz,wght@6..12,500&display=swap");
+
 .customer-support-container {
     height: 100%;
     width: 100%;
@@ -5,19 +7,41 @@
     flex-direction: column;
     font-family: "CircularStd", sans-serif;
     padding: 10px -5px 0px 5px;
-    background: rgb(245, 246, 246);
+    // background: rgb(245, 246, 246);
     height: 100vh;
+    font-family: "Inter", sans-serif;
     .title {
         font-size: 32px;
         font-weight: 500;
-        padding-left: 7%;
         padding-top: 10px;
         color: #3e4048;
-        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        // font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        margin: 0 auto;
+        text-align: center;
+        font-weight: bold;
+    }
+    .sub-title {
+        font-size: 16px;
+        width: 40%;
+        text-align: center;
+        margin: 0 auto;
+        font-weight: normal;
+        color: #39393a;
+    }
+    .detail {
+        font-size: 14px;
+        width: 50%;
+        margin: 0 auto;
+        font-weight: normal;
+        border-bottom: 1px solid #cfd0d3;
+        color: #535458;
+        margin-top: 30px;
+        margin-bottom: 15px;
     }
     .form-add-item {
-        width: 80%;
-        margin-left: 10%;
+        width: 65%;
+        margin: 0 auto;
+
         display: column;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -25,7 +49,7 @@
         .input-form {
             width: 49%;
             margin: 3px auto;
-            font-size: 16px;
+            font-size: 14px;
             .input-title {
                 display: flex;
                 justify-content: space-between;
@@ -47,7 +71,7 @@
             background-color: rgb(247, 247, 247);
         }
         .end-form {
-            width: 49%;
+            width: 20%;
             text-align: end;
             margin: 0 auto;
             .button-custom {

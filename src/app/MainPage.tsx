@@ -44,23 +44,23 @@ const MainPage = () => {
                     {/* Classify item */}
                     <Route path={PagePath.ITEM} element={<Classify handleLoading={setContentLoading} />}></Route>
                     {/* Detail item */}
-                    <Route path={`${PagePath.ITEM}/:id`} element={<ItemDetail />}></Route>
+                    <Route path={`${PagePath.ITEM}/:id`} element={<ItemDetail handleLoading={setContentLoading} />}></Route>
                     {/* Showroom */}
-                    <Route path={PagePath.SHOWROOM} element={<ShowRoom />}></Route>
+                    <Route path={PagePath.SHOWROOM} element={<ShowRoom handleLoading={setContentLoading} />}></Route>
                     {/* Upload item */}
-                    <Route path={PagePath.UPLOAD} element={<UploadItem />} ></Route>
+                    <Route path={PagePath.UPLOAD} element={<UploadItem handleLoading={setContentLoading} />} ></Route>
                     {/* Support for customer  page */}
-                    <Route path={PagePath.CUSTOMER_SUPPORT} element={<CustomerSupport />} ></Route>
+                    <Route path={PagePath.CUSTOMER_SUPPORT} element={<CustomerSupport handleLoading={setContentLoading} />} ></Route>
                     {/* Profile */}
-                    <Route path={PagePath.PROFILE} element={<Profile />} ></Route>
+                    <Route path={PagePath.PROFILE} element={<Profile handleLoading={setContentLoading} />} ></Route>
 
                     {/* Navbar */}
                     <Route path={PagePath.HOT_DEAL} element={<HotDeal handleLoading={setContentLoading} />}></Route>
-                    <Route path={PagePath.ALL_BRANDS} element={<AllBrands />}></Route>
+                    <Route path={PagePath.ALL_BRANDS} element={<AllBrands handleLoading={setContentLoading} />}></Route>
                     <Route path={PagePath.NEW_ITEM} element={<NewItem handleLoading={setContentLoading} />}></Route>
                     <Route path={PagePath.BEST_SELLERS} element={<BestSellers handleLoading={setContentLoading} />}></Route>
                     <Route path={PagePath.GIFT} element={<Gift handleLoading={setContentLoading} />}></Route>
-                    <Route path={PagePath.SEARCH_INVOICE} element={<SearchInvoice />}></Route>
+                    <Route path={PagePath.SEARCH_INVOICE} element={<SearchInvoice handleLoading={setContentLoading} />}></Route>
 
                     {/* Cart */}
                     {cart.totalQuantity === 0 ? <Route path={PagePath.CART} element={<EmptyCart />}></Route> :

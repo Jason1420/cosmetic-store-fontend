@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@700&family=Inter:wght@500&family=Nunito+Sans:opsz,wght@6..12,500&display=swap");
+
 .upload-item-container {
     height: 100%;
     width: 100%;
@@ -5,20 +7,19 @@
     flex-direction: column;
     font-family: "CircularStd", sans-serif;
     padding: 10px -5px 0px 5px;
-    background: rgb(245, 246, 246);
-    height: 100vh;
+    font-family: "Inter", sans-serif;
     .title {
         font-size: 32px;
         font-weight: 500;
-        padding-left: 7%;
         padding-top: 10px;
         color: #3e4048;
-        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        margin: 0 auto;
+        text-align: center;
+        font-weight: bold;
     }
     .form-add-item {
-        width: 80%;
-        margin-left: 10%;
-        margin-top: 2%;
+        width: 60%;
+        margin: 2% auto;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -26,7 +27,7 @@
         .input-form {
             width: 49%;
             margin-bottom: 10px;
-            font-size: 16px;
+            font-size: 14px;
             input {
                 font-size: 14px;
             }
@@ -55,7 +56,7 @@
                 min-height: 38px;
                 background: rgb(235, 86, 116);
                 color: rgb(235, 230, 230);
-                font-size: 18px;
+                font-size: 16px;
                 font-weight: 500;
             }
         }

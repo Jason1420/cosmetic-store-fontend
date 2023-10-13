@@ -7,14 +7,15 @@ import { InvoiceStatus } from '../../constant/Constant';
 import { GiCardboardBox } from 'react-icons/gi'
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
-
+import ModalCustom from '../../components/Modal/ModalCustom';
 
 const Order = () => {
     const userId = useSelector((state: RootState) => state.auth.userDTO.id)
     const [allInvoice, setAllInvoice] = useState<Invoice[]>([]);
     const [filterInvoice, setFilterInvoice] = useState<Invoice[]>([]);
     const [invoiceStatus, setInvoiceStatus] = useState<string>("all")
-
+    const [reRender, setReRender] = useState<boolean>(false)
+    const forceUpdate = React.useReducer(() => ({}), {})[1] as () => void
     const checkInvoiceStatus = (originStatus: string): string => {
         switch (originStatus) {
             case InvoiceStatus.NOT_PAID:
@@ -46,7 +47,7 @@ const Order = () => {
         console.log("filter invoice ----", filterInvoice)
     }, [invoiceStatus])
     useEffect(() => {
-        const getSomeInvoice = async () => {
+        const getAllInvoice = async () => {
             try {
                 const getSomeInvoiceURL = `${URL.GET_ALL_INVOICE}/${userId}`;
                 const res = await axios.get(getSomeInvoiceURL,)
@@ -59,8 +60,14 @@ const Order = () => {
 
             }
         }
-        getSomeInvoice()
-    }, [])
+        getAllInvoice()
+    }, [reRender])
+
+    const handleReRender = (update: boolean) => {
+        setReRender(!reRender)
+        setInvoiceStatus("all")
+        console.log(reRender)
+    }
 
     return (
         <div className="order-container">
@@ -122,16 +129,17 @@ const Order = () => {
                                 </div>
                                 <div className="right">{cart.cartItem.totalPrice.toLocaleString('en-US').replace(/,/g, '.')} <b>₫</b></div>
                             </div>
-
-
-
-                            {/* {cart.cartItem.items.map((item, index) => {
-                                return (
-                                    <div className="item">
-
-                                    </div>
-                                )
-                            }} */}
+                            {(cart.invoiceStatus?.includes(InvoiceStatus.NOT_PAID) ||
+                                cart.invoiceStatus?.includes(InvoiceStatus.PAID) ||
+                                cart.invoiceStatus?.includes(InvoiceStatus.ALL) ||
+                                cart.invoiceStatus?.includes(InvoiceStatus.WAIT)) &&
+                                <div className="button-cancel">
+                                    <ModalCustom title={'Hủy đơn hàng'} key={index}
+                                        content='Bạn xác nhận hủy đơn hàng này?'
+                                        invoiceCode={(cart.code || "za1")}
+                                        handleUpdate={handleReRender} />
+                                </div>
+                            }
                         </div>
                     )
                 })}
@@ -149,7 +157,7 @@ const Order = () => {
                     </div>
                 }
             </div>
-        </div>
+        </div >
     );
 }
 

@@ -11,8 +11,14 @@ import { IoLocationOutline } from 'react-icons/io5'
 import { GoSearch } from 'react-icons/go'
 import showroom1 from "../../assets/banner/showroom1.webp"
 
-const ShowRoom = () => {
-
+interface Props {
+    handleLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+const ShowRoom: React.FC<Props> = ({ handleLoading }) => {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    useEffect(() => {
+        handleLoading(isLoading)
+    }, [isLoading])
     return (
         <div className='showroom-container'>
             <div className="showroom-top">

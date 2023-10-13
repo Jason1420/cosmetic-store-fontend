@@ -29,9 +29,11 @@ const options = [
     { name: "Hỗ trợ bảo hành", id: 4 },
     { name: "Khác", id: 5 },
 ]
-
-const CustomerSupport = () => {
-
+interface Props {
+    handleLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+const CustomerSupport: React.FC<Props> = ({ handleLoading }) => {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const [id, setId] = useState<typeof options[0] | undefined>(options[0]);
     const [brands, setBrands] = useState<SelectOption[]>([])
     const [brandSelectedValue, setBrandSelectedValue] = useState<SelectOption | undefined>({ name: "Select Brand", id: 0 });
@@ -61,6 +63,9 @@ const CustomerSupport = () => {
 
         }
     }
+    useEffect(() => {
+        handleLoading(isLoading)
+    }, [isLoading])
     const readFile = (file: File) => {
         const fileReader = new FileReader()
         if (file) {
@@ -120,7 +125,14 @@ const CustomerSupport = () => {
     return (
         <div className="customer-support-container">
             <div className="title">
-                Gửi yêu cầu hỗ trợ
+                Gửi yêu cầu
+            </div>
+            <div className="sub-title">
+                Chúng tôi luôn sẵn sàng trợ giúp cho mọi vấn đề bạn gặp phải!
+                Gửi yêu cầu hỗ trợ! Chúng tôi sẽ sớm hỗ trợ bạn.
+            </div>
+            <div className="detail">
+                Chi tiết
             </div>
             <div className="form-add-item">
                 <div className="input-form ">

@@ -16,7 +16,11 @@ import { addNewItemToCart } from '../../store/reducers/cartReducer';
 import { CartItem } from '../../types/CartItem';
 import { toast } from 'react-toastify';
 
-const ItemDetail = () => {
+interface Props {
+    handleLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+const ItemDetail: React.FC<Props> = ({ handleLoading }) => {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const { id } = useParams();
     const [item, setItem] = useState<ItemDisplay>({
         name: "",
@@ -52,6 +56,9 @@ const ItemDetail = () => {
         }
         getItemById()
     }, [])
+    useEffect(() => {
+        handleLoading(isLoading)
+    }, [isLoading])
     return (
         <div className="detail-item-container">
             <div className="detail-item__top">

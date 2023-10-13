@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './AllBrands.scss'
-const AllBrands = () => {
+interface Props {
+    handleLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+const AllBrands: React.FC<Props> = ({ handleLoading }) => {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const allBrands = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0-9']
     const brandA = [
         "Azzaro", "Avène", "Aveda", "Aurora", "Au Départ", "Attar Collection", "Atkinsons", "Atelier Cologne", "Asics", "Asap",
@@ -169,7 +173,9 @@ const AllBrands = () => {
     ];
     const brand09 = ["13 De Marzo"
     ];
-
+    useEffect(() => {
+        handleLoading(isLoading)
+    }, [isLoading])
     return (
         <div className='all-brands-container'>
             <div className="all-brands__title">

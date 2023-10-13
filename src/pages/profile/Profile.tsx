@@ -33,8 +33,11 @@ interface NewItem {
     description: string,
     status: string | undefined
 }
-
-const Profile = () => {
+interface Props {
+    handleLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+const Profile: React.FC<Props> = ({ handleLoading }) => {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const dispatch = useDispatch()
     const customer = useSelector((state: RootState) => state.auth.customer) || {
         name: "",
@@ -85,7 +88,9 @@ const Profile = () => {
             }
         },
     });
-
+    useEffect(() => {
+        handleLoading(isLoading)
+    }, [isLoading])
     return (
         // <div className="profile-container">
         //     <div className="title">

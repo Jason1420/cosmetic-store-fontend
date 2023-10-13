@@ -11,8 +11,11 @@ import { IoLocationOutline } from 'react-icons/io5'
 import { GoSearch } from 'react-icons/go'
 import showroom1 from "../../assets/banner/showroom1.webp"
 import { Invoice } from '../../types/Invoice'
-
-const SearchInvoice = () => {
+interface Props {
+    handleLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+const SearchInvoice: React.FC<Props> = ({ handleLoading }) => {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const [invoiceCode, setInvoiceCode] = useState<string>("")
     const [searchInvoice, setSearchInvoice] = useState<Invoice>()
     const [hadSearched, setHadSearched] = useState<boolean>(false)
@@ -33,7 +36,9 @@ const SearchInvoice = () => {
             setSearchInvoice(undefined);
         }
     }
-
+    useEffect(() => {
+        handleLoading(isLoading)
+    }, [isLoading])
     return (
         <div className="wrapper">
             <div className='search-invoice-container'>
@@ -49,95 +54,94 @@ const SearchInvoice = () => {
                         </div>
                     </div>
                 </div>
-                <div className="search-invoice-bottom">
-                    {searchInvoice &&
-                        <>
-                            <div className="title">
-                                Tìm kiếm thành công đơn hàng: <b>{searchInvoice?.code}</b>
-                            </div>
-                            <div className="info">
-                                <div className="customer">
-                                    <div className="title">
-                                        Khách hàng:
-                                    </div>
-                                    <div className="text">
-                                        {searchInvoice?.customerName}
-                                    </div>
+                {searchInvoice &&
+                    <div className="search-invoice-bottom">
+
+
+                        <div className="title">
+                            Tìm kiếm thành công đơn hàng: <b>{searchInvoice?.code}</b>
+                        </div>
+                        <div className="info">
+                            <div className="customer">
+                                <div className="title">
+                                    Khách hàng:
                                 </div>
-                                <div className="email">
-                                    <div className="title">
-                                        Email:
-                                    </div>
-                                    <div className="text">
-                                        {searchInvoice?.customerEmail}
-                                    </div>
-                                </div>
-                                <div className="phone">
-                                    <div className="title">
-                                        Số điện thoại:
-                                    </div>
-                                    <div className="text">
-                                        {searchInvoice?.customerPhoneNumber}
-                                    </div>
-                                </div>
-                                <div className="address">
-                                    <div className="title">
-                                        Địa chỉ:
-                                    </div>
-                                    <div className="text">
-                                        {searchInvoice?.customerAddress}
-                                    </div>
+                                <div className="text">
+                                    {searchInvoice?.customerName}
                                 </div>
                             </div>
-                        </>
-                    }
-                    {searchInvoice &&
-                        <div className="cart-list">
-                            <div className="detail">Chi tiết đơn hàng:</div>
-                            {searchInvoice?.cartItem &&
-                                searchInvoice?.cartItem.items.map((item, index) => {
-                                    return (
-                                        <div className="cart-item" key={index}>
-                                            {item.item.image &&
-                                                <div className="cart-item__image">
-                                                    <NavLink to={`${PagePath.ITEM}/${item.item.id}`}>
-                                                        <img className="image" src={item.item.image} alt="" />
-                                                    </NavLink>
-                                                </div>
-                                            }
-                                            <div className="cart-item__info">
-                                                <div className="info__name">
-                                                    {item.item.name}
-                                                </div>
-                                                <div className="info__price">
-                                                    Giá:    {item.item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
-                                                </div>
-                                                <div className="info__quantity">
-                                                    Số lượng: {item.quantity}
+                            <div className="email">
+                                <div className="title">
+                                    Email:
+                                </div>
+                                <div className="text">
+                                    {searchInvoice?.customerEmail}
+                                </div>
+                            </div>
+                            <div className="phone">
+                                <div className="title">
+                                    Số điện thoại:
+                                </div>
+                                <div className="text">
+                                    {searchInvoice?.customerPhoneNumber}
+                                </div>
+                            </div>
+                            <div className="address">
+                                <div className="title">
+                                    Địa chỉ:
+                                </div>
+                                <div className="text">
+                                    {searchInvoice?.customerAddress}
+                                </div>
+                            </div>
+                        </div>
+                        {searchInvoice &&
+                            <div className="cart-list">
+                                <div className="detail">Chi tiết đơn hàng:</div>
+                                {searchInvoice?.cartItem &&
+                                    searchInvoice?.cartItem.items.map((item, index) => {
+                                        return (
+                                            <div className="cart-item" key={index}>
+                                                {item.item.image &&
+                                                    <div className="cart-item__image">
+                                                        <NavLink to={`${PagePath.ITEM}/${item.item.id}`}>
+                                                            <img className="image" src={item.item.image} alt="" />
+                                                        </NavLink>
+                                                    </div>
+                                                }
+                                                <div className="cart-item__info">
+                                                    <div className="info__name">
+                                                        {item.item.name}
+                                                    </div>
+                                                    <div className="info__price">
+                                                        Giá:    {item.item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                                    </div>
+                                                    <div className="info__quantity">
+                                                        Số lượng: {item.quantity}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    )
-                                })
+                                        )
+                                    })
 
-                            }
-                            <div className="total">
-                                <div className="quantity">
-                                    Tổng số lượng sản phẩm: {searchInvoice?.cartItem.totalQuantity}
-                                </div>
-                                <div className="price">
-                                    Tổng tiền thanh toán: {searchInvoice?.cartItem.totalPrice.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                }
+                                <div className="total">
+                                    <div className="quantity">
+                                        Tổng số lượng sản phẩm: {searchInvoice?.cartItem.totalQuantity}
+                                    </div>
+                                    <div className="price">
+                                        Tổng tiền thanh toán: {searchInvoice?.cartItem.totalPrice.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    }
+                        }
 
-                    {!searchInvoice && hadSearched &&
-                        <div className="none-result">
-                            Đơn hàng bạn đang tìm kiếm không tồn tại
-                        </div>
-                    }
-                </div>
+                    </div>}
+                {!searchInvoice && hadSearched &&
+                    <div className="none-result">
+                        Đơn hàng bạn đang tìm kiếm không tồn tại
+                    </div>
+                }
 
             </div >
         </div>

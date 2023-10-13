@@ -33,12 +33,13 @@
         .invoice {
             background: rgb(245, 246, 246);
             border: 0px;
-            box-shadow: 1px 1px 1px rgb(171, 170, 170);
             border-radius: 8px;
             width: 45%;
             margin: 20px 0;
             padding: 10px 0 10px 10px;
             position: relative;
+            display: flex;
+            flex-direction: column;
             .code {
                 display: flex;
                 padding: 0 5px;
@@ -121,6 +122,7 @@
                 display: flex;
                 padding: 0 5px;
                 gap: 5px;
+                margin-bottom: 5px;
                 .left {
                     font-size: 14px;
                     min-width: 15%;
@@ -197,6 +199,18 @@
                 border: 0px;
                 padding: 2px 4px;
                 font-weight: 500;
+            }
+            .button-cancel {
+                text-align: center;
+                border-top: 1px solid rgb(216, 211, 211);
+                margin-left: -10px;
+                padding-top: 5px;
+                margin-bottom: -5px;
+                margin-top: auto;
+                cursor: pointer;
+            }
+            .button-cancel:hover {
+                color: red;
             }
         }
         .no-result {
