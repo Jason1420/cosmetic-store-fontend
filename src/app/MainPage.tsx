@@ -33,6 +33,7 @@ const MainPage = () => {
             <div className="main-page__header">
                 <Header />
             </div>
+
             <div className="main-page__navbar">
                 <Navbar />
             </div>

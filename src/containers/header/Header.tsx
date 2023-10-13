@@ -9,6 +9,8 @@ import {
 } from "react-icons/bi"
 import { LuPhoneCall } from 'react-icons/lu'
 import { IoCartOutline } from 'react-icons/io5'
+import { FaBars } from 'react-icons/fa6'
+import { FaTimes } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../../store/store';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -46,7 +48,7 @@ const Header = () => {
                         isActive ? "active" : ""
                     }>
                         <img src={logo2} alt="logo" width={45} height={45} />
-                        <label className='store-name'>Cosmetic Store</label>
+                        <label className='store-name'>My Store</label>
                     </NavLink>
                 </div>
                 <div className="header-left__search-bar">
@@ -167,6 +169,119 @@ const Header = () => {
 
                         <div className="logout" onClick={() => handleLogout()}>
                             <BiLogOut />
+                        </div>
+                    </div>
+                }
+            </div>
+            <input type="checkbox" id='show-navbar' className='nav-input' hidden />
+            <label className="header-right__bars" htmlFor='show-navbar'>
+                <FaBars />
+            </label>
+            <label className="overplay" htmlFor='show-navbar'></label>
+            <div className="header-right-mobile">
+                <label className='times' htmlFor="show-navbar">
+                    <FaTimes /></label>
+                <NavLink to={PagePath.SHOWROOM} className={({ isActive }) =>
+                    isActive ? "active" : ""
+                }>
+                    <div className="header-right-mobile__item ">
+                        <div className="img">
+                            <PiStorefrontDuotone
+                            />
+                        </div>
+
+                        <div className="img-title">
+                            Hệ thống cửa hàng
+                        </div>
+                    </div>
+                </NavLink>
+                <NavLink to={PagePath.CUSTOMER_SUPPORT} className={({ isActive }) =>
+                    isActive ? "active" : ""
+                }>
+                    <div className="header-right-mobile__item ">
+                        <div className="img call-item">
+                            <LuPhoneCall
+                            />
+                        </div>
+
+                        <div className="img-title call">
+                            Hỗ trợ khách hàng
+                        </div>
+                    </div>
+                </NavLink>
+                {cart.totalQuantity > 0 ?
+                    <NavLink to={PagePath.CART} className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }>
+                        <div className="header-right-mobile__item ">
+                            <div className="img">
+                                <IoCartOutline />
+                            </div>
+
+                            <div className="img-title cart">
+                                Giỏ hàng
+                                {cart.totalQuantity !== null && cart.totalQuantity !== 0 &&
+                                    < label className='total'>{cart.totalQuantity}</label>
+                                }
+                            </div>
+                        </div>
+                    </NavLink> :
+                    <NavLink to={PagePath.CART} className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }>
+                        <div className="header-right-mobile__item ">
+                            <div className="img">
+                                <IoCartOutline />
+                            </div>
+
+                            <div className="img-title cart">
+                                Giỏ hàng
+                                {cart.totalQuantity !== null && cart.totalQuantity !== 0 && cart.items != null &&
+                                    < label className='total'>{cart.totalQuantity}</label>
+                                }
+                            </div>
+                        </div>
+                    </NavLink>
+                }
+                {!auth.logged &&
+                    <NavLink to={PagePath.LOGIN} className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }>
+                        <div className="header-right-mobile__item ">
+                            <div className="img">
+                                <i className="fa-regular fa-user"></i>
+                            </div>
+
+                            <div className="img-title">
+                                Đăng nhập / Đăng ký
+                            </div>
+                        </div>
+                    </NavLink>
+
+                }
+                {user.userDTO.roles.includes("MANAGER") &&
+                    <NavLink to={PagePath.UPLOAD} className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }>
+                        <div className="header-right-mobile__item ">
+                            <div className="img">
+                                <i className="fa-regular fa-plus"></i>
+                            </div>
+
+                            <div className="img-title">
+                                Thêm sản phẩm
+                            </div>
+                        </div>
+                    </NavLink>
+                }
+                {auth.logged &&
+                    <div className="header-right-mobile__item " onClick={() => handleLogout()}>
+                        <div className="img">
+                            <BiLogOut />
+                        </div>
+
+                        <div className="img-title">
+                            Đăng xuất
                         </div>
                     </div>
                 }

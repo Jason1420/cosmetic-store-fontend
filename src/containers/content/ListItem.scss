@@ -148,6 +148,29 @@
         color: #f9758f;
     }
 }
+.list-item__title__ {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 35px;
+    margin: 0 auto;
+    padding: 20px 20px;
+    color: #202020;
+    font-size: 22px;
+    text-transform: capitalize;
+    font-weight: 500;
+    .view-all {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgb(146, 140, 140);
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .view-all:hover {
+        color: #f9758f;
+    }
+}
 .brand-title {
     padding-top: 50px;
 }
@@ -177,5 +200,76 @@
             height: 100%;
             border-radius: 15px;
         }
+    }
+}
+
+/* xl */
+@media (max-width: 1280px) {
+    .list-item__title {
+        font-size: 18px;
+    }
+    .list-item__title__ {
+        font-size: 18px;
+    }
+    .list-item__item {
+        .list-item__content {
+            .list-item__item-brand {
+                font-size: 15px;
+            }
+            .list-item__item-name {
+                font-size: 13px;
+            }
+            .list-item__item-rating {
+                font-size: 12px;
+            }
+            .list-item__item-price {
+                font-size: 15px;
+            }
+        }
+    }
+}
+@media (max-width: 1280px) {
+    .popular-brand {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 100px 100px 100px;
+    }
+}
+/* lg */
+@media (max-width: 876px) {
+    .list-item__item {
+        .list-item__content {
+            .list-item__item-brand {
+                font-size: 13px;
+            }
+            .list-item__item-name {
+                font-size: 12px;
+            }
+            .list-item__item-rating {
+                font-size: 11px;
+            }
+            .list-item__item-price {
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+/* md */
+@media (max-width: 768px) {
+    .slick-slider {
+        display: none;
+    }
+    .list-item__title {
+        display: none;
+    }
+    .popular-program {
+        display: grid;
+        width: 80%;
+        margin: 0px auto;
+        margin-bottom: 50px;
+        text-align: center;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 450px 450px;
+        gap: 20px;
     }
 }

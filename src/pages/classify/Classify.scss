@@ -235,6 +235,7 @@
                         text-overflow: ellipsis;
                         word-break: break-word;
                         margin-bottom: 5px;
+                        padding-bottom: 10px;
                         cursor: pointer;
                     }
                     .list-item__item-brand:hover,
@@ -276,4 +277,108 @@ input[type="checkbox"]::before {
 }
 input[type="checkbox"]:checked::before {
     transform: scale(0.6);
+}
+
+/* xl */
+@media (max-width: 1280px) {
+    .classify-container {
+        .classify-left {
+            .classify-left__search-brand {
+                .search-input {
+                    .search-bar {
+                        font-size: 12px;
+                        padding-left: 30px;
+                    }
+                }
+            }
+            .classify-left__search-price .range-price {
+            }
+        }
+        .classify-right {
+            .classify-right-list {
+                gap: 2%;
+                .list-item__item {
+                    gap: 5px;
+                    width: 30%;
+
+                    .list-item__content {
+                        .list-item__item-name {
+                            padding-bottom: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+    .classify-container {
+        .classify-left {
+            width: 30%;
+        }
+        .classify-right {
+            .classify-right-list {
+                gap: 2%;
+                .list-item__item {
+                    gap: 5px;
+                    width: 30%;
+
+                    .list-item__content {
+                        .list-item__item-name {
+                            padding-bottom: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* md */
+@media (max-width: 930px) {
+    .classify-container {
+        .classify-left {
+            width: 35%;
+        }
+        .classify-right {
+            .classify-right-list {
+                gap: 4%;
+                .list-item__item {
+                    gap: 5px;
+                    width: 45%;
+
+                    .list-item__content {
+                        .list-item__item-name {
+                            padding-bottom: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* sm */
+@media (max-width: 700px) {
+    .classify-container {
+        .classify-left {
+            width: 55%;
+        }
+        .classify-right {
+            .classify-right-list {
+                gap: 4%;
+                .list-item__item {
+                    gap: 5px;
+                    width: 80%;
+                    margin: 0 auto;
+                    .list-item__content {
+                        .list-item__item-name {
+                            padding-bottom: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

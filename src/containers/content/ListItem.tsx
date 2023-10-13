@@ -102,7 +102,7 @@ const ListItem = () => {
                             )
                         })}
             </Slider>
-            <div className="list-item__title brand-title">
+            <div className="list-item__title__ brand-title">
                 Thương hiệu nổi bật
             </div>
             <div className="popular-brand">
@@ -197,7 +197,7 @@ const ListItem = () => {
                         })}
             </Slider>
 
-            <div className="list-item__title ">
+            <div className="list-item__title__ ">
                 Chương trình nổi bật
             </div>
             <div className="popular-program">
