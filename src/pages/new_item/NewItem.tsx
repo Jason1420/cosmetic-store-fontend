@@ -47,7 +47,7 @@ const NewItem: React.FC<Props> = ({ handleLoading }) => {
         <div className='new-item-container'>
             {isLoading ? <div className="title">...Loading</div> :
                 <>
-                    <div className="title">Hàng mới về</div>
+                    <div className="title new-item-animation">Hàng mới về</div>
                     <div className="new-item-list">
                         {pageItem &&
                             pageItem.map((item, index) => {

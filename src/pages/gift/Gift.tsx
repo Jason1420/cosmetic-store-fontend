@@ -48,7 +48,7 @@ const Gift: React.FC<Props> = ({ handleLoading }) => {
         <div className='gift-container'>
             {isLoading ? <div className="title">...Loading</div> :
                 <>
-                    <div className="title">Qùa tặng</div>
+                    <div className="title gift-animation">Qùa tặng</div>
                     <div className="gift-list">
                         {pageItem &&
                             pageItem.map((item, index) => {

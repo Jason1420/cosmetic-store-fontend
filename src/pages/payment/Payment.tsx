@@ -328,6 +328,69 @@ const Payment = () => {
                         </div>
                     </div>
                 </div>
+                <div className="payment-right-mobile">
+                    <div className="cart-list">
+                        {cart.items.map((item, index) => {
+                            return (
+                                <div className="item" key={index}>
+                                    <div className="item-left">
+                                        <div className="img">
+                                            <img src={item.item.image} alt="" />
+                                        </div>
+                                        <div className="quantity">
+                                            {item.quantity}
+                                        </div>
+                                    </div>
+                                    <div className="item-center">
+                                        <div className="item-name">
+                                            {item.item.name}
+                                        </div>
+                                        <div className="item-brand">
+                                            {item.item.brand}
+
+                                        </div>
+                                    </div>
+                                    <div className="item-right">
+                                        <div className="price">
+                                            {(item.item.price * item.quantity).toLocaleString('en-US').replace(/,/g, '.')} ₫
+
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div className="coupon">
+                        <input type="text" placeholder='Mã giảm giá' />
+                        <button>Áp dụng</button>
+                    </div>
+                    <div className="last-price">
+                        <div className="temp-price">
+                            <div className="title">
+                                Tạm tính
+                            </div>
+                            <div className="price">
+                                {cart.totalPrice.toLocaleString('en-US').replace(/,/g, '.')} ₫
+                            </div>
+                        </div>
+                        <div className="ship-fee">
+                            <div className="title">
+                                Phí vận chuyển
+                            </div>
+                            <div className="price">
+                                Miễn phí
+                            </div>
+                        </div>
+                        <div className="real-price">
+                            <div className="title">
+                                Tổng cộng
+                            </div>
+                            <div className="price">
+                                {cart.totalPrice.toLocaleString('en-US').replace(/,/g, '.')} ₫
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <button
                     type='submit'
                     onClick={() => formik.handleSubmit()}

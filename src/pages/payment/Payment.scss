@@ -16,6 +16,9 @@
         .store-name {
             font-size: 30px;
         }
+        .payment-right-mobile {
+            display: none;
+        }
         .bread-crumbs {
             display: flex;
             gap: 5px;
@@ -316,4 +319,275 @@
     font-style: italic;
     font-weight: 300;
     font-size: 14px;
+}
+@media (max-width: 1280px) {
+    .payment-container {
+        .payment-left {
+            width: 70%;
+            padding-left: 7%;
+            padding-right: 4%;
+
+            .ship-method {
+                font-size: 16px;
+
+                .text {
+                    font-size: 17px;
+                }
+
+                .form-ship {
+                    input {
+                        height: 18px;
+                    }
+                    label {
+                        font-size: 16px;
+                    }
+                }
+            }
+            .payment-method {
+                .text {
+                    font-size: 17px;
+                }
+                .form-payment {
+                    input {
+                        height: 18px;
+                    }
+                    label {
+                        font-size: 16px;
+                    }
+
+                    .cod-detail,
+                    .bank-detail {
+                        label {
+                            font-size: 15px !important;
+                        }
+                    }
+                    img {
+                        width: 27px;
+                        height: 27px;
+                    }
+                }
+            }
+            button {
+                font-size: 17px;
+                padding: 10px 0;
+            }
+        }
+        .payment-right {
+            .cart-list {
+                width: 85%;
+            }
+            .coupon {
+                width: 85%;
+                button {
+                    font-size: 15px;
+                }
+            }
+            .last-price {
+                width: 85%;
+                .real-price {
+                    margin-right: -52px;
+                    padding-right: 52px;
+                    .title {
+                        font-size: 18px;
+                    }
+                    .price {
+                        font-size: 26px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+    .payment-container {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        .payment-left {
+            border: none;
+            box-shadow: none;
+            width: 100%;
+            .payment-right-mobile {
+                background-color: rgb(250, 250, 250);
+                display: flex;
+                flex-direction: column;
+                width: 45%;
+                gap: 20px;
+                padding-top: 4%;
+                padding-bottom: 2%;
+                .cart-list {
+                    margin-left: 40px;
+                    display: flex;
+                    flex-direction: column;
+                    width: 75%;
+                    gap: 10px;
+                    padding-bottom: 20px;
+                    border-bottom: 1px solid rgb(217, 216, 216);
+                    .item {
+                        padding-top: 20px;
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 20px;
+                        .item-left {
+                            position: relative;
+                            img {
+                                height: 80px;
+                                width: 80px;
+                                border: 2px solid rgb(146, 144, 144);
+                                border-radius: 8px;
+                                background-color: white;
+                                padding: 10px 0;
+                            }
+                            .quantity {
+                                position: absolute;
+                                top: -5px;
+                                right: -5px;
+                                z-index: 100;
+                                border: 0px;
+                                background-color: rgb(121, 124, 124);
+                                border-radius: 100%;
+                                height: 25px;
+                                width: 25px;
+                                text-align: center;
+                                font-size: 18px;
+                                color: rgb(244, 242, 242);
+                            }
+                        }
+                        .item-center {
+                            .item-name {
+                                font-size: 13px;
+                                color: rgb(46, 43, 43);
+                                font-weight: 500;
+                            }
+                            .item-brand {
+                                font-size: 15px;
+                                padding-top: 5px;
+                                color: rgb(154, 152, 150);
+                            }
+                        }
+                        .item-right {
+                            width: 30%;
+                            font-size: 15px;
+                            color: rgb(94, 92, 92);
+                            font-weight: 500;
+                            text-align: end;
+                        }
+                    }
+                }
+                .coupon {
+                    width: 75%;
+                    margin-left: 40px;
+                    display: flex;
+                    justify-content: center;
+                    gap: 10px;
+                    border-bottom: 1px solid rgb(217, 216, 216);
+                    padding-bottom: 20px;
+                    input {
+                        width: 60%;
+                        border-radius: 8px;
+                        border: 1px solid black;
+                        outline-color: rgb(233, 161, 197);
+                        height: 50px !important;
+                        padding-left: 20px;
+                    }
+                    button {
+                        width: 20%;
+                        border-radius: 8px;
+                        border: 0px;
+                        color: white;
+                        background-color: rgb(86, 86, 84);
+                        height: 45px !important;
+                    }
+                }
+                .last-price {
+                    width: 75%;
+                    margin-left: 40px;
+                    padding: 0 52px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    .temp-price {
+                        display: flex;
+                        justify-content: space-between;
+                        .title {
+                            font-size: 16px;
+                        }
+                        .price {
+                            font-size: 16px;
+                        }
+                    }
+                    .ship-fee {
+                        display: flex;
+                        justify-content: space-between;
+                        padding-bottom: 10px;
+
+                        .title {
+                            font-size: 17px;
+                        }
+                        .price {
+                            font-size: 17px;
+                        }
+                    }
+                    .line {
+                        color: rgb(217, 216, 216);
+                        font-size: 18px;
+                    }
+                    .real-price {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding-bottom: 20px;
+                        border-top: 1px solid rgb(217, 216, 216);
+                        margin-left: -52px;
+                        padding-left: 52px;
+                        .title {
+                            font-size: 19px;
+                        }
+                        .price {
+                            font-size: 32px;
+                        }
+                    }
+                }
+            }
+        }
+        .payment-right {
+            width: 90%;
+            margin: 0 auto;
+            border-radius: 8px;
+            .cart-list {
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                gap: 10px;
+                .item {
+                    .item-right {
+                        width: 20%;
+                    }
+                }
+            }
+            .coupon {
+                width: 90%;
+                input {
+                    height: 45px !important;
+                }
+            }
+            .last-price {
+                width: 90%;
+            }
+        }
+    }
+}
+
+/* md */
+@media (max-width: 768px) {
+}
+
+/* sm */
+@media (max-width: 640px) {
+}
+
+/* xs */
+@media (max-width: 475px) {
 }

@@ -62,3 +62,25 @@
         }
     }
 }
+@media (max-width: 1280px) {
+    .upload-item-container {
+        .title {
+            font-size: 30px;
+        }
+        .form-add-item {
+            width: 80%;
+        }
+    }
+}
+
+/* md */
+@media (max-width: 768px) {
+    .upload-item-container {
+        .title {
+            font-size: 28px;
+        }
+        .form-add-item {
+            width: 80%;
+        }
+    }
+}

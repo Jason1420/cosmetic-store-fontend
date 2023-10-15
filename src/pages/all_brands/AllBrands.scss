@@ -52,3 +52,119 @@
         }
     }
 }
+@media (max-width: 1280px) {
+    .all-brands-container {
+        .all-brands__title {
+            font-size: 22px;
+            padding: 15px 0;
+        }
+        .all-brands__list {
+            font-size: 20px;
+            padding: 7px;
+        }
+        .all-brands__content {
+            .block {
+                padding-bottom: 25px;
+                padding-top: 15px;
+                .title {
+                    padding: 15px 0;
+                    font-size: 17px;
+                }
+                .content {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+    .all-brands-container {
+        .all-brands__title {
+            font-size: 21px;
+            padding: 15px 0;
+        }
+        .all-brands__list {
+            font-size: 19px;
+            padding: 7px;
+        }
+        .all-brands__content {
+            .block {
+                padding-bottom: 20px;
+                padding-top: 10px;
+                .title {
+                    padding: 15px 0;
+                    font-size: 16px;
+                }
+                .content {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+/* md */
+@media (max-width: 768px) {
+    .all-brands-container {
+        width: 90%;
+        .all-brands__title {
+            font-size: 20px;
+            padding: 15px 0;
+        }
+        .all-brands__list {
+            font-size: 18px;
+            padding: 5px;
+        }
+        .all-brands__content {
+            .block {
+                padding-bottom: 20px;
+                padding-top: 5px;
+                .title {
+                    padding: 15px 0;
+                    font-size: 15px;
+                }
+                .content {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+/* sm */
+@media (max-width: 640px) {
+    .all-brands-container {
+        width: 90%;
+        .all-brands__title {
+            font-size: 20px;
+            padding: 15px 0;
+        }
+        .all-brands__list {
+            font-size: 18px;
+            padding: 5px;
+        }
+        .all-brands__content {
+            .block {
+                padding-bottom: 20px;
+                padding-top: 5px;
+
+                .title {
+                    padding: 15px 0;
+                    font-size: 15px;
+                }
+                .content {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 10px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+/* xs */
+@media (max-width: 475px) {
+}

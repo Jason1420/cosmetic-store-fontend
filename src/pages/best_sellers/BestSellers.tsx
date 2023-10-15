@@ -48,7 +48,7 @@ const BestSellers: React.FC<Props> = ({ handleLoading }) => {
         <div className='best-sellers-container'>
             {isLoading ? <div className="title">...Loading</div> :
                 <>
-                    <div className="title">Hàng bán chạy</div>
+                    <div className="title best-sellers-animation">Hàng bán chạy</div>
                     <div className="best-sellers-list">
                         {pageItem &&
                             pageItem.map((item, index) => {

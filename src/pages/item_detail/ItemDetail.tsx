@@ -133,6 +133,9 @@ const ItemDetail: React.FC<Props> = ({ handleLoading }) => {
                             <PiCaretRightBold />
                         </div>
                     </div>
+                    <div className="image-mobile">
+                        <img src={item?.image} alt="" />
+                    </div>
                     <div className="submit">
                         <div className="add-to-cart">
                             <button onClick={() => handleAddItemToCart(item)}>

@@ -256,3 +256,99 @@
         gap: 30px;
     }
 }
+@media (max-width: 1280px) {
+    .profile-container {
+        .profile-left {
+            width: 30%;
+            height: 100%;
+            padding-left: 20px;
+        }
+        .profile-right {
+            width: 67%;
+            background-color: white;
+            border-radius: 8px;
+            margin-top: 30px;
+            margin-left: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+    }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+    .profile-container {
+        .profile-left {
+            .general-info {
+                background-color: white;
+                height: 300px;
+                border-radius: 8px;
+                padding-top: 30px;
+                display: flex;
+                flex-direction: column;
+                .avatar {
+                    height: 120px;
+                    width: 120px;
+                }
+            }
+
+            .historical-pay {
+                height: 140px;
+            }
+
+            .account-detail {
+                height: 140px;
+            }
+
+            .item-detail {
+                height: 180px;
+            }
+
+            .additional-info-detail {
+                height: 180px;
+            }
+        }
+    }
+}
+
+/* md */
+@media (max-width: 768px) {
+    .profile-container {
+        .profile-left {
+            .general-info {
+                background-color: white;
+                height: 250px;
+                .avatar {
+                    height: 90px;
+                    width: 90px;
+                }
+            }
+
+            .historical-pay {
+                height: 200px;
+            }
+
+            .account-detail {
+                height: 180px;
+            }
+
+            .item-detail {
+                height: 240px;
+            }
+
+            .additional-info-detail {
+                height: 220px;
+            }
+        }
+    }
+}
+
+/* sm */
+@media (max-width: 640px) {
+}
+
+/* xs */
+@media (max-width: 475px) {
+}

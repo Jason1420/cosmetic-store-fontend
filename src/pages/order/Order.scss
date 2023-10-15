@@ -241,3 +241,253 @@
         }
     }
 }
+@media (max-width: 1280px) {
+    .order-container {
+        .order-top {
+            gap: 15px;
+        }
+        .order-bottom {
+            .invoice {
+                .address {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 20%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+    .order-container {
+        .order-top {
+            gap: 5px;
+            button {
+                font-size: 13px;
+            }
+        }
+        .order-bottom {
+            .invoice {
+                width: 47%;
+                .code {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 5%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+                .name {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 15%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+                .email {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 15%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+                .phone {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 15%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+                .address {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 15%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+                .quantity {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 15%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+                .price {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    margin-bottom: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 15%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* md */
+@media (max-width: 768px) {
+    .order-container {
+        .order-top {
+            gap: 5px;
+            button {
+                font-size: 13px;
+            }
+        }
+        .order-bottom {
+            .invoice {
+                width: 90%;
+                .code {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 5%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+                .name {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 15%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+                .email {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 15%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+                .phone {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 15%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+                .address {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 15%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+                .quantity {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 15%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+                .price {
+                    display: flex;
+                    padding: 0 5px;
+                    gap: 5px;
+                    margin-bottom: 5px;
+                    .left {
+                        font-size: 14px;
+                        min-width: 15%;
+                        font-weight: bold;
+                    }
+                    .right {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* sm */
+@media (max-width: 640px) {
+}
+
+/* xs */
+@media (max-width: 475px) {
+}
