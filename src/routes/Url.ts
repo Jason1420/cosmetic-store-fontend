@@ -1,5 +1,5 @@
-// const SERVER_URL =  "https://my-cosmetic-store.onrender.com";
-const SERVER_URL = "http://localhost:8080";
+const SERVER_URL = "https://cosmetic-store-backend-production.up.railway.app";
+// const SERVER_URL = "http://localhost:8080";
 
 export const URL = {
     ADD_NEW_ITEM: `${SERVER_URL}/api/v1/item`,
