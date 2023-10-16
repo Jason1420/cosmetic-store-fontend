@@ -15,6 +15,7 @@ import { SampleNextArrow, SamplePrevArrow } from '../../components/ArrowSlick/Ar
 import { addNewItemToCart, decreaseItemFromCart } from '../../store/reducers/cartReducer'
 import { CartItem } from '../../types/CartItem'
 import { toast } from 'react-toastify';
+import { URL } from '../../routes/Url'
 
 const Cart = () => {
     /** Slick bar */
@@ -39,7 +40,7 @@ const Cart = () => {
     const [preferentialItem, setPreferentialItem] = useState<ItemDisplay[]>([])
     useEffect(() => {
         const getAllItem = async () => {
-            const res = await axios.get("http://localhost:8080/api/v1/getAll",)
+            const res = await axios.get(URL.GET_ALL_ITEM,)
             if (res && res.data && res.data.data) {
                 setPreferentialItem(res.data.data);
             }

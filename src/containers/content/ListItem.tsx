@@ -22,6 +22,7 @@ import { ItemDisplay } from '../../types/ItemDisplay';
 import { NavLink } from 'react-router-dom';
 import { PagePath } from '../../routes/Path';
 import { SampleNextArrow, SamplePrevArrow } from '../../components/ArrowSlick/ArrowSlick';
+import { URL } from '../../routes/Url';
 
 
 const ListItem = () => {
@@ -29,7 +30,7 @@ const ListItem = () => {
     const [allItem, setAllItem] = useState<ItemDisplay[]>([])
     useEffect(() => {
         const getAllItem = async () => {
-            const res = await axios.get("http://localhost:8080/api/v1/getAll",)
+            const res = await axios.get(URL.GET_ALL_ITEM,)
             if (res && res.data && res.data.data) {
                 setAllItem(res.data.data);
             }
