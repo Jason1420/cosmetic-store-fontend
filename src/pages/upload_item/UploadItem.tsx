@@ -25,7 +25,6 @@ interface Props {
     handleLoading: React.Dispatch<React.SetStateAction<boolean>>
 }
 const UploadItem: React.FC<Props> = ({ handleLoading }) => {
-
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [brands, setBrands] = useState<SelectOption[]>([])
     const [brandSelectedValue, setBrandSelectedValue] = useState<SelectOption | undefined>({ name: "Chọn nhãn hàng", id: 0 });
@@ -87,6 +86,7 @@ const UploadItem: React.FC<Props> = ({ handleLoading }) => {
     }
     const dispatch = useDispatch()
     const user = useSelector((state: RootState) => state.auth)
+    let headers = { Authorization: `Bearer ${user.accessToken}` }
     const jwtAxios = AxiosInstance(dispatch, user);
     const formik = useFormik({
         initialValues: {
@@ -110,8 +110,6 @@ const UploadItem: React.FC<Props> = ({ handleLoading }) => {
 
                 }
                 const addNewItemURL = URL.ADD_NEW_ITEM;
-                const user = useSelector((state: RootState) => state.auth)
-                let headers = { Authorization: `Bearer ${user.accessToken}` }
                 const res = await jwtAxios.post(addNewItemURL, submitItem, { headers },)
             } catch (error) {
                 console.log(error)
