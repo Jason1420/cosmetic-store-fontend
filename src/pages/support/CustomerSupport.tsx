@@ -7,7 +7,6 @@ import SelectComponent from '../../components/SelectComponent/SelectComponent';
 import { URL } from '../../routes/Url';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
-import { AxiosInstance } from '../../store/AxiosInstance';
 
 
 interface NewItem {
@@ -80,7 +79,6 @@ const CustomerSupport: React.FC<Props> = ({ handleLoading }) => {
     }
     const dispatch = useDispatch()
     const user = useSelector((state: RootState) => state.auth)
-    const jwtAxios = AxiosInstance(dispatch, user);
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -100,7 +98,7 @@ const CustomerSupport: React.FC<Props> = ({ handleLoading }) => {
 
                 }
                 const supportURL = "http://localhost:8080/request-support"
-                const res = await jwtAxios.post(supportURL, submitItem,)
+                const res = await axios.post(supportURL, submitItem,)
             } catch (error) {
                 console.log(error)
             }
