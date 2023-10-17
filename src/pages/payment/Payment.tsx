@@ -88,10 +88,8 @@ const Payment = () => {
     useEffect(() => {
         const payment = async () => {
             try {
-                console.log("check invoice ---->>>", invoice)
                 const paymentURL = URL.PAYMENT;
                 const res = await axios.post(paymentURL, invoice,)
-                console.log(res)
                 if (res.data.code === 200) {
                     dispatch(paymentSuccess())
                     navigate(PagePath.HOME)

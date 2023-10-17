@@ -42,9 +42,6 @@ const Order = () => {
         } else {
             setFilterInvoice(allInvoice);
         }
-        console.log("all invoice ----", allInvoice)
-        console.log("invoice status ----", invoiceStatus)
-        console.log("filter invoice ----", filterInvoice)
     }, [invoiceStatus])
     useEffect(() => {
         const getAllInvoice = async () => {
@@ -54,7 +51,6 @@ const Order = () => {
                 if (res && res.data) {
                     setAllInvoice(res.data.data)
                     setFilterInvoice(res.data.data)
-                    console.log(res.data.data)
                 }
             } catch (error) {
 
@@ -66,7 +62,6 @@ const Order = () => {
     const handleReRender = (update: boolean) => {
         setReRender(!reRender)
         setInvoiceStatus("all")
-        console.log(reRender)
     }
 
     return (

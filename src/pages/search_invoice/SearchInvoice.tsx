@@ -29,9 +29,7 @@ const SearchInvoice: React.FC<Props> = ({ handleLoading }) => {
             const res = await axios.get(searchByCodeURL,)
             if (res && res.data) {
                 setSearchInvoice(res.data.data)
-                console.log(res.data.data)
             }
-
         } catch (error) {
             setSearchInvoice(undefined);
         }

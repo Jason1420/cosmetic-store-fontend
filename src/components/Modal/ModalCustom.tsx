@@ -22,7 +22,6 @@ const ModalCustom: React.FC<Props> = ({ title, content, invoiceCode, handleUpdat
         try {
             const cancelInvoiceURL = `${URL.CANCEL_INVOICE_BY_CODE}/${invoiceCode}`;
             const res = await axios.put(cancelInvoiceURL,)
-            console.log("cancel invoice --------", res.data)
             setUpdate(!update)
             handleUpdate(update)
             handleClose()
