@@ -110,7 +110,9 @@ const UploadItem: React.FC<Props> = ({ handleLoading }) => {
 
                 }
                 const addNewItemURL = URL.ADD_NEW_ITEM;
-                const res = await jwtAxios.post(addNewItemURL, submitItem,)
+                const user = useSelector((state: RootState) => state.auth)
+                let headers = { Authorization: `Bearer ${user.accessToken}` }
+                const res = await jwtAxios.post(addNewItemURL, submitItem, { headers },)
             } catch (error) {
                 console.log(error)
             }
