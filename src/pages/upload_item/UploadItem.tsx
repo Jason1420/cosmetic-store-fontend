@@ -86,7 +86,7 @@ const UploadItem: React.FC<Props> = ({ handleLoading }) => {
     }
     const dispatch = useDispatch()
     const user = useSelector((state: RootState) => state.auth)
-    let headers = { Authorization: `Bearer ${user.accessToken}` }
+    const headers = { Authorization: `Bearer ${user.accessToken}` }
     const jwtAxios = AxiosInstance(dispatch, user);
     const formik = useFormik({
         initialValues: {
@@ -110,11 +110,13 @@ const UploadItem: React.FC<Props> = ({ handleLoading }) => {
 
                 }
                 const addNewItemURL = URL.ADD_NEW_ITEM;
-                const res = await jwtAxios.post(addNewItemURL, submitItem, { headers },)
+                await axios.post(addNewItemURL, submitItem, { headers },)
+                console.log(headers)
             } catch (error) {
                 console.log(error)
             }
         },
+
     });
     useEffect(() => {
         const getDefaultData = async () => {
