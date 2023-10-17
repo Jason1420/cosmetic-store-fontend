@@ -110,7 +110,7 @@ const UploadItem: React.FC<Props> = ({ handleLoading }) => {
 
                 }
                 const addNewItemURL = URL.ADD_NEW_ITEM;
-                const res = await jwtAxios.post(addNewItemURL, submitItem,)
+                const res = await axios.post(addNewItemURL, submitItem,)
             } catch (error) {
                 console.log(error)
             }

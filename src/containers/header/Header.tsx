@@ -18,6 +18,7 @@ import { PagePath } from '../../routes/Path';
 import { isLogout } from '../../store/reducers/authReducer';
 import { AxiosInstance } from '../../store/AxiosInstance';
 import { URL } from '../../routes/Url';
+import axios from 'axios';
 
 const Header = () => {
     const cart = useSelector((state: RootState) => state.cart)
@@ -32,7 +33,7 @@ const Header = () => {
     const handleLogout = async () => {
         try {
             const postUrl = URL.LOG_OUT
-            await axiosJWT.post(postUrl, null, { headers },);
+            await axios.post(postUrl, null, { headers },);
             dispatch(isLogout())
             navigate(PagePath.LOGIN)
         } catch (error) {
