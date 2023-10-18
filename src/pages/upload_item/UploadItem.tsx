@@ -8,6 +8,7 @@ import { URL } from '../../routes/Url';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { AxiosInstance } from '../../store/AxiosInstance';
+import { toast } from 'react-toastify';
 
 
 interface NewItem {
@@ -110,8 +111,12 @@ const UploadItem: React.FC<Props> = ({ handleLoading }) => {
 
                 }
                 const addNewItemURL = URL.ADD_NEW_ITEM;
-                await axios.post(addNewItemURL, submitItem, { headers },)
-                console.log(headers)
+                const res = await axios.post(addNewItemURL, submitItem, { headers },)
+                if (res.data.code === 200) {
+                    toast.success("Đã thêm thành công sản phẩm", {
+                        icon: "✔️"
+                    });
+                }
             } catch (error) {
                 console.log(error)
             }
