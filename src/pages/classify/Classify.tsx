@@ -21,7 +21,7 @@ const Classify: React.FC<Props> = ({ handleLoading }) => {
     const [allType, setAllType] = useState<Type[]>([])
 
     const [filterByBrand, setFilterByBrand] = useState<string[]>(["all"])
-    const [filterByType, setFilterByType] = useState<number>(1)
+    const [filterByType, setFilterByType] = useState<number>(2)
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
     const [pageItem, setPageItem] = useState<ItemDisplay[]>([])
@@ -170,7 +170,19 @@ const Classify: React.FC<Props> = ({ handleLoading }) => {
                         <i className="fas fa-search"></i>
                     </div>
                     <div className="list-brand">
-                        <CustomScrollbars style={{ height: "250px  " }}>
+                        <div className="desktop">
+                            <CustomScrollbars style={{ height: "250px  " }}>
+                                {allBrand && allBrand.map((item, index) => {
+                                    return (
+                                        <div className="brand" key={index}>
+                                            <input className='checkbox' type="checkbox" onChange={(event) => handleCheckboxOnChange(item.name, event)} />
+                                            <label className='brand-name'>{item.name}</label>
+                                        </div>
+                                    )
+                                })}
+                            </CustomScrollbars>
+                        </div>
+                        <div className="mobile">
                             {allBrand && allBrand.map((item, index) => {
                                 return (
                                     <div className="brand" key={index}>
@@ -179,7 +191,7 @@ const Classify: React.FC<Props> = ({ handleLoading }) => {
                                     </div>
                                 )
                             })}
-                        </CustomScrollbars>
+                        </div>
                     </div>
                 </div>
 
