@@ -167,4 +167,40 @@
 
 /* xs */
 @media (max-width: 475px) {
+    .all-brands-container {
+        width: 90%;
+        .all-brands__title {
+            font-size: 18px;
+        }
+        .all-brands__list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            font-size: 17px;
+            gap: 20px;
+        }
+        .all-brands__content {
+            .block {
+                .title {
+                    font-size: 17px;
+                    text-align: center;
+                }
+                .content {
+                    flex-direction: column;
+                    font-size: 14px;
+                    .brands {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        .brand {
+                            padding-right: 15px;
+                        }
+                        .brand::first-letter {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

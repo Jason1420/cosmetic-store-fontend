@@ -84,3 +84,10 @@
         }
     }
 }
+@media (max-width: 475px) {
+    .upload-item-container .form-add-item .input-form {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+}

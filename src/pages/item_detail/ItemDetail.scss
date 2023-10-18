@@ -513,4 +513,21 @@
 
 /* xs */
 @media (max-width: 475px) {
+    .detail-item-container {
+        .detail-item__top {
+            .detail-top__info {
+                padding: 0 3px;
+                .brand {
+                    color: #1887db;
+                    font-size: 18px;
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+                .name {
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
 }

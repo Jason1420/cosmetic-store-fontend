@@ -196,4 +196,20 @@
 
 /* xs */
 @media (max-width: 475px) {
+    .customer-support-container .sub-title {
+        width: 90%;
+    }
+    .customer-support-container .form-add-item .input-form {
+        width: 90%;
+        font-size: 14px;
+    }
+    .customer-support-container .detail {
+        width: 90%;
+    }
+    .customer-support-container .form-add-item .end-form .button-custom {
+        min-height: 45px;
+        font-size: 15px;
+        width: 150px;
+        margin-left: -40px;
+    }
 }

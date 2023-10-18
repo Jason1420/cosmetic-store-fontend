@@ -140,3 +140,40 @@
     font-size: 14px;
     padding-left: 10px;
 }
+@media (max-width: 1024px) {
+    .register-background {
+        .register-container {
+            .register-box {
+                width: 80%;
+            }
+        }
+    }
+}
+
+/* md */
+@media (max-width: 768px) {
+    .register-background {
+        background-color: white;
+        .register-container {
+            .register-box {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/* xs */
+@media (max-width: 475px) {
+    .register-background {
+        .register-container {
+            .register-box {
+                width: 100%;
+            }
+        }
+    }
+    .register-background .register-container .register-box .form .register-input {
+        width: 100%;
+        margin-bottom: 25px;
+        font-weight: 500;
+    }
+}

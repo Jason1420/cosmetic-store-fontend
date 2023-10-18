@@ -571,4 +571,52 @@
 
 /* xs */
 @media (max-width: 475px) {
+    .payment-container {
+        width: 97%;
+    }
+    .address-detail {
+        flex-direction: column;
+        width: 100%;
+    }
+    .payment-container .payment-left .address-detail .detail {
+        width: 100%;
+    }
+
+    .cod-detail {
+        text-align: center;
+    }
+    .bank-detail {
+        text-align: center;
+    }
+    .payment-container .payment-left .payment-right-mobile .cart-list {
+        margin-left: 0px;
+        width: 100%;
+        gap: 5px;
+    }
+    .payment-container .payment-left .payment-right-mobile .cart-list .item .item-center .item-brand {
+        font-size: 14px;
+    }
+    .payment-container .payment-left .payment-right-mobile .coupon {
+        width: 100%;
+        margin-left: 0px;
+        input {
+            width: 70%;
+        }
+        button {
+            width: 30%;
+            font-size: 15px;
+        }
+    }
+    .payment-container .payment-left .payment-right-mobile .last-price {
+        width: 100%;
+        margin-left: 0px;
+    }
+    .payment-container .payment-left .payment-right-mobile .last-price .real-price .price {
+        font-size: 22px;
+    }
+    .payment-container .payment-left button {
+        font-size: 16px;
+        padding: 2px 21px;
+        width: 130px;
+    }
 }

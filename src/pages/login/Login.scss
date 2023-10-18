@@ -129,3 +129,78 @@
     font-size: 14px;
     padding-left: 10px;
 }
+@media (max-width: 475px) {
+    .login-background {
+        background-color: white;
+
+        .login-container {
+            width: 100%;
+            height: 100%;
+            margin: auto;
+
+            .login-logo {
+                text-align: center;
+                padding: 20px 0;
+                margin-bottom: 13px;
+            }
+
+            .login-box {
+                padding: 15px;
+
+                .login-title {
+                    font-size: 26px;
+                    font-weight: 500;
+                    margin-bottom: 5px;
+                    text-align: center;
+                }
+
+                .login-subtitle {
+                    color: #888888;
+                    font-size: 18px;
+                    margin: 0 0 20px;
+                }
+
+                .login-input {
+                }
+                button {
+                    background: linear-gradient(to right, #ec66d8 10%, #df26a4 100%);
+                    border: 0;
+                    font-size: 22px;
+                    width: 100%;
+                    border-radius: 4px;
+                    padding: 10px 26px;
+                    color: white;
+                    font-weight: 500;
+                    margin-bottom: 5px;
+                }
+
+                .account-footer {
+                    font-weight: 500;
+                    font-size: 15px;
+                }
+                .forgot-password {
+                    color: blue !important;
+                    font-weight: 500;
+                    text-decoration: none;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+}
+
+/* md */
+@media (max-width: 768px) {
+}
+
+/* sm */
+@media (max-width: 640px) {
+}
+
+/* xs */
+@media (max-width: 475px) {
+}

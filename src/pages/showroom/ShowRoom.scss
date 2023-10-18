@@ -123,9 +123,6 @@
         }
     }
 }
-@media (max-width: 1280px) {
-}
-
 /* lg */
 @media (max-width: 1024px) {
     .showroom-container {
@@ -171,10 +168,20 @@
     }
 }
 
-/* sm */
-@media (max-width: 640px) {
-}
-
 /* xs */
 @media (max-width: 475px) {
+    .showroom-container .showroom-top .search-bar {
+        width: 80%;
+        input {
+            font-size: 13px;
+        }
+    }
+    .showroom-container .showroom-bottom .showroom {
+        width: 100%;
+    }
+}
+@media (max-width: 370px) {
+    .showroom-container .showroom-top::before {
+        top: 120px;
+    }
 }

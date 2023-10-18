@@ -809,10 +809,133 @@
     }
 }
 
-/* sm */
-@media (max-width: 640px) {
-}
-
 /* xs */
 @media (max-width: 475px) {
+    .cart-container {
+        .cart-left {
+            .cart-left__title {
+                .title {
+                    font-size: 22px;
+                }
+                .quantity {
+                    font-size: 14px;
+                }
+            }
+            .cart-left__list {
+                gap: 10px;
+                .cart-item {
+                    .cart-item__image {
+                        width: 25%;
+                        img {
+                            height: 60%;
+                        }
+                    }
+                    .cart-item__info {
+                        gap: 7px;
+                        .info__name {
+                            font-size: 13px;
+                        }
+                        .info__price {
+                            font-size: 13px;
+                        }
+                        .info__quantity {
+                            font-size: 16px;
+                            button {
+                                height: 24px;
+                                width: 30px;
+                            }
+                        }
+                        .info__promo {
+                            font-size: 12px;
+                            font-style: italic;
+                        }
+                    }
+                }
+            }
+            .cart-left__coupon {
+                display: none;
+            }
+        }
+        .cart-right {
+            gap: 20px;
+            .cart-right__submit {
+                gap: 10px;
+            }
+            .cart-right__deal {
+                background-color: white;
+                border: 2px dashed #93712d;
+                border-radius: 8px;
+                position: relative;
+                margin-top: -30px;
+                .text {
+                    position: relative;
+                    padding: 2% 2% 2% 10%;
+                    color: #93712d;
+                    z-index: 100;
+                    font-size: 13px;
+                }
+                .icon {
+                    font-size: 26px;
+                }
+            }
+            .cart-right__discount {
+                .title {
+                    font-size: 16px;
+                    .image {
+                        font-size: 20px;
+                    }
+                }
+                .content {
+                    .search {
+                        input {
+                            height: 35px;
+                            font-size: 16px;
+                        }
+                    }
+                    .submit {
+                        button {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            .cart-right__bill {
+                .pre-price {
+                    .title {
+                        font-size: 15px;
+                        color: #747579;
+                    }
+                    .pre {
+                        font-size: 15px;
+                    }
+                }
+                .coin {
+                    .title {
+                        color: #747579;
+                    }
+                    .__coin {
+                        font-size: 16px;
+                    }
+                }
+                .after-price {
+                    .title {
+                        font-size: 17px;
+                    }
+                    .after {
+                        font-size: 17px;
+                    }
+                }
+            }
+            .cart-right__coin {
+                height: 130px;
+                .title {
+                    font-size: 16px;
+                }
+                .__coin {
+                    font-size: 26px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
 }

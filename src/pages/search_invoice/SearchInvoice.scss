@@ -415,3 +415,96 @@
         }
     }
 }
+@media (max-width: 475px) {
+    .wrapper {
+        background-color: white;
+        .search-invoice-container {
+            .search-invoice-top {
+                width: 100%;
+                .title {
+                    font-size: 24px;
+                    text-align: center;
+                }
+                .search-bar {
+                    width: 90%;
+                    input {
+                        height: 40px;
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .search-invoice-bottom {
+                width: 100%;
+
+                .title {
+                    font-size: 18px;
+                }
+                .customer {
+                    .title {
+                        font-size: 15px;
+                    }
+                    .text {
+                        font-size: 15px;
+                    }
+                }
+                .email {
+                    .title {
+                        font-size: 15px;
+                    }
+                    .text {
+                        font-size: 15px;
+                    }
+                }
+
+                .phone {
+                    .title {
+                        font-size: 15px;
+                    }
+                    .text {
+                        font-size: 15px;
+                    }
+                }
+
+                .address {
+                    .title {
+                        font-size: 15px;
+                    }
+                    .text {
+                        font-size: 15px;
+                    }
+                }
+
+                .cart-list {
+                    gap: 5%;
+                    .detail {
+                        font-size: 15px;
+                    }
+                    .cart-item {
+                        .cart-item__info {
+                            width: 85%;
+                            gap: 2px;
+                            .info__name {
+                                font-size: 13px;
+                            }
+
+                            .info__price {
+                                font-size: 13px;
+                            }
+                            .info__quantity {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    .total {
+                        font-size: 14px;
+                    }
+                }
+            }
+            .none-result {
+                font-size: 20px;
+                text-align: center;
+            }
+        }
+    }
+}
