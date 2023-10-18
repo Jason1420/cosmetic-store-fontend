@@ -222,7 +222,7 @@ const Header = () => {
                             <div className="img-title cart">
                                 Giỏ hàng
                                 {cart.totalQuantity !== null && cart.totalQuantity !== 0 &&
-                                    < label className='total'>{cart.totalQuantity}</label>
+                                    < label className='total'>{`(${cart.totalQuantity})`}</label>
                                 }
                             </div>
                         </div>
