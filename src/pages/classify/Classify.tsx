@@ -79,7 +79,7 @@ const Classify: React.FC<Props> = ({ handleLoading }) => {
                         }
                         setTotalPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE));
                         if (currentPage > Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE)) {
-                            setCurrentPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE))
+                            setCurrentPage(Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE) >= 1 ? Math.ceil(resCount.data.data / Constant.CLASSIFY_SIZE) : 1)
                         }
                     }
                 } else {
@@ -98,7 +98,7 @@ const Classify: React.FC<Props> = ({ handleLoading }) => {
                             setTotalPage(totalPageTemp);
                             if (currentPage > totalPageTemp) {
 
-                                setCurrentPage(totalPageTemp)
+                                setCurrentPage(totalPageTemp >= 1 ? totalPageTemp : 1)
                             }
                         }
                     }

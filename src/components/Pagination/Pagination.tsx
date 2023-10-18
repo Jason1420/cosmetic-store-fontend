@@ -14,12 +14,12 @@ const Pagination: React.FC<Props> = ({ totalPage, handleCurrentPage }) => {
 
     const handleSetCurrentPage = (currentPage: number) => {
         if (currentPage > totalPage) {
-            setCurrentPage(totalPage)
+            setCurrentPage(totalPage >= 1 ? totalPage : 1)
         } else if (currentPage < 1) {
             setCurrentPage(1)
         } else {
-            setCurrentPage(currentPage);
-            handleCurrentPage(currentPage);
+            setCurrentPage(currentPage >= 1 ? currentPage : 1);
+            handleCurrentPage(currentPage >= 1 ? currentPage : 1);
         }
     }
     for (let i = 0; i < totalPage; i++) {
