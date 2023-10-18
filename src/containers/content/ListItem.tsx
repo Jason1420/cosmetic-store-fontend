@@ -41,7 +41,7 @@ const ListItem = () => {
     const settings = {
         dots: true,
         infinite: true,
-        autoplay: false,
+        autoplay: true,
         speed: 1000,
         autoplaySpeed: 3000,
         cssEase: "linear",
