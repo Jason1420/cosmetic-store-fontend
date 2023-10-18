@@ -585,6 +585,7 @@
         flex-direction: column;
         .cart-left {
             width: 90%;
+            margin-bottom: -25px;
             .cart-left__list {
                 display: flex;
                 flex-direction: column;
@@ -630,6 +631,7 @@
             margin: 0 auto;
             flex-direction: column;
             margin-top: 60px;
+            margin-bottom: 10px;
             margin-right: 4%;
             gap: 30px;
             .cart-right__submit {

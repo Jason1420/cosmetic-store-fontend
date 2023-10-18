@@ -7,6 +7,9 @@ import {
 import {
     BiLogOut
 } from "react-icons/bi"
+import {
+    CgProfile
+} from "react-icons/cg"
 import { LuPhoneCall } from 'react-icons/lu'
 import { IoCartOutline } from 'react-icons/io5'
 import { FaBars } from 'react-icons/fa6'
@@ -182,6 +185,22 @@ const Header = () => {
             <div className="header-right-mobile">
                 <label className='times' htmlFor="show-navbar">
                     <FaTimes /></label>
+                {auth.logged &&
+                    <NavLink to={PagePath.PROFILE} className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }>
+                        <div className="header-right-mobile__item ">
+                            <div className="img">
+                                <CgProfile
+                                />
+                            </div>
+
+                            <div className="img-title">
+                                Thông tin cá nhân
+                            </div>
+                        </div>
+                    </NavLink>
+                }
                 <NavLink to={PagePath.SHOWROOM} className={({ isActive }) =>
                     isActive ? "active" : ""
                 }>

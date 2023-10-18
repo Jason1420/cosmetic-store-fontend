@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Logo from '../../assets/logo/logoCustom-removebg-preview.png'
+import Logo from '../../assets/logo/logo_cosmetic1.png'
 import './Login.scss'
 import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios'
@@ -76,7 +76,9 @@ const Login = () => {
         <div className="login-background" >
             <div className="login-container">
                 <div className="login-logo">
-                    {/* <img src={Logo} alt="logo-login" /> */}
+                    <NavLink to={PagePath.HOME}>
+                        <img src={Logo} alt="logo-login" />
+                    </NavLink>
                 </div>
                 <div className="login-box">
                     <div className="login-title">Đăng nhập</div>

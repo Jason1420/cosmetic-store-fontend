@@ -67,13 +67,13 @@ const Order = () => {
     return (
         <div className="order-container">
             <div className="order-top">
-                <button className={invoiceStatus === InvoiceStatus.ALL ? "active" : ""} onClick={() => setInvoiceStatus(InvoiceStatus.ALL)}>Tất cả</button>
-                <button className={invoiceStatus === InvoiceStatus.NOT_PAID ? "active" : ""} onClick={() => setInvoiceStatus(InvoiceStatus.NOT_PAID)}>Chưa thanh toán</button>
-                <button className={invoiceStatus === InvoiceStatus.PAID ? "active" : ""} onClick={() => setInvoiceStatus(InvoiceStatus.PAID)}>Đã xác nhận</button>
-                <button className={invoiceStatus === InvoiceStatus.WAIT ? "active" : ""} onClick={() => setInvoiceStatus(InvoiceStatus.WAIT)}>Đang đợi giao hàng</button>
-                <button className={invoiceStatus === InvoiceStatus.GIVEN ? "active" : ""} onClick={() => setInvoiceStatus(InvoiceStatus.GIVEN)}>Đã nhận hàng</button>
-                <button className={invoiceStatus === InvoiceStatus.CANCELED ? "active" : ""} onClick={() => setInvoiceStatus(InvoiceStatus.CANCELED)}>Đã hủy</button>
-                <button className={invoiceStatus === InvoiceStatus.RETURN ? "active" : ""} onClick={() => setInvoiceStatus(InvoiceStatus.RETURN)}>Đã trả hàng</button>
+                <div className={invoiceStatus === InvoiceStatus.ALL ? "active status-btn" : "status-btn"} onClick={() => setInvoiceStatus(InvoiceStatus.ALL)}>Tất cả</div>
+                <div className={invoiceStatus === InvoiceStatus.NOT_PAID ? "active status-btn" : "status-btn"} onClick={() => setInvoiceStatus(InvoiceStatus.NOT_PAID)}>Chưa thanh toán</div>
+                <div className={invoiceStatus === InvoiceStatus.PAID ? "active status-btn" : "status-btn"} onClick={() => setInvoiceStatus(InvoiceStatus.PAID)}>Đã xác nhận</div>
+                <div className={invoiceStatus === InvoiceStatus.WAIT ? "active status-btn" : "status-btn"} onClick={() => setInvoiceStatus(InvoiceStatus.WAIT)}>Đang đợi giao hàng</div>
+                <div className={invoiceStatus === InvoiceStatus.GIVEN ? "active status-btn" : "status-btn"} onClick={() => setInvoiceStatus(InvoiceStatus.GIVEN)}>Đã nhận hàng</div>
+                <div className={invoiceStatus === InvoiceStatus.CANCELED ? "active status-btn" : "status-btn"} onClick={() => setInvoiceStatus(InvoiceStatus.CANCELED)}>Đã hủy</div>
+                <div className={invoiceStatus === InvoiceStatus.RETURN ? "active status-btn" : "status-btn"} onClick={() => setInvoiceStatus(InvoiceStatus.RETURN)}>Đã trả hàng</div>
             </div>
             <div className="order-bottom">
                 {filterInvoice && filterInvoice.map((cart, index) => {

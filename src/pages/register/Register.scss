@@ -16,6 +16,11 @@
             text-align: center;
             padding: 20px 0;
             margin-bottom: 13px;
+            img {
+                width: 30%;
+                margin-bottom: -20px;
+                height: 30%;
+            }
         }
 
         .register-box {
@@ -168,6 +173,7 @@
         .register-container {
             .register-box {
                 width: 100%;
+                padding: 0 15px;
             }
         }
     }

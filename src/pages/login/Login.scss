@@ -16,6 +16,11 @@
             text-align: center;
             padding: 20px 0;
             margin-bottom: 13px;
+            img {
+                width: 30%;
+                margin-bottom: -30px;
+                height: 30%;
+            }
         }
 
         .login-box {
@@ -187,20 +192,4 @@
             }
         }
     }
-}
-
-/* lg */
-@media (max-width: 1024px) {
-}
-
-/* md */
-@media (max-width: 768px) {
-}
-
-/* sm */
-@media (max-width: 640px) {
-}
-
-/* xs */
-@media (max-width: 475px) {
 }

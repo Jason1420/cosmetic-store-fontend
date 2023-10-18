@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './Register.scss'
+import Logo from '../../assets/logo/logo_cosmetic1.png'
 import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { URL } from '../../routes/Url';
@@ -55,7 +56,10 @@ const Register = () => {
         <div className="register-background" >
             <div className="register-container">
                 <div className="register-logo">
-                    {/* <img src={Logo} alt="logo-register" /> */}
+                    <NavLink to={PagePath.HOME}>
+
+                        <img src={Logo} alt="logo-register" />
+                    </NavLink>
                 </div>
                 <div className="register-box">
                     <div className="register-title">Đăng Ký</div>
