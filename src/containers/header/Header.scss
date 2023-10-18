@@ -200,6 +200,8 @@
     }
     .header-right-mobile {
         display: none;
+        border-bottom-left-radius: 8px;
+        border-top-left-radius: 8px;
         .times {
             position: absolute;
             top: -2px;

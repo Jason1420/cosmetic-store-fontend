@@ -184,7 +184,7 @@
         }
     }
     .cart-right {
-        width: 100%;
+        width: 40%;
         display: flex;
         flex-direction: column;
         margin-top: 60px;
@@ -638,6 +638,10 @@
                 font-size: 17px;
                 z-index: 199;
                 padding: 0 10px;
+                height: 70px;
+                background-color: white;
+                border-top: 1px solid #e1e1e2;
+                align-items: center;
                 a {
                     width: 50%;
                 }
@@ -657,6 +661,7 @@
                     width: 50%;
                     font-weight: 500;
                     padding: 10px 10px;
+                    height: 47px;
                 }
             }
             .cart-right__deal {
