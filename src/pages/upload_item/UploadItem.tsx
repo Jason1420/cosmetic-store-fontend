@@ -119,6 +119,9 @@ const UploadItem: React.FC<Props> = ({ handleLoading }) => {
                 }
             } catch (error) {
                 console.log(error)
+                toast.error("Thêm sản phẩm thất bại", {
+                    icon: "❌"
+                });
             }
         },
 
