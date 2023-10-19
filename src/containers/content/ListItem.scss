@@ -312,6 +312,12 @@
             }
         }
     }
+    .slick-arrow.slick-next {
+        right: -25px !important;
+    }
+    .slick-arrow.slick-prev {
+        left: -25px !important;
+    }
 }
 @media (max-width: 415px) {
     .popular-brand {
