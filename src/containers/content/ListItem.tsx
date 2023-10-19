@@ -38,7 +38,7 @@ const ListItem = () => {
 
         getAllItem()
     }, [])
-    const settings = {
+    const settingsDesktop = {
         dots: true,
         infinite: true,
         autoplay: true,
@@ -46,6 +46,18 @@ const ListItem = () => {
         autoplaySpeed: 3000,
         cssEase: "linear",
         slidesToShow: 4,
+        slidesToScroll: 1,
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />
+    };
+    const settingsMobile = {
+        dots: true,
+        infinite: true,
+        autoplay: true,
+        speed: 1000,
+        autoplaySpeed: 3000,
+        cssEase: "linear",
+        slidesToShow: 2,
         slidesToScroll: 1,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
@@ -58,51 +70,100 @@ const ListItem = () => {
                     Xem tất cả <i className="fa-solid fa-angle-right"></i>
                 </NavLink>
             </div>
-            <Slider {...settings}>
-                {allItem &&
-                    allItem
-                        .filter(item => item.status === "Hot")
-                        .filter((item, index) => {
-                            if (index <= 4) {
-                                return item;
-                            }
-                        })
-                        .map((item, index) => {
-                            return (
-                                <div className="list-item__item" key={index}>
-                                    {item.image &&
-                                        <NavLink to={`${PagePath.ITEM}/${item.id}`}>
-                                            <div className="list-item__item-image">
-                                                <img className="image" src={item.image} alt="" />
+            <div className="slider-desktop">
+                <Slider {...settingsDesktop}>
+                    {allItem &&
+                        allItem
+                            .filter(item => item.status === "Hot")
+                            .filter((item, index) => {
+                                if (index <= 4) {
+                                    return item;
+                                }
+                            })
+                            .map((item, index) => {
+                                return (
+                                    <div className="list-item__item" key={index}>
+                                        {item.image &&
+                                            <NavLink to={`${PagePath.ITEM}/${item.id}`}>
+                                                <div className="list-item__item-image">
+                                                    <img className="image" src={item.image} alt="" />
+                                                </div>
+                                            </NavLink>
+                                        }
+                                        <div className="list-item__content">
+                                            <div className="list-item__item-brand">
+                                                {item.brand}
                                             </div>
-                                        </NavLink>
-                                    }
-                                    <div className="list-item__content">
-                                        <div className="list-item__item-brand">
-                                            {item.brand}
-                                        </div>
-                                        <div className="list-item__item-name">
-                                            {item.name}
-                                        </div>
+                                            <div className="list-item__item-name">
+                                                {item.name}
+                                            </div>
 
-                                        <div className="list-item__item-rating">
+                                            <div className="list-item__item-rating">
 
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
 
-                                        </div>
-                                        <div className="list-item__item-price">
-                                            {
-                                                item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                            </div>
+                                            <div className="list-item__item-price">
+                                                {
+                                                    item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            )
-                        })}
-            </Slider>
+                                )
+                            })}
+                </Slider>
+            </div>
+            <div className="slider-mobile">
+                <Slider {...settingsMobile}>
+                    {allItem &&
+                        allItem
+                            .filter(item => item.status === "Hot")
+                            .filter((item, index) => {
+                                if (index <= 4) {
+                                    return item;
+                                }
+                            })
+                            .map((item, index) => {
+                                return (
+                                    <div className="list-item__item" key={index}>
+                                        {item.image &&
+                                            <NavLink to={`${PagePath.ITEM}/${item.id}`}>
+                                                <div className="list-item__item-image">
+                                                    <img className="image" src={item.image} alt="" />
+                                                </div>
+                                            </NavLink>
+                                        }
+                                        <div className="list-item__content">
+                                            <div className="list-item__item-brand">
+                                                {item.brand}
+                                            </div>
+                                            <div className="list-item__item-name">
+                                                {item.name}
+                                            </div>
+
+                                            <div className="list-item__item-rating">
+
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+
+                                            </div>
+                                            <div className="list-item__item-price">
+                                                {
+                                                    item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                </Slider>
+            </div>
             <div className="list-item__title__ brand-title">
                 Thương hiệu nổi bật
             </div>
@@ -153,51 +214,98 @@ const ListItem = () => {
                     Xem tất cả <i className="fa-solid fa-angle-right"></i>
                 </NavLink>
             </div>
-            <Slider {...settings}>
-                {allItem &&
-                    allItem
-                        .filter(item => item.status === "Best")
-                        .filter((item, index) => {
-                            if (index <= 4) {
-                                return item;
-                            }
-                        })
-                        .map((item, index) => {
+            <div className="slider-desktop">
+                <Slider {...settingsDesktop}>
+                    {allItem &&
+                        allItem
+                            .filter(item => item.status === "Best")
+                            .filter((item, index) => {
+                                if (index <= 4) {
+                                    return item;
+                                }
+                            })
+                            .map((item, index) => {
 
-                            return (
-                                <div className="list-item__item" key={index}>
-                                    {item.image &&
-                                        <NavLink to={`${PagePath.ITEM}/${item.id}`}>
-                                            <div className="list-item__item-image">
-                                                <img className="image" src={item.image} alt="" />
+                                return (
+                                    <div className="list-item__item" key={index}>
+                                        {item.image &&
+                                            <NavLink to={`${PagePath.ITEM}/${item.id}`}>
+                                                <div className="list-item__item-image">
+                                                    <img className="image" src={item.image} alt="" />
+                                                </div>
+                                            </NavLink>
+                                        }
+                                        <div className="list-item__content">
+                                            <div className="list-item__item-brand">
+                                                {item.brand}
                                             </div>
-                                        </NavLink>
-                                    }
-                                    <div className="list-item__content">
-                                        <div className="list-item__item-brand">
-                                            {item.brand}
-                                        </div>
-                                        <div className="list-item__item-name">
-                                            {item.name}
-                                        </div>
+                                            <div className="list-item__item-name">
+                                                {item.name}
+                                            </div>
 
-                                        <div className="list-item__item-rating">
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
-                                        </div>
-                                        <div className="list-item__item-price">
-                                            {
-                                                item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                            <div className="list-item__item-rating">
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                            </div>
+                                            <div className="list-item__item-price">
+                                                {
+                                                    item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            )
-                        })}
-            </Slider>
+                                )
+                            })}
+                </Slider>
+            </div>
+            <div className="slider-mobile">
+                <Slider {...settingsMobile}>
+                    {allItem &&
+                        allItem
+                            .filter(item => item.status === "Best")
+                            .filter((item, index) => {
+                                if (index <= 4) {
+                                    return item;
+                                }
+                            })
+                            .map((item, index) => {
 
+                                return (
+                                    <div className="list-item__item" key={index}>
+                                        {item.image &&
+                                            <NavLink to={`${PagePath.ITEM}/${item.id}`}>
+                                                <div className="list-item__item-image">
+                                                    <img className="image" src={item.image} alt="" />
+                                                </div>
+                                            </NavLink>
+                                        }
+                                        <div className="list-item__content">
+                                            <div className="list-item__item-brand">
+                                                {item.brand}
+                                            </div>
+                                            <div className="list-item__item-name">
+                                                {item.name}
+                                            </div>
+
+                                            <div className="list-item__item-rating">
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                            </div>
+                                            <div className="list-item__item-price">
+                                                {
+                                                    item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                </Slider>
+            </div>
             <div className="list-item__title__ ">
                 Chương trình nổi bật
             </div>
@@ -222,51 +330,98 @@ const ListItem = () => {
                     Xem tất cả <i className="fa-solid fa-angle-right"></i>
                 </NavLink>
             </div>
+            <div className="slider-desktop">
+                <Slider {...settingsDesktop}>
 
-            <Slider {...settings}>
-
-                {allItem &&
-                    allItem
-                        .filter(item => item.status === "New")
-                        .filter((item, index) => {
-                            if (index <= 4) {
-                                return item;
-                            }
-                        })
-                        .map((item, index) => {
-                            return (
-                                <div className="list-item__item" key={index}>
-                                    {item.image &&
-                                        <NavLink to={`${PagePath.ITEM}/${item.id}`}>
-                                            <div className="list-item__item-image">
-                                                <img className="image" src={item.image} alt="" />
+                    {allItem &&
+                        allItem
+                            .filter(item => item.status === "New")
+                            .filter((item, index) => {
+                                if (index <= 4) {
+                                    return item;
+                                }
+                            })
+                            .map((item, index) => {
+                                return (
+                                    <div className="list-item__item" key={index}>
+                                        {item.image &&
+                                            <NavLink to={`${PagePath.ITEM}/${item.id}`}>
+                                                <div className="list-item__item-image">
+                                                    <img className="image" src={item.image} alt="" />
+                                                </div>
+                                            </NavLink>
+                                        }
+                                        <div className="list-item__content">
+                                            <div className="list-item__item-brand">
+                                                {item.brand}
                                             </div>
-                                        </NavLink>
-                                    }
-                                    <div className="list-item__content">
-                                        <div className="list-item__item-brand">
-                                            {item.brand}
-                                        </div>
-                                        <div className="list-item__item-name">
-                                            {item.name}
-                                        </div>
+                                            <div className="list-item__item-name">
+                                                {item.name}
+                                            </div>
 
-                                        <div className="list-item__item-rating">
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
-                                            <i className="fa-solid fa-star"></i>
-                                        </div>
-                                        <div className="list-item__item-price">
-                                            {
-                                                item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                            <div className="list-item__item-rating">
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                            </div>
+                                            <div className="list-item__item-price">
+                                                {
+                                                    item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            )
-                        })}
-            </Slider>
+                                )
+                            })}
+                </Slider>
+            </div>
+            <div className="slider-mobile">
+                <Slider {...settingsMobile}>
+
+                    {allItem &&
+                        allItem
+                            .filter(item => item.status === "New")
+                            .filter((item, index) => {
+                                if (index <= 4) {
+                                    return item;
+                                }
+                            })
+                            .map((item, index) => {
+                                return (
+                                    <div className="list-item__item" key={index}>
+                                        {item.image &&
+                                            <NavLink to={`${PagePath.ITEM}/${item.id}`}>
+                                                <div className="list-item__item-image">
+                                                    <img className="image" src={item.image} alt="" />
+                                                </div>
+                                            </NavLink>
+                                        }
+                                        <div className="list-item__content">
+                                            <div className="list-item__item-brand">
+                                                {item.brand}
+                                            </div>
+                                            <div className="list-item__item-name">
+                                                {item.name}
+                                            </div>
+
+                                            <div className="list-item__item-rating">
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                                <i className="fa-solid fa-star"></i>
+                                            </div>
+                                            <div className="list-item__item-price">
+                                                {
+                                                    item.price.toLocaleString('en-US').replace(/,/g, '.').replace(/,/g, '.')} ₫
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                </Slider>
+            </div>
         </>
     );
 }
