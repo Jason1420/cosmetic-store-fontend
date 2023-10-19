@@ -114,8 +114,12 @@
             padding: 15px 0;
         }
         .all-brands__list {
+            display: flex;
+            flex-wrap: wrap;
             font-size: 18px;
             padding: 5px;
+            gap: 10px;
+            justify-content: center;
         }
         .all-brands__content {
             .block {

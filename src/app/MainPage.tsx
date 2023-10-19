@@ -64,8 +64,8 @@ const MainPage = () => {
                     <Route path={PagePath.SEARCH_INVOICE} element={<SearchInvoice handleLoading={setContentLoading} />}></Route>
 
                     {/* Cart */}
-                    {cart.totalQuantity === 0 ? <Route path={PagePath.CART} element={<EmptyCart />}></Route> :
-                        <Route path={PagePath.CART} element={<Cart />}></Route>}
+                    {cart.totalQuantity === 0 ? <Route path={PagePath.CART} element={<EmptyCart handleLoading={setContentLoading} />}></Route> :
+                        <Route path={PagePath.CART} element={<Cart handleLoading={setContentLoading} />}></Route>}
 
 
 

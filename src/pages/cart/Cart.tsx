@@ -16,8 +16,11 @@ import { addNewItemToCart, decreaseItemFromCart } from '../../store/reducers/car
 import { CartItem } from '../../types/CartItem'
 import { toast } from 'react-toastify';
 import { URL } from '../../routes/Url'
-
-const Cart = () => {
+interface Props {
+    handleLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+const Cart: React.FC<Props> = ({ handleLoading }) => {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     /** Slick bar */
     const settings = {
 
@@ -80,6 +83,9 @@ const Cart = () => {
             navigate(PagePath.PAYMENT)
         }
     }
+    useEffect(() => {
+        handleLoading(isLoading)
+    }, [isLoading])
     return (
 
         <div className='cart-container'>

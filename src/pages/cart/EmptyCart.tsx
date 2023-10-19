@@ -5,13 +5,19 @@ import { RootState } from '../../store/store'
 import { TfiDropbox } from "react-icons/tfi"
 import { useNavigate } from 'react-router-dom'
 import { PagePath } from '../../routes/Path'
-
-const EmptyCart = () => {
+interface Props {
+    handleLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+const EmptyCart: React.FC<Props> = ({ handleLoading }) => {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const cart = useSelector((state: RootState) => state.cart)
     const navigate = useNavigate()
     const handleOnClick = () => {
         navigate(PagePath.HOME)
     }
+    useEffect(() => {
+        handleLoading(isLoading)
+    }, [isLoading])
     return (
 
         <div className='empty-cart-container'>

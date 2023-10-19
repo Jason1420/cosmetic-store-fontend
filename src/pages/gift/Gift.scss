@@ -35,7 +35,7 @@
         width: 100%;
         height: 100%;
         gap: 2%;
-        justify-content: space-around;
+        justify-content: flex-start;
         .list-item__item {
             display: flex;
             flex-direction: column;
@@ -146,7 +146,7 @@
             width: 100%;
             height: 100%;
             gap: 2%;
-            justify-content: space-around;
+            justify-content: flex-start;
             .list-item__item {
                 display: flex;
                 flex-direction: column;
