@@ -679,3 +679,17 @@
         }
     }
 }
+@media (max-width: 353px) {
+    .header-container {
+        .header-left {
+            width: 80%;
+            margin: 0 auto;
+            margin-left: 15%;
+            font-size: 16px;
+            .store-name {
+                width: 100%;
+                white-space: nowrap;
+            }
+        }
+    }
+}

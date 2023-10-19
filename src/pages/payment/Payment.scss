@@ -562,11 +562,30 @@
 }
 
 /* md */
-@media (max-width: 768px) {
+@media (max-width: 774px) {
+    .address-detail {
+        flex-direction: column;
+        width: 100%;
+    }
+    .payment-container .payment-left .address-detail .detail {
+        width: 100%;
+    }
 }
 
 /* sm */
 @media (max-width: 640px) {
+    .payment-container .payment-left .email-phone {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+        .email__ {
+            width: 100%;
+        }
+        .phone__ {
+            width: 100%;
+        }
+    }
 }
 
 /* xs */
@@ -613,6 +632,7 @@
     }
     .payment-container .payment-left .payment-right-mobile .last-price .real-price .price {
         font-size: 22px;
+        white-space: nowrap;
     }
     .payment-container .payment-left button {
         font-size: 16px;
