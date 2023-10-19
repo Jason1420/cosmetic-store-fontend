@@ -6,6 +6,9 @@ import {
     FiGift
 } from "react-icons/fi"
 import {
+    BiFileFind
+} from "react-icons/bi"
+import {
     PiShootingStar
 } from "react-icons/pi"
 import {
@@ -106,6 +109,7 @@ const Navbar = () => {
                     <NavLink to={PagePath.SEARCH_INVOICE} className={({ isActive }) =>
                         isActive ? "active" : ""
                     }>
+
                         <div className="title">
                             Tra cứu đơn hàng
                         </div>
@@ -197,6 +201,10 @@ const Navbar = () => {
                     <NavLink to={PagePath.SEARCH_INVOICE} className={({ isActive }) =>
                         isActive ? "active" : ""
                     }>
+                        <div className="img">
+                            <BiFileFind />
+                        </div>
+
                         <div className="title">
                             Tra cứu đơn hàng
                         </div>
