@@ -33,15 +33,21 @@ const ItemDetail: React.FC<Props> = ({ handleLoading }) => {
     })
     const dispatch = useDispatch();
     const handleAddItemToCart = (item: ItemDisplay) => {
-        const itemToCart: CartItem = {
-            item: item,
-            quantity: 1,
+        if (item.name !== "") {
+            const itemToCart: CartItem = {
+                item: item,
+                quantity: 1,
 
+            }
+            toast.success("Đã thêm sản phẩm vào giỏ hàng", {
+                icon: "✔️"
+            });
+            dispatch(addNewItemToCart(itemToCart));
+        } else {
+            toast.info("Bạn thao tác quá nhanh, vui lòng chờ chúng tôi tải sản phẩm!!", {
+                icon: "💫",
+            });
         }
-        toast.success("Đã thêm sản phẩm vào giỏ hàng", {
-            icon: "✔️"
-        });
-        dispatch(addNewItemToCart(itemToCart));
 
     }
 

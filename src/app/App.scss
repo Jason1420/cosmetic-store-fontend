@@ -16,8 +16,10 @@
   right: 1em;
 }
 .Toastify__toast-theme--colored.Toastify__toast--success {
-}
-.Toastify__toast-theme--light {
   background-color: rgb(231, 204, 255) !important;
   color: black !important;
+}
+.Toastify__toast-theme--colored.Toastify__toast--info {
+  background-color: rgb(243, 58, 48) !important;
+  color: white !important;
 }
