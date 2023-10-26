@@ -23,7 +23,6 @@ const HotDeal: React.FC<Props> = ({ handleLoading }) => {
             const res = await axios.get(`${URL.GET_ALL_HOT_DEAL_ITEM}`,)
             if (res && res.data && res.data.data) {
                 setTotalPage(Math.ceil(res.data.data.length / Constant.SIZE))
-
             }
             setIsLoading(false)
         }
